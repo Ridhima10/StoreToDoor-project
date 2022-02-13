@@ -22,7 +22,34 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
-
+        public IActionResult Shopbyartist()
+        {
+            return View();
+        }
+        public IActionResult Shopbymedium()
+        {
+            return View();
+        }
+        public IActionResult Painting()
+        {
+            return View();
+       }
+        public IActionResult Wishlist()
+        {
+            return View();
+        }
+        public IActionResult Collection1()
+        {
+            return View();
+        }
+        public IActionResult Artist1()
+        {
+            return View();
+        }
+        public IActionResult CustomArt()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

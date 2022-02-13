@@ -1,0 +1,122 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
+    <div class="container-fluid py-0">
+      <a class="navbar-brand font1  text-white fs-1 heading"  asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" class="me-3 mb-2"
+          style="width: 3rem; height: 3rem;" alt="">Store To Door</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 ">
+          <li class="nav-item">
+            <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page"
+              asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+          </li>
+         <li class="nav-item">
+            <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
+          </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link font2  mx-2 item-3 text-white"
+                  id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  SHOP
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
+                  <li><a class="dropdown-item drop1 font2"  asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link  font2 mx-2 item-4 text-white active bottom-red" id="navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  PROFILE
+                </a>
+                <ul class="dropdown-menu width" aria-labelledby="navbarDropdown">
+                  <li class="ms-3 font2 fs-5 pt-2">WELCOME!</li>
+                  <li class="ms-3 mb-2">To access account and manage order</li>
+                  <form class="d-flex">
+                   <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-outline-danger ms-4 me-1 px-3 mb-2">Signup</a>
+                   <a asp-area="Identity" asp-page="/Account/login" class="btn btn-outline-danger ms-1 me-4 px-3 mb-2">Login</a>
+                  </form>
+                   <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item drop2" asp-controller="home" asp-action="Order">Orders</a></li>
+                  <li><a class="dropdown-item drop2" asp-controller="home" asp-action="Wishlist" >Wishlist</a></li>
+                  <li><a class="dropdown-item drop2"  asp-controller="home" asp-action="Contact">Contact Us</a></li> 
+                </ul>
+              </li>
+           <!--<li class="nav-item dropdown">
+            <a class="nav-link font2 mx-2 item-5 text-white"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             CART
+            </a>
+            <ul class="dropdown-menu drop3-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item drop3" href="#">Orders</a></li>
+              <li><a class="dropdown-item drop3" href="#">Wishlist</a></li>
+            </ul>
+          </li>-->
+          <li class="nav-item">
+             <a  asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+          </li>
+          <li class="nav-item">
+             <a asp-controller="admin"  asp-area="Admin"  class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
+          </li>
+        </ul>
+        <div class="nav-item search-box rounded-pill bg-dark ms-3">
+          <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
+          <a class="nav-link font2 search-btn d-flex justify-content-center align-items-center rounded-circle text-white"
+            href="#"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+ <section class="my-5 py-5">
+    <div class="container">
+      <div class="text-center my-5">
+        <span class="font1 text-red fw-bold heading  m-auto border-bottom border-dark border-3">
+          Wishlist
+        </span>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="card  shadow p-3" style="max-width: 18rem;">
+            <div class="card-header">
+               <button type="button" class="btn-close shadow-none"></button>
+            </div>
+            <div class="card-body">
+              <figure class="figure">
+                <a  asp-controller="home" asp-action="Collection1"><img src="~/img/Painting1.jpg" class="figure-img img-fluid rounded"
+                    alt="..."></a>
+                <figcaption class="figure-caption text-start">Canvas painting<span class="float-end"> Rs
+                    400</span></figcaption>
+              </figure>
+              <div class="card-footer pt-4 text-center">
+                <a  asp-controller="home" asp-action="Cart" class="border-0 bg-pink-orange text-white  mx-2 px-3 py-2 font2 rounded text-decoration-none" >Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+          <div class="card  shadow p-3" style="max-width: 18rem;">
+            <div class="card-header">
+               <button type="button" class="btn-close shadow-none"></button>
+            </div>
+            <div class="card-body">
+              <figure class="figure">
+                <a> <img src="~/img/sketches.jpg" class="figure-img img-fluid rounded" alt="..."></a>
+                <figcaption class="figure-caption text-start">Sketch<span class="float-end"> Rs 500</span>
+                </figcaption>
+              </figure>
+              <div class="card-footer pt-4 text-center">
+                <a  asp-controller="home" asp-action="Cart" class="border-0 bg-pink-orange text-white  mx-2 px-3 py-2 font2 rounded text-decoration-none" >Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+  </section>

@@ -1,0 +1,213 @@
+/* *{
+    border: 2px solid red;
+} */
+/* Colors using variables */
+:root {
+    --heaven: white;
+    /* --primary:black; */
+    --ternary: rgba(0,0,0,0.3);
+    --secondary: rgb(43, 159, 226);
+    --red: #ee5253;
+    --yellow: #d2d22c;
+    /* --green:#7aebc9; */
+    --green: #4bcea6;
+    /* --green1: rgba(106, 201, 157, 1.00); */
+    --light-pink: rgb(250, 135, 206);
+    --purple: rgb(199, 112, 216);
+    /* --orange:#fb8c00; */
+    --pink: #e84393;
+    --orange: #fc9a54;
+}
+/* Utility Classes  */
+/* font */
+.font1 {
+    font-family: 'Licorice', cursive;
+}
+
+.font2 {
+    font-family: 'Noto Sans', sans-serif;
+}
+/* text-colors*/
+.text-blue {
+    color: var(--secondary);
+}
+
+.text-purple {
+    color: var(--purple);
+}
+
+.text-pink {
+    color: var(--pink);
+}
+
+.text-green {
+    color: var(--green);
+}
+/* .text-pink-orange{
+    background: -webkit-linear-gradient(var(--pink),var(--orange));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+} */
+.text-red {
+    color: var(--red);
+}
+/* Bg-colors */
+.bg-blue {
+    background-color: var(--secondary);
+}
+
+.bg-purple {
+    background-color: var(--purple);
+}
+
+.bg-pink-orange {
+    background-image: linear-gradient(var(--pink),var(--orange));
+}
+
+.bg-light-pink {
+    background-color: var(--light-pink);
+}
+
+.bg-green {
+    background-color: var(--green);
+}
+/* border-color */
+.bottom-yellow, .item-1:hover {
+    border-bottom: 3px solid var(--yellow);
+}
+
+.bottom-blue, .item-2:hover {
+    border-bottom: 3px solid var(--secondary);
+}
+
+.bottom-purple, .item-3:hover {
+    border-bottom: 3px solid var(--purple);
+}
+
+.bottom-red, .item-4:hover {
+    border-bottom: 3px solid var(--red);
+}
+
+.bottom-green, .item-5:hover {
+    border-bottom: 3px solid var(--green);
+}
+
+.bottom-pink, .item-6:hover {
+    border-bottom: 3px solid var(--pink);
+}
+/* nav */
+.navbar {
+    background-color: var(--ternary); /*for transparent nav*/
+}
+
+.drop1:active {
+    background-color: var(--purple);
+}
+
+.drop2:active {
+    background-color: var(--red);
+}
+
+.drop3:active {
+    background-color: var(--green);
+}
+
+.drop3-menu {
+    min-width: 8rem !important;
+}
+
+.active {
+    font-weight: bold;
+}
+
+.search-box, .search-btn {
+    height: 2.3rem;
+}
+
+.search-btn {
+    width: 2.3rem;
+    transition: all 0.4s ease 0s;
+}
+
+.search-box:hover > .search-txt {
+    width: 10rem;
+    padding: 0 1rem;
+    margin: -8px;
+}
+
+.search-box:hover, .search-btn {
+    background-color: var(--primary);
+}
+
+.search-txt {
+    border: none;
+    background: none;
+    outline: none;
+    transition: 0.4s;
+    line-height: 3.3rem;
+    padding: 0;
+    width: 0rem;
+}
+/* Carousal */
+.btn1:hover, .btn2:hover {
+    background-color: rgb(58, 57, 57);
+}
+
+.bg {
+    background-attachment: fixed;
+    min-height: 100vh;
+    background-position: center;
+    background-size: cover;
+}
+
+    .bg > .container, .btn1 {
+        transform: translate(-45%,-90%);
+    }
+
+.heading-text {
+    position: absolute;
+    top: 28rem;
+    left: 72.1rem;
+}
+
+.container > h1 {
+    font-size: 5.8rem;
+}
+
+.btn1 {
+    left: 14rem;
+    top: 2rem;
+}
+/* Section 1 */
+.heading {
+    font-size: 3.7rem;
+    letter-spacing: 0.17rem;
+}
+/* Footer */
+.footer-list:hover {
+    color: var(--heaven) !important;
+}
+
+/* @media screen and (min-width:330px) and (max-width: 576px){ 
+   .img-info {
+        height: 300px !important;
+        width: 300px !important;
+    }
+ } */
+/* .page-item.active .page-link{
+     background-color: var(--light-pink);
+     border: none;
+ } */
+
+.order > input:focus {
+    border: 1px solid #4bcea6;
+}
+
+.search2:focus {
+    border: 2px solid pink;
+}
+@media screen and (min-width:200px) and (max-width: 990px) {
+    .login-section {
+        display: none;
+    }
+}

@@ -1,0 +1,124 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
+    <div class="container-fluid py-0">
+      <a class="navbar-brand font1  text-white fs-1 heading"  asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" class="me-3 mb-2"
+          style="width: 3rem; height: 3rem;" alt="">Store To Door</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 ">
+          <li class="nav-item">
+            <a class="nav-link font2  mx-2 item-1 text-white " aria-current="page"
+              asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+          </li>
+         <li class="nav-item">
+            <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
+          </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link font2  mx-2 item-3 text-white bottom-purple active"
+                  id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  SHOP
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                  <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
+                  <li><a class="dropdown-item drop1 font2"  asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
+                </ul>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link  font2 mx-2 item-4 text-white" id="navbarDropdown" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false">
+                  PROFILE
+                </a>
+                <ul class="dropdown-menu width" aria-labelledby="navbarDropdown">
+                  <li class="ms-3 font2 fs-5 pt-2">WELCOME!</li>
+                  <li class="ms-3 mb-2">To access account and manage order</li>
+                  <form class="d-flex">
+                   <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-outline-danger ms-4 me-1 px-3 mb-2">Signup</a>
+                   <a asp-area="Identity" asp-page="/Account/login" class="btn btn-outline-danger ms-1 me-4 px-3 mb-2">Login</a>
+                  </form>
+                   <li>
+                    <hr class="dropdown-divider">
+                  </li>
+                  <li><a class="dropdown-item drop2" href="#">Orders</a></li>
+                  <li><a class="dropdown-item drop2" href="#">Wishlist</a></li>
+                  <li><a class="dropdown-item drop2" href="#">Contact Us</a></li> 
+                </ul>
+              </li>
+       <!--   <li class="nav-item dropdown">
+            <a class="nav-link font2 mx-2 item-5 text-white"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+             CART
+            </a>
+            <ul class="dropdown-menu drop3-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item drop3" href="#">Orders</a></li>
+              <li><a class="dropdown-item drop3" href="#">Wishlist</a></li>
+            </ul>
+          </li>-->
+          <li class="nav-item">
+             <a  asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+          </li>
+           <li class="nav-item">
+             <a  asp-controller="admin"  asp-area="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
+          </li>
+        </ul>
+        <div class="nav-item search-box rounded-pill bg-dark ms-3">
+          <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
+          <a class="nav-link font2 search-btn d-flex justify-content-center align-items-center rounded-circle text-white"
+            href="#"><i class="fas fa-search"></i></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+   <section class="sec4 py-5" id="artist-profile">
+        <div class="container pt-3">
+            <div class="row my-5 pt-3">
+                <div class="col-lg-4 col-md-3 col-sm-12 col-12 text-end my-2">
+                    <img src="~/img/artist1.jpg" class="border rounded-circle img-fluid" alt=""
+                        style="height: 250px; width: 250px;">
+                </div>
+                <div class="col-lg-6 col-md-9 col-sm-12 col-12 font2 text-start position-relative">
+                    <h2 class=" font2">Handmade Creations</h2>
+                    <p class="my-3  text-wrap">Lorem ipsum, dolor sit amet consectetur
+                        adipisicing elit. Deserunt qui harum
+                        rdem repudiandae provident vitae sit quisquam nihil aliquam dolore sapiente eos rerum at amet
+                        fugit voluptate commodi deleniti. Aut voluptatibus magnam laudantium ad reprehenderit expedita?
+                        Handmade Giftings | String Art |
+                        Acrylic Signage | Resin Art | Glass Frames | Engagement
+                        Platter</p>
+                    <a asp-controller="home" asp-action="CustomArt" class="nav-link bg-pink-orange text-center py-2 my-3 rounded text-decoration-none font2 text-white"
+                          style="width: 17rem;">
+                        Request custom art
+                    </a>
+                </div>
+            </div>
+            <table class="table bg-white shadow-sm text-pink ">
+                <thead>
+                    <tr>
+                        <th scope="col" class="fs-3 font2 ps-5">Collections</th>
+                    </tr>
+                </thead>
+            </table>
+            <div class="row text-center font2 mt-5">
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                    <figure class="figure">
+                         <a asp-controller="home" asp-action="Collection1" ><img src="~/img/Painting1.jpg" class="figure-img img-fluid rounded"
+                                alt="..."></a>
+                        <figcaption class="figure-caption text-start">Oil painting<span class="float-end"> Rs
+                                400</span></figcaption>
+                    </figure>
+                </div>
+                <div class="col-12 col-sm-6 col-md-3 col-lg-3">
+                    <figure class="figure">
+                        <a href=""> <img src="~/img/sketches.jpg" class="figure-img img-fluid rounded" alt="..."></a>
+                        <figcaption class="figure-caption text-start">Sketch<span class="float-end"> Rs 500</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </div>
+    </section>
