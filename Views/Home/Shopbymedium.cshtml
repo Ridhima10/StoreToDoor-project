@@ -3,40 +3,6 @@
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
 @{  ViewData["Title"] = "Shop by medium";}
- <!-- <section class="sec3 pt-5" id="medium">
-        <div class="container pt-2">
-          <div class="text-center my-5">
-            <span class="font1 text-purple fw-bold heading  m-auto border-bottom border-dark border-3">Shop By Medium
-            </span>
-          </div>
-          <div class="row text-center font2">
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-              <img class="img-fluid rounded-circle" src="~/img/painting.jpg" alt="">
-              <p class="text-center  py-3 fs-4">Paintings</p>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-              <img class="img-fluid rounded-circle" src="~/img/drawing.jpg" alt="">
-              <p class="text-center py-3 fs-4">Drawings</p>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-              <img class="img-fluid rounded-circle" src="~/img/origami.jpg" alt="">
-              <p class="text-center py-3 fs-4">Origami</p>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-              <img class="img-fluid rounded-circle" src="~/img/string_art.jpg" alt="">
-              <p class="text-center py-3 fs-4">String Art</p>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-              <img class="img-fluid rounded-circle" src="~/img/sketches.jpg" alt="">
-              <p class="text-center py-3 fs-4">Sketches</p>
-            </div>
-            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-              <img class="img-fluid rounded-circle" src="~/img/room_decor.jpg" alt="">
-              <p class="text-center py-3 fs-4 ">Room Decor</p>
-            </div>
-          </div>
-        </div>
-      </section> -->
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
     <div class="container-fluid py-0">
       <a class="navbar-brand font1  text-white fs-1 heading"  asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" class="me-3 mb-2"
@@ -69,30 +35,8 @@
                   data-bs-toggle="dropdown" aria-expanded="false">
                   PROFILE
                 </a>
-                <ul class="dropdown-menu width" aria-labelledby="navbarDropdown">
-                  <li class="ms-3 font2 fs-5 pt-2">WELCOME!</li>
-                  <li class="ms-3 mb-2">To access account and manage order</li>
-                  <form class="d-flex">
-                   <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-outline-danger ms-4 me-1 px-3 mb-2">Signup</a>
-                   <a asp-area="Identity" asp-page="/Account/login" class="btn btn-outline-danger ms-1 me-4 px-3 mb-2">Login</a>
-                  </form>
-                   <li>
-                    <hr class="dropdown-divider">
-                  </li>
-                  <li><a class="dropdown-item drop2" href="#">Orders</a></li>
-                  <li><a class="dropdown-item drop2" href="#">Wishlist</a></li>
-                  <li><a class="dropdown-item drop2" href="#">Contact Us</a></li> 
-                </ul>
+                 <partial name="_LoginPartial" />
               </li>
-       <!--   <li class="nav-item dropdown">
-            <a class="nav-link font2 mx-2 item-5 text-white"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-             CART
-            </a>
-            <ul class="dropdown-menu drop3-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><a class="dropdown-item drop3" href="#">Orders</a></li>
-              <li><a class="dropdown-item drop3" href="#">Wishlist</a></li>
-            </ul>
-          </li>-->
           <li class="nav-item">
              <a  asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
           </li>

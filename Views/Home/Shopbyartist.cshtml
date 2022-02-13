@@ -39,30 +39,8 @@
                        data-bs-toggle="dropdown" aria-expanded="false">
                         PROFILE
                     </a>
-                    <ul class="dropdown-menu width" aria-labelledby="navbarDropdown">
-                        <li class="ms-3 font2 fs-5 pt-2">WELCOME!</li>
-                        <li class="ms-3 mb-2">To access account and manage order</li>
-                        <form class="d-flex">
-                            <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-outline-danger ms-4 me-1 px-3 mb-2">Signup</a>
-                            <a asp-area="Identity" asp-page="/Account/login" class="btn btn-outline-danger ms-1 me-4 px-3 mb-2">Login</a>
-                        </form>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item drop2" href="#">Orders</a></li>
-                        <li><a class="dropdown-item drop2" href="#">Wishlist</a></li>
-                        <li><a class="dropdown-item drop2" href="#">Contact Us</a></li>
-                    </ul>
+                     <partial name="_LoginPartial" />
                 </li>
-                <!--   <li class="nav-item dropdown">
-                     <a class="nav-link font2 mx-2 item-5 text-white"  id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      CART
-                     </a>
-                     <ul class="dropdown-menu drop3-menu" aria-labelledby="navbarDropdownMenuLink">
-                       <li><a class="dropdown-item drop3" href="#">Orders</a></li>
-                       <li><a class="dropdown-item drop3" href="#">Wishlist</a></li>
-                     </ul>
-                   </li>-->
                 <li class="nav-item">
                     <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
                 </li>
