@@ -6,24 +6,26 @@
 
 
 
-   <section>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section">
-                    <div class=" position-sticky">
-                        <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:44rem;">
-                    </div>
+<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section">
+                <div class=" position-sticky">
+                    <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:44rem;">
                 </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 col-12">
-                    <div class="container pt-4 text-center">
-                        <a class="navbar-brand font1 text-dark fw-bold fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo.png"
-                                class="me-3 mb-2" style="width: 3rem; height: 3rem;" alt="">Store To Door</a>
-                    </div>
-                    <div class="p-4 pb-1 text-center">
-                        <span class="me-5 pe-5 fs-5">Create An Account</span>
-                       <a asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Model.ReturnUrl" class="text-decoration-none ms-5 ps-1"><span class="text-dark">or</span>
-                            Login</a>
-                    </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="container pt-4 text-center">
+                    <a class="navbar-brand font1 text-dark fw-bold fs-1 heading" asp-area="" asp-controller="Home"
+                        asp-action="Index"><img src="~/img/logo.png" class="me-3 mb-2"
+                            style="width: 3rem; height: 3rem;" alt="">Store To Door</a>
+                </div>
+                <div class="p-4 pb-1 text-center">
+                    <span class="me-5 pe-5 fs-5">Create An Account</span>
+                    <a asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Model.ReturnUrl"
+                        class="text-decoration-none ms-5 ps-1"><span class="text-dark">or</span>
+                        Login</a>
+                </div>
                 <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
                     <div class="container d-flex justify-content-center" style="width: fit-content;">
                         <div class="row ms-3 py-2">
@@ -34,53 +36,58 @@
                                 <span asp-validation-for="Input.FirstName" class="text-danger"></span>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
-                                <label  asp-for="Input.LastName"  for="name" class="form-label">Last name</label>
+                                <label asp-for="Input.LastName" for="name" class="form-label">Last name</label>
                                 <input asp-for="Input.LastName" type="text" class="form-control" id="name">
                                 <span asp-validation-for="Input.LastName" class="text-danger"></span>
                             </div>
                             <div>
                                 <div class="row py-2">
                                     <div>
-                                        <label asp-for="Input.Email" for="inputEmail" class="form-label" >Email</label>
-                                        <input asp-for="Input.Email" type="email" class="form-control" id="inputEmail" autocomplete="username" aria-required="true" >
+                                        <label asp-for="Input.Email" for="inputEmail" class="form-label">Email</label>
+                                        <input asp-for="Input.Email" type="email" class="form-control" id="inputEmail"
+                                            autocomplete="username" aria-required="true">
                                         <span asp-validation-for="Input.Email" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="row py-2">
                                     <div>
-                                        <label asp-for="Input.Password" for="inputPassword" class="form-label">Password</label>
-                                        <input asp-for="Input.Password" type="password" class="form-control" id="inputPassword" autocomplete="new-password" aria-required="true" >
+                                        <label asp-for="Input.Password" for="inputPassword"
+                                            class="form-label">Password</label>
+                                        <input asp-for="Input.Password" type="password" class="form-control"
+                                            id="inputPassword" autocomplete="new-password" aria-required="true">
                                         <span asp-validation-for="Input.Password" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="row py-2">
                                     <div>
-                                        <label asp-for="Input.ConfirmPassword" for="inputPassword" class="form-label">Confirm Password</label>
-                                        <input  asp-for="Input.ConfirmPassword" type="password" class="form-control" id="inputPassword" autocomplete="new-password" aria-required="true" >
+                                        <label asp-for="Input.ConfirmPassword" for="inputPassword"
+                                            class="form-label">Confirm Password</label>
+                                        <input asp-for="Input.ConfirmPassword" type="password" class="form-control"
+                                            id="inputPassword" autocomplete="new-password" aria-required="true">
                                         <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="row py-2">
                                     <div class="mb-3">
                                         <label class="mb-2" for="specificSizeSelect">Account type</label>
-                                        <select class="form-select" id="specificSizeSelect">
-                                          <option selected>Choose...</option>
-                                          <option value="1">User</option>
-                                          <option value="1">Artist</option>
+                                        <select class="form-select" name="roleSelect" id="specificSizeSelect">
+                                            <option selected value="1">User</option>
+                                            <option value="2">Artist</option>
                                         </select>
-                                      </div>
-                                </div>                        
+                                    </div>
+                                </div>
                                 <div class="d-grid gap-2 col-6 ms-auto me-auto pt-4 pb-5 ">
-                                    <button id="registerSubmit" type="submit" class="btn btn-primary rounded-pill shadow-none btn-primary">Log in</button>
+                                    <button id="registerSubmit" type="submit"
+                                        class="btn btn-primary rounded-pill shadow-none btn-primary">Log in</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </form>
-                </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
 @section Scripts {
 <partial name="_ValidationScriptsPartial" />
