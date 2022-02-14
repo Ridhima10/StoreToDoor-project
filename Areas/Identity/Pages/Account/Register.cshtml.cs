@@ -26,7 +26,7 @@ namespace StoreToDoor.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
-       //private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly RoleManager<IdentityRole> _roleManager;
         private readonly IUserStore<ApplicationUser> _userStore;
         private readonly IUserEmailStore<ApplicationUser> _emailStore;
         private readonly ILogger<RegisterModel> _logger;
@@ -34,14 +34,14 @@ namespace StoreToDoor.Areas.Identity.Pages.Account
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
-           // RoleManager<IdentityRole> roleManager,
+            RoleManager<IdentityRole> roleManager,
             IUserStore<ApplicationUser> userStore,
             SignInManager<ApplicationUser> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
             _userManager = userManager;
-          // _roleManager = roleManager;
+            _roleManager = roleManager;
             _userStore = userStore;
             _emailStore = GetEmailStore();
             _signInManager = signInManager;
@@ -91,10 +91,10 @@ namespace StoreToDoor.Areas.Identity.Pages.Account
             [Display(Name = "Email")]
             public string Email { get; set; }
 
-            [Required]
+            // [Required]
             //[BindProperty]
-            [Display(Name = "Role")]
-            public string Role { get; set; }
+            // [Display(Name = "Role")]
+            // public string Role { get; set; }
 
 
             /// <summary>
@@ -124,7 +124,7 @@ namespace StoreToDoor.Areas.Identity.Pages.Account
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
 
-        public async Task<IActionResult> OnPostAsync(RoleManager<IdentityRole> roleManager, string returnUrl = null)
+        public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
@@ -150,24 +150,21 @@ namespace StoreToDoor.Areas.Identity.Pages.Account
 
                 if (result.Succeeded)
                 {
-                    var role_id = Input.Role;
+                    var role_id = Request.Form["roleSelect"];
 
-                    if(role_id == "1")
+                    if (role_id == "1")
                     {
                         // Checks if Role Exist, if not then create it first and then assign it
-                        if (!await roleManager.RoleExistsAsync(UserRoles.User))
+                        if (!await _roleManager.RoleExistsAsync(UserRoles.User))
                         {
-                            //wait roleManager.CreateAsync(new IdentityRole(UserRoles.User);
-                            var _role = new IdentityRole();
-                            _role.Name = "User";
-                            await roleManager.CreateAsync(_role);
+                            await _roleManager.CreateAsync(new IdentityRole(UserRoles.User));
 
                             await _userManager.AddToRoleAsync(user, UserRoles.User);
                         }
 
                         // If Role Exist then simply assign it 
-                        if (await roleManager.RoleExistsAsync(UserRoles.User))
-                        { 
+                        if (await _roleManager.RoleExistsAsync(UserRoles.User))
+                        {
                             await _userManager.AddToRoleAsync(user, UserRoles.User);
                         }
 
@@ -176,15 +173,15 @@ namespace StoreToDoor.Areas.Identity.Pages.Account
                     if (role_id == "2")
                     {
                         // Checks if Role Exist, if not then create it first and then assign it
-                        if (!await roleManager.RoleExistsAsync(UserRoles.Artist))
+                        if (!await _roleManager.RoleExistsAsync(UserRoles.Artist))
                         {
-                            //await roleManager.CreateAsync(new IdentityRole(UserRoles.Artist));
+                            await _roleManager.CreateAsync(new IdentityRole(UserRoles.Artist));
 
                             await _userManager.AddToRoleAsync(user, UserRoles.Artist);
                         }
 
                         // If Role Exist then simply assign it 
-                        if (await roleManager.RoleExistsAsync(UserRoles.Artist))
+                        if (await _roleManager.RoleExistsAsync(UserRoles.Artist))
                         {
                             await _userManager.AddToRoleAsync(user, UserRoles.Artist);
                         }
