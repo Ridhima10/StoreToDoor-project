@@ -50,6 +50,22 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
+        public IActionResult EditUserProfile()
+        {
+            return View();
+        }
+        public IActionResult EditArtistProfile()
+        {
+            return View();
+        }
+        public IActionResult ArtistProfile()
+        {
+            return View();
+        }
+        public IActionResult UploadArtwork()
+        {
+            return View();
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

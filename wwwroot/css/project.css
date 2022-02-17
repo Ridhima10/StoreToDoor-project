@@ -1,6 +1,6 @@
-/* *{
+/* *{ 
     border: 2px solid red;
-} */
+}  */
 /* Colors using variables */
 :root {
     --heaven: white;
@@ -17,6 +17,7 @@
     /* --orange:#fb8c00; */
     --pink: #e84393;
     --orange: #fc9a54;
+    --yellow2: #f1c40f;
 }
 /* Utility Classes  */
 /* font */
@@ -64,6 +65,10 @@
     background-image: linear-gradient(var(--pink),var(--orange));
 }
 
+.bg-blue-yellow {
+    background-image: linear-gradient(var(--secondary),var(--yellow2));
+}
+
 .bg-light-pink {
     background-color: var(--light-pink);
 }
@@ -72,6 +77,10 @@
     background-color: var(--green);
 }
 /* border-color */
+.border-pink {
+    border: 1px solid var(--light-pink);
+}
+
 .bottom-yellow, .item-1:hover {
     border-bottom: 3px solid var(--yellow);
 }
@@ -206,8 +215,45 @@
 .search2:focus {
     border: 2px solid pink;
 }
+
+.error-page {
+    text-align: end;
+}
+
+    .error-page > img {
+        height: 25rem;
+    }
+
+.btn3:hover {
+    background-color: var(--pink);
+    color: var(--heaven);
+}
+
+.container-fluid {
+    padding-left: 0;
+}
+@media screen and (min-width:450px) and (max-width: 1800px) {
+    .text-box {
+        display: flex;
+        justify-content: space-around;
+    }
+}
 @media screen and (min-width:200px) and (max-width: 990px) {
     .login-section {
         display: none;
+    }
+
+    .error-page-text, .error-page {
+        text-align: center;
+    }
+
+        .error-page > img {
+            height: 14rem;
+        }
+}
+@media screen and (min-width:100px) and (max-width: 450px) {
+    .text-box {
+        display: flex;
+        flex-direction: column;
     }
 }

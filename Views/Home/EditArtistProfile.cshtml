@@ -1,0 +1,61 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section">
+                <div class=" position-sticky">
+                    <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:100vh;">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="container pt-4 text-center">
+                    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand font1 text-dark fw-bold fs-1 heading">
+                        <img src="~/img/logo.png"
+                             class="me-3 mb-2" style="width: 3rem; height: 3rem;" alt="">Edit Profile
+                    </a>
+                </div>
+                <div class="container" style="width: fit-content;">
+                    <div class="row py-2">
+                        <div>
+                            <label for="name" class="form-label">Account name</label>
+                            <input type="text" class="form-control" id="name">
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div>
+                            <label for="inputEmail" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="inputEmail">
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div>
+                            <label for="inputNumber" class="form-label">Phone number</label>
+                            <input type="email" class="form-control" id="inputNumber">
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div>
+                            <label for="formFile" class="form-label">
+                                Profile Picture
+                            </label>
+                            <input class="form-control" type="file" id="formFile">
+                        </div>
+                    </div>
+                    <div class="row py-2">
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">
+                                Artist Bio
+                            </label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 col-sm-8 ms-auto me-auto pt-4 pb-5 ">
+                        <a href="" class="btn btn-primary rounded-pill shadow-none">Save Changes</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

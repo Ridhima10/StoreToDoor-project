@@ -8,7 +8,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section ">
-                <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:44rem;">
+                <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:100vh;">
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 mt-5 pt-5">
                 <div class="container pt-4 text-center">
@@ -17,13 +17,14 @@
                              style="width: 3rem; height: 3rem;" alt=""> Store To Door
                     </a>
                 </div>
-                <div class="container" style="width: 65%;">
-                    <div class="p-4 pb-1 text-center">
-                        <span class="me-5 pe-5 fs-5 font2">Log in</span>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-decoration-none ms-5 ps-1"> Create an account</a>
+                <div class="container">
+                    <div class="p-4 pb-1 text-center text-box">
+                        <span class="py-1 fs-5 font2">Log in</span>
+                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-decoration-none mt-2"> Create an account</a>
                     </div>
                     <form id="account" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                     <div class="container" style="width:80%;">
                         <div class="form-floating my-3">
                             <input asp-for="Input.Email" autocomplete="username" type="email" class="form-control"
                                    id="floatingInput" aria-required="true" placeholder="name@example.com">
@@ -36,14 +37,15 @@
                             <label asp-for="Input.Password" for="floatingPassword">Password</label>
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
                         </div>
-                        <div class="checkbox">
+                    </div>
+                        <div class="mx-4 checkbox text-box text-center">
                             <label asp-for="Input.RememberMe" class="form-label">
                                 <input class="form-check-input" asp-for="Input.RememberMe" />
                                 @Html.DisplayNameFor(m => m.Input.RememberMe)
                             </label>
-                            <a id="forgot-password" class="float-end text-decoration-none" asp-page="./ForgotPassword">Forgot your password?</a>
-                        </div>
-                        <div class="d-grid gap-2 col-6 ms-auto me-auto pt-4">
+                            <a id="forgot-password" class="text-decoration-none" asp-page="./ForgotPassword">Forgot your password?</a>
+                        </div>      
+                        <div class="d-grid gap-2 col-sm-6 col-6 ms-auto me-auto pt-4">
                             <button id="login-submit" type="submit" class="btn btn-primary rounded-pill shadow-none btn-primary">Log in</button>
                         </div>
                     </form>

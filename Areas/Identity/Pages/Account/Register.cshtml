@@ -11,7 +11,7 @@
         <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section">
                 <div class=" position-sticky">
-                    <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:44rem;">
+                    <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:100vh;">
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-12">
@@ -20,10 +20,10 @@
                         asp-action="Index"><img src="~/img/logo.png" class="me-3 mb-2"
                             style="width: 3rem; height: 3rem;" alt="">Store To Door</a>
                 </div>
-                <div class="p-4 pb-1 text-center">
-                    <span class="me-5 pe-5 fs-5">Create An Account</span>
+                <div class="p-4 pb-1 text-center text-box">
+                    <span class="py-1 fs-5">Create An Account</span>
                     <a asp-area="Identity" asp-page="/Account/Login" asp-route-returnUrl="@Model.ReturnUrl"
-                        class="text-decoration-none ms-5 ps-1"><span class="text-dark">or</span>
+                        class="text-decoration-none"><span class="text-dark">or</span>
                         Login</a>
                 </div>
                 <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
@@ -76,7 +76,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="d-grid gap-2 col-6 ms-auto me-auto pt-4 pb-5 ">
+                                <div class="d-grid gap-2 col-sm-8 ms-auto me-auto pt-2 pb-5 ">
                                     <button id="registerSubmit" type="submit"
                                         class="btn btn-primary rounded-pill shadow-none btn-primary">Log in</button>
                                 </div>

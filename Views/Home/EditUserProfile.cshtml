@@ -1,0 +1,80 @@
+﻿<section>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section">
+                <div class=" position-sticky">
+                    <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:100vh;">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="container pt-4 text-center">
+                    <a class="navbar-brand font1 text-dark fw-bold fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index">
+                        <img src="~/img/logo.png"
+                             class="me-3 mb-2" style="width: 3rem; height: 3rem;" alt="">Edit Profile
+                    </a>
+                </div>
+                <form method="post">
+                    <div class="container d-flex justify-content-center" style="width: fit-content;">
+                        <div class="row ms-3 py-2">
+                            <div asp-validation-summary="All" class="text-danger"></div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                <label for="name" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="name">
+                                <span class="text-danger"></span>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+                                <label for="name" class="form-label">Last name</label>
+                                <input type="text" class="form-control" id="name">
+                                <span class="text-danger"></span>
+                            </div>
+                            <div>
+                                <div class="row py-2">
+                                    <div>
+                                        <label for="inputEmail" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="inputEmail">
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row py-2">
+                                    <div>
+                                        <label for="inputEmail" class="form-label">Phone number</label>
+                                        <input type="email" class="form-control" id="inputEmail">
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row py-2">
+                                    <div>
+                                        <label for="inputAddress" class="form-label">Address</label>
+                                        <input type="text" class="form-control" id="inputAddress">
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="row py-2">
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                        <label for="inputcity" class="form-label">City</label>
+                                        <input type="text" class="form-control" id="inputCity">
+                                        <span class="text-danger"></span>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                        <label for="inputState" class="form-label">State</label>
+                                        <input type="text" class="form-control" id="inputState">
+                                        <span class="text-danger"></span>
+                                    </div>
+                                    <div class="col-lg-4 col-md-4 col-sm-6 col-6">
+                                        <label for="inputPincode" class="form-label">Pincode</label>
+                                        <input type="text" class="form-control" id="inputPincode">
+                                        <span class="text-danger"></span>
+                                    </div>
+                                </div>
+
+                                <div class="d-grid gap-2 col-sm-8 ms-auto me-auto pt-4 pb-5 ">
+                                    <a href="" class="btn btn-primary rounded-pill shadow-none">Save Changes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
