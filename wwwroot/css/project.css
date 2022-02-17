@@ -176,7 +176,7 @@
 .heading-text {
     position: absolute;
     top: 28rem;
-    left: 72.1rem;
+    left: 78.1rem;
 }
 
 .container > h1 {
@@ -232,12 +232,26 @@
 .container-fluid {
     padding-left: 0;
 }
+@media screen and (min-width:100px) and (max-width: 450px) {
+    .text-box {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
 @media screen and (min-width:450px) and (max-width: 1800px) {
     .text-box {
         display: flex;
         justify-content: space-around;
     }
+
+    /*.heading-text {
+        position: absolute;
+        top: 28rem;
+        left: 83.1rem;
+    }*/
 }
+
 @media screen and (min-width:200px) and (max-width: 990px) {
     .login-section {
         display: none;
@@ -250,10 +264,4 @@
         .error-page > img {
             height: 14rem;
         }
-}
-@media screen and (min-width:100px) and (max-width: 450px) {
-    .text-box {
-        display: flex;
-        flex-direction: column;
-    }
 }
