@@ -1,8 +1,6 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@{
-}
    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
     <div class="container-fluid py-0">
       <a class="navbar-brand font1  text-white fs-1 heading"  asp-area="" asp-controller="Home" asp-action="Index"><img src="~/img/logo.png" class="me-3 mb-2"
@@ -17,9 +15,9 @@
             <a class="nav-link font2  mx-2 item-1 text-white " aria-current="page"
               asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
           </li>
-         <li class="nav-item">
+     <!--    <li class="nav-item">
             <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
-          </li>
+          </li> -->
               <li class="nav-item dropdown">
                 <a class="nav-link font2  mx-2 item-3 text-white bottom-purple active"
                   id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,13 +66,12 @@
                         Handmade Giftings | String Art |
                         Acrylic Signage | Resin Art | Glass Frames | Engagement
                         Platter</p>
-                    <a asp-controller="home" asp-action="CustomArt" class="nav-link bg-pink-orange text-center py-2 my-3 rounded text-decoration-none font2 text-white"
-                          style="width: 17rem;">
+                    <a asp-controller="home" asp-action="CustomArt" class="btn shadow-none btn3 border-pink text-pink me-1 px-3 rounded text-decoration-none font2">
                         Request custom art
                     </a>
                 </div>
             </div>
-            <table class="table bg-white shadow-sm text-pink ">
+            <table class="table bg-white shadow-sm text-pink">
                 <thead>
                     <tr>
                         <th scope="col" class="fs-3 font2 ps-5">Collections</th>
