@@ -1,0 +1,42 @@
+﻿
+
+@{
+    ViewData["Title"] = "Contact Us";
+}
+ <section>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section ">
+                    <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:100vh;">
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 col-12 mt-5 pt-5">
+                    <div class="container pt-4 text-center">
+                        <a asp-controller="home" asp-action="index" class="navbar-brand font1 text-dark fw-bold fs-1 heading"><img src="~/img/logo.png"
+                                style="width: 3rem; height: 3rem;" alt=""> Contact Us</a>
+                    </div>
+                    <div class="container" style="width: 65%;">
+                        <form>
+                            <div class="row py-2">
+                                <div>
+                                    <label for="inputEmail" class="form-label">Email</label>
+                                    <input type="email" class="form-control" id="inputEmail">
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div class="mb-3">
+                                    <label for="exampleFormControlTextarea1" class="form-label">
+                                       Tell us what you need help with
+                                    </label>
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                            </div>
+                            <div class="d-grid gap-2 col-sm-6 col-12 ms-auto me-auto pt-4">
+                                <button id="login-submit" type="submit"
+                                    class="btn btn-primary rounded-pill shadow-none btn-primary">Get Help</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

@@ -1,0 +1,20 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using StoreToDoor.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+    @if( await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist")){
+    <li><a class="dropdown-item drop2" asp-controller="home" asp-action="ArtistProfile">Artist Account</a></li>
+
+
+}else if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result,"Admin"))
+{
+    <!--Add Admin List Items Here-->
+ <!--   <li>Test</li>-->
+}
+else{
+         <li><a class="dropdown-item drop2" asp-controller="home" asp-action="EditUserProfile">Edit Profile</a></li>
+        <li><a class="dropdown-item drop2" asp-controller="home" asp-action="Order">Orders</a></li>
+        <li><a class="dropdown-item drop2" asp-controller="home" asp-action="Wishlist">Wishlist</a></li>
+        <li><a class="dropdown-item drop2" asp-controller="home" asp-action="ContactUs">Contact Us</a></li> 
+    }

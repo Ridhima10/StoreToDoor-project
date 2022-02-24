@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "shop by medium";
+    ViewData["Title"] = "Cart";
 }
 @using Microsoft.AspNetCore.Identity
 @using StoreToDoor.Data
@@ -34,7 +34,7 @@
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
                     {
                         <li class="nav-item dropdown">
-                            <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
+                            <a class="nav-link font2  mx-2 item-3 text-white"
                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SHOP
                         </a>
@@ -45,7 +45,7 @@
                     </li>}
                 }else{
                     <li class="nav-item dropdown">
-                            <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
+                            <a class="nav-link font2  mx-2 item-3 text-white"
                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SHOP
                         </a>
@@ -84,13 +84,13 @@
                     
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-green active">CART</a>
                         </li>}
                 }
                 else
                 {
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white active bottom-green">CART</a>
                         </li>
                 }
 
@@ -110,40 +110,59 @@
         </div>
     </div>
 </nav>
-    <section class="sec3 py-5" id="medium">
-        <div class="container pt-5">
+  <section class="my-5 py-5">
+        <div class="container pt-2">
             <div class="text-center my-5">
-                <span class="font1 text-purple fw-bold heading  m-auto border-bottom border-dark border-3">Shop By
-                    Medium
+                <span class="font1 text-green fw-bold heading  m-auto border-bottom border-dark border-3">
+                    Shopping Cart
                 </span>
             </div>
-            <div class="row text-center font2 mb-5 pb-3">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a  asp-controller="home" asp-action="Painting"> <img class="img-fluid" src="~/img/painting.jpg" alt=""></a>
-                    <p class="text-center  py-3 fs-4">Paintings</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/drawing.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">Drawings</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/origami.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">Origami</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/string_art.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">String Art</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/sketches.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">Sketches</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/room_decor.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4 ">Room Decor</p>
+            <div class="py-2 table-responsive-xxl">
+                <table class=" table shadow  table-borderless table-hover">
+                    <thead>
+                        <tr class="bg-dark text-white">
+                            <th scope="col" class="fs-5 font2"></th>
+                            <th scope="col" class="fs-5 font2">Item</th>
+                            <th scope="col" class="fs-5 font2">Description</th>
+                            <th scope="col" class="fs-5 font2 ">Price</th>
+                            <th scope="col" class="fs-5 font2">QTY.</th>
+                            <th scope="col" class="fs-5 font2 ">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
+                            </td>
+                            <td>
+                                <a asp-controller="home" asp-action="Collection1"><img src="~/img/Painting1.jpg" style="height: 6rem; width: 6rem;" alt=""></a>
+                            </td>
+                            <td>
+                                <p>Canvas painting</p>
+                                <p>By Handmade Creations</p>
+                                <p>Painting on stretched canvas</p>
+                                <p>Finished edges </p>
+                                <p> Ready to hang</p>
+                                <p> 20'' h x 16'' w x .75'' d 1 lbs. 1 oz</p>
+                            </td>
+                            <td>Rs 400</td>
+                            <td>
+                                <div class="col-4 order">
+                                    <input type="number" class="form-control shadow-none" id="inputNumber">
+                                </div>
+                            </td>
+                            <td>
+                                <p>Rs 400</p>
+                            </td>
+                        </tr>
+                </table>
+                <div class="font-2 py-3 fs-5 fw-bold text-end" id="items">
+                    <a href=""
+                        class="border-0 bg-green text-white btn-lg my-3 mx-2 px-5 py-3 font2 rounded text-decoration-none">Place
+                        order</a>
+
+                    <!-- <p class="text-end">Checkout</p> -->
                 </div>
             </div>
-            <!-- <div class="row text-center font2">
-            </div> -->
         </div>
     </section>

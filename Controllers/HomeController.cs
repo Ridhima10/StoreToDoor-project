@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using StoreToDoor.Models;
 using System.Diagnostics;
 
@@ -17,7 +18,10 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
-
+        public IActionResult About()
+        {
+            return View();
+        }
         public IActionResult Privacy()
         {
             return View();
@@ -26,6 +30,8 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
+
+        [Authorize(Roles = "User")]
         public IActionResult Shopbymedium()
         {
             return View();
@@ -62,7 +68,23 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
+        
+        [Authorize(Roles = "Artist")]
         public IActionResult UploadArtwork()
+        {
+            return View();
+        }
+        [Authorize(Roles = "Admin")]
+        public IActionResult Admin()
+        {
+            return View();
+        }
+        [Authorize(Roles = "User")]
+        public IActionResult Cart()
+        {
+            return View();
+        }
+        public IActionResult ContactUs()
         {
             return View();
         }

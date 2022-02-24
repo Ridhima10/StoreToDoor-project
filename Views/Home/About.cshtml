@@ -1,6 +1,5 @@
-﻿
-@{
-    ViewData["Title"] = "shop by medium";
+﻿@{
+    ViewData["Title"] = "About";
 }
 @using Microsoft.AspNetCore.Identity
 @using StoreToDoor.Data
@@ -25,7 +24,7 @@
                 </li>
                 
                <li class="nav-item">
-                    <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
+                    <a class="nav-link font2 mx-2 item-2 text-white active bottom-blue" asp-controller="home" asp-action="About">ABOUT</a>
                 </li> 
                 @if (User.Identity.IsAuthenticated)
                 {
@@ -34,7 +33,7 @@
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
                     {
                         <li class="nav-item dropdown">
-                            <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
+                            <a class="nav-link font2  mx-2 item-3 text-white"
                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SHOP
                         </a>
@@ -45,7 +44,7 @@
                     </li>}
                 }else{
                     <li class="nav-item dropdown">
-                            <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
+                            <a class="nav-link font2  mx-2 item-3 text-white"
                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SHOP
                         </a>
@@ -110,40 +109,29 @@
         </div>
     </div>
 </nav>
-    <section class="sec3 py-5" id="medium">
-        <div class="container pt-5">
-            <div class="text-center my-5">
-                <span class="font1 text-purple fw-bold heading  m-auto border-bottom border-dark border-3">Shop By
-                    Medium
-                </span>
-            </div>
-            <div class="row text-center font2 mb-5 pb-3">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a  asp-controller="home" asp-action="Painting"> <img class="img-fluid" src="~/img/painting.jpg" alt=""></a>
-                    <p class="text-center  py-3 fs-4">Paintings</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/drawing.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">Drawings</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/origami.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">Origami</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/string_art.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">String Art</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/sketches.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">Sketches</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/room_decor.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4 ">Room Decor</p>
-                </div>
-            </div>
-            <!-- <div class="row text-center font2">
-            </div> -->
+<section class="sec1 py-5 my-5" id="about">
+    <div class="container">
+        <div class="text-center my-5">
+            <span class="font1 text-blue fw-bold heading  m-auto border-bottom border-dark border-3">About Us</span>
         </div>
-    </section>
+        <div class="row my-5">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 m-auto text-end p-4">
+                <img src="~/img/about.jpg" class="img-fluid" alt="">
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                <p class="py-4 px-2 fs-4 font2 lh-base">
+                    Welcome to the new world of art and craft. It is an online
+                    marketplace that
+                    helps people to buy or sell artworks with ease. We register authorized artists and hence caters original
+                    artworks like painting,handmade crafts,portraits, home-decor and many more. Explore our website and grab
+                    the art you love.
+                </p>
+             <!--   <a asp-controller="home" asp-action="About"
+                   class="border-0 bg-blue text-white btn-lg my-3 mx-2 px-5 py-3 font2 rounded text-decoration-none">
+                    More About
+                    Us
+                </a>-->
+            </div>
+        </div>
+    </div>
+</section>
