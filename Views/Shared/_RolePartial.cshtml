@@ -10,7 +10,8 @@
 }else if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result,"Admin"))
 {
     <!--Add Admin List Items Here-->
- <!--   <li>Test</li>-->
+   <li><a class="dropdown-item drop2" asp-controller="home" asp-action="Admin">Admin Panel</a></li>
+
 }
 else{
          <li><a class="dropdown-item drop2" asp-controller="home" asp-action="EditUserProfile">Edit Profile</a></li>

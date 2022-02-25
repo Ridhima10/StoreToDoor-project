@@ -22,29 +22,32 @@
                     <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page"
                        asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
                 </li>
-                
-               <li class="nav-item">
+
+                <li class="nav-item">
                     <a class="nav-link font2 mx-2 item-2 text-white active bottom-blue" asp-controller="home" asp-action="About">ABOUT</a>
-                </li> 
+                </li>
                 @if (User.Identity.IsAuthenticated)
                 {
                     var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
+
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link font2  mx-2 item-3 text-white"
                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            SHOP
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
-                        </ul>
-                    </li>}
-                }else{
+                                SHOP
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
+                            </ul>
+                        </li>
+                    }
+                }
+                else
+                {
                     <li class="nav-item dropdown">
-                            <a class="nav-link font2  mx-2 item-3 text-white"
+                        <a class="nav-link font2  mx-2 item-3 text-white"
                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SHOP
                         </a>
@@ -80,17 +83,19 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
-                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
-                    <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                        </li>}
+
+                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                        </li>
+                    }
                 }
                 else
                 {
                     <li class="nav-item">
                         <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                        </li>
+                    </li>
                 }
 
                 @if (User.Identity.IsAuthenticated)
@@ -98,7 +103,15 @@
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Admin"))
                     {
                         <li class="nav-item">
-                            <a asp-controller="admin" asp-area="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN PANEL</a>
+                            <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
+                        </li>
+                    }          }
+                     @if (User.Identity.IsAuthenticated)
+                {
+                    @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
                 </li> }}
             </ul>
             <div class="nav-item search-box rounded-pill bg-dark ms-3">
@@ -126,11 +139,11 @@
                     artworks like painting,handmade crafts,portraits, home-decor and many more. Explore our website and grab
                     the art you love.
                 </p>
-             <!--   <a asp-controller="home" asp-action="About"
-                   class="border-0 bg-blue text-white btn-lg my-3 mx-2 px-5 py-3 font2 rounded text-decoration-none">
-                    More About
-                    Us
-                </a>-->
+                <!--   <a asp-controller="home" asp-action="About"
+                      class="border-0 bg-blue text-white btn-lg my-3 mx-2 px-5 py-3 font2 rounded text-decoration-none">
+                       More About
+                       Us
+                   </a>-->
             </div>
         </div>
     </div>

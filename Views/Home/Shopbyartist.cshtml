@@ -98,7 +98,14 @@
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Admin"))
                     {
                         <li class="nav-item">
-                            <a asp-controller="admin" asp-area="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN PANEL</a>
+                            <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
+                </li> }}
+                 @if (User.Identity.IsAuthenticated)
+                {
+                    @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
                 </li> }}
             </ul>
             <div class="nav-item search-box rounded-pill bg-dark ms-3">
