@@ -84,6 +84,11 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "User")]
+        public IActionResult YourOrders()
+        {
+            return View();
+        }
         public IActionResult ContactUs()
         {
             return View();

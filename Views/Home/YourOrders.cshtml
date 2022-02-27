@@ -1,6 +1,5 @@
-﻿
-@{
-    ViewData["Title"] = "Wishlist";
+﻿@{
+    ViewData["Title"] = "Your Order History";
 }
 @using Microsoft.AspNetCore.Identity
 @using StoreToDoor.Data
@@ -118,82 +117,44 @@
     </div>
 </nav>
  <section class="my-5 py-5">
-    <div class="container">
-      <div class="text-center my-5">
-        <span class="font1 text-red fw-bold heading  m-auto bottom-red border-3">
-          Wishlist
-        </span>
-      </div>
-      <div class="row">
-        <div class="col-sm-6 col-md-4 col-lg-3 col-12 my-2 d-flex justify-content-center">
-          <div class="card  shadow p-3" style="max-width: 18rem;">
-            <div class="card-header">
-               <button type="button" class="btn-close shadow-none"></button>
+        <div class="container">
+          <div class="text-center my-5">
+            <span class="font1 text-rose fw-bold heading  m-auto  bottom-rose border-3">
+            Your  Order History
+            </span>
+          </div>
+          <div class="row border border-1 shadow my-3 p-3 text-center">
+            <div class="col-lg-3 col-md-3 my-1">
+                <img src="~/img/Painting1.jpg" style="height: 6rem; width: 6rem;" alt="">
             </div>
-            <div class="card-body">
-              <figure class="figure">
-                <a  asp-controller="home" asp-action="Collection1"><img src="~/img/Painting1.jpg" class="figure-img img-fluid rounded"
-                    alt="..."></a>
-                <figcaption class="figure-caption text-start">Canvas painting<span class="float-end"> Rs
-                    400</span></figcaption>
-              </figure>
-              <div class="card-footer pt-4 text-center">
-                <a  asp-controller="home" asp-action="Cart" class="btn border-0 bg-pink-orange text-white  mx-2 px-3 py-2 font2 rounded text-decoration-none" >Add to cart</a>
-              </div>
+            <div class="col-lg-3 col-md-3 my-1" >
+                <span class="font2 fs-5 d-block">Canvas painting</span>
+                <span class="font2 fs-6 text-muted d-block">By Handmade Creations</span>
+            </div>
+            <div class="col-lg-3 col-md-3 my-1">
+                <span class="font2">Rs 400</span>
+            </div>
+            <div class="col-lg-3 col-md-3 my-1">
+                <span class="font2 fs-6 d-block"><img src="~/img/delivered.png" style="height: 0.8rem;" class="mb-1" alt=""> Delivered on Jan 6, 2022</span>
+                <span class="font2 fs-6 text-muted d-block">Your item has been delivered</span>
             </div>
           </div>
-        </div>
-         <div class="col-sm-6 col-md-4 col-lg-3 col-12 my-2 d-flex justify-content-center">
-          <div class="card  shadow p-3" style="max-width: 18rem;">
-            <div class="card-header">
-               <button type="button" class="btn-close shadow-none"></button>
+          <div class="row border border-1 my-3 shadow p-3 text-center">
+            <div class="col-lg-3 col-md-3 my-1">
+                <img src="~/img/sketch1.jpg" style="height: 6rem; width: 6rem;" alt="">
             </div>
-            <div class="card-body">
-              <figure class="figure">
-                <a> <img src="~/img/sketch1.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-                <figcaption class="figure-caption text-start">Sketch<span class="float-end"> Rs 500</span>
-                </figcaption>
-              </figure>
-              <div class="card-footer pt-4 text-center">
-                <a  asp-controller="home" asp-action="Cart" class="btn border-0 bg-pink-orange text-white  mx-2 px-3 py-2 font2 rounded text-decoration-none" >Add to cart</a>
-              </div>
+            <div class="col-lg-3 col-md-3 my-1" >
+                <span class="font2 fs-5 d-block">Sketch</span>
+                <span class="font2 fs-6 text-muted d-block">By Craftiness</span>
             </div>
-          </div>
-        </div>
-         <div class="col-sm-6 col-md-4 col-lg-3 col-12 my-2 d-flex justify-content-center">
-          <div class="card  shadow p-3" style="max-width: 18rem;">
-            <div class="card-header">
-               <button type="button" class="btn-close shadow-none"></button>
+            <div class="col-lg-3 col-md-3 my-1">
+                <span class="font2">Rs 500</span>
             </div>
-            <div class="card-body">
-              <figure class="figure">
-                <a> <img src="~/img/painting3.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-                <figcaption class="figure-caption text-start">Painting<span class="float-end"> Rs 700</span>
-                </figcaption>
-              </figure>
-              <div class="card-footer pt-4 text-center">
-                <a  asp-controller="home" asp-action="Cart" class="btn border-0 bg-pink-orange text-white  mx-2 px-3 py-2 font2 rounded text-decoration-none" >Add to cart</a>
-              </div>
+            <div class="col-lg-3 col-md-3 my-1">
+                <span class="font2 fs-6 d-block"><img src="~/img/cancelled.png" style="height: 0.8rem;" class="mb-1" alt=""> Cancelled on Dec 21, 2021</span>
+                <span class="font2 fs-6 text-muted d-block">The seller has cancelled your order because the courier service provider is unable to deliver to your location</span>
             </div>
           </div>
-        </div> 
-         <div class="col-sm-6 col-md-4 col-lg-3 col-12 my-2 d-flex justify-content-center">
-          <div class="card  shadow p-3" style="max-width: 18rem;">
-            <div class="card-header">
-               <button type="button" class="btn-close shadow-none"></button>
-            </div>
-            <div class="card-body">
-              <figure class="figure">
-                <a> <img src="~/img/craft.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-                <figcaption class="figure-caption text-start">Craft<span class="float-end"> Rs 600</span>
-                </figcaption>
-              </figure>
-              <div class="card-footer pt-4 text-center">
-                <a  asp-controller="home" asp-action="Cart" class="btn border-0 bg-pink-orange text-white  mx-2 px-3 py-2 font2 rounded text-decoration-none" >Add to cart</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-     </div>
-  </section>
+         
+         </div>
+    </section>

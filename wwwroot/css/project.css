@@ -18,6 +18,7 @@
     --pink: #e84393;
     --orange: #fc9a54;
     --yellow2: #f1c40f;
+    --rose: #E983D8;
 }
 /* Utility Classes  */
 /* font */
@@ -44,11 +45,9 @@
 .text-green {
     color: var(--green);
 }
-/* .text-pink-orange{
-    background: -webkit-linear-gradient(var(--pink),var(--orange));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-} */
+.text-rose {
+    color: var(--rose);
+}
 .text-red {
     color: var(--red);
 }
@@ -103,6 +102,9 @@
 
 .bottom-pink, .item-6:hover {
     border-bottom: 3px solid var(--pink);
+}
+.bottom-rose {
+    border-bottom: 2px solid var(--rose);
 }
 /* nav */
 .navbar {
