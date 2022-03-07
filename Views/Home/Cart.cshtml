@@ -10,7 +10,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
     <div class="container-fluid py-0">
         <a class="navbar-brand font1  text-white fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index">
-            <img src="~/img/logo.png" class="me-3 mb-2"
+            <img src="~/img/logo.png" class="logo-img mb-2"
                  style="width: 3rem; height: 3rem;" alt="">Store To Door
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -164,9 +164,8 @@
                         </tr>
                 </table>
                 <div class="font-2 py-3 fs-5 fw-bold text-end" id="items">
-                    <a href=""
-                        class="border-0 bg-green text-white btn-lg my-3 mx-2 px-5 py-3 font2 rounded text-decoration-none">Place
-                        order</a>
+                    <a  asp-controller="home" asp-action="Address"
+                        class="border-0 bg-green text-white btn-lg my-3 mx-2 px-5 py-3 font2 rounded text-decoration-none">Proceed To Buy</a>
 
                     <!-- <p class="text-end">Checkout</p> -->
                 </div>

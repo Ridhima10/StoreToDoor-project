@@ -1,0 +1,74 @@
+﻿@{
+    ViewData["Title"] = "Address";
+}
+   <section class="my-5">
+        <div class="container">
+            <div class="text-center my-5">
+                <span class="font1 text-rose fw-bold heading  m-auto border-bottom border-dark border-3">
+                    Select A Delivery Address
+                </span>
+                <h6 class="font2 my-5">Is the address you'd like to use displayed below? If so, click the corresponding
+                    "Deliver to this address" button Or you can enter <span class="text-rose">a
+                        new delivery
+                        address</span> </h6>
+            </div>
+            <div class="row  shadow-sm mt-3 mb-5 p-3 mx-5">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 my-1">
+                    <h5>Raghav Sharma</h5>
+                    <p>Akhnoor Jammu</p>
+                    <p>JAMMU , JAMMU & KASHMIR</p>
+                    <p>India</p>
+                    <a  asp-controller="home" asp-action="Payment"
+                        class="btn border-0 col-12 col-lg-4 col-sm-12 col-md-6 text-white bg-rose  btn-sm fs-6 px-5 py-2 font2 rounded text-decoration-none shadow-none">Deliver
+                        to this address</a>
+                    <div>
+                        <a asp-controller="home" asp-action="UserEditProfile" class="btn  btn-secondary col-12 col-lg-2 col-md-3 col-sm-5 mt-3">Edit</a>
+                        <a  class="btn  btn-secondary col-12 col-lg-2 col-md-3 col-sm-6 mt-3">Delete </a>
+                    </div>
+                </div>
+            </div>
+            <div class="row  shadow-sm mt-4 p-3 col-lg-6 col-md-8 col-sm-12 col-12">
+                <h3  class="font2 ps-4">Add A New Address</h3>
+                <hr>
+                <form class="mt-3">
+                    <div class="container d-flex justify-content-center">
+                        <div class="row py-2">
+                            <div class="py-2 col-lg-12">
+                                <label for="inputName" class="form-label">Full name (First and Last Name)</label>
+                                <input type="text" class="form-control new-address  shadow-none" id="inputName">
+                            </div>
+                            <div class="py-2 col-lg-12">
+                                <label for="inputStreet" class="form-label">Street</label>
+                                <input type="text" class="form-control  new-address shadow-none" id="inputStreet">
+                            </div>
+                            <div class="py-2 col-lg-12">
+                                <label for="inputCity" class="form-label">City</label>
+                                <input type="text" class="form-control  new-address  shadow-none" id="inputCity">
+                            </div>
+                            <div class="py-2 col-lg-12">
+                                <label  for="inputState" class="form-label">State</label>
+                                <input  type="text" class="form-control  new-address shadow-none" id="inputState">                       
+                            </div>
+                            <div class="py-2 col-lg-12">
+                                <label  for="inputPincode" class="form-label">Pincode</label>
+                                <input  type="text" class="form-control  new-address shadow-none" id="inputPincode">
+                            </div>
+                            <div class="py-2 col-lg-12">
+                                <label for="inputAddresstype" class="form-label">Address Type</label>
+                                <input type="text" class="form-control new-address shadow-none" id="inputAddresstype">
+                            </div>
+                            <div class="py-2 col-lg-12">
+                                <input class="form-check-input shadow-none new-address" type="checkbox" value="" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                    Use this as default address
+                                </label>
+                            </div>
+                            <div class="d-grid gap-2 col-sm-8  pt-4 pb-5 ">
+                                <a href="" class="btn bg-rose text-white shadow-none">Use this address</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+    </section>

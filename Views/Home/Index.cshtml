@@ -10,7 +10,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
     <div class="container-fluid py-0">
         <a class="navbar-brand font1  text-white fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index">
-            <img src="~/img/logo.png" class="me-3 mb-2"
+            <img src="~/img/logo.png" class="logo-img mb-2"
                  style="width: 3rem; height: 3rem;" alt="">Store To Door
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -131,14 +131,14 @@
             <div class="carousel-item bg" style="background-image: url('/img/bg2.jpg');">
             </div>
             <div class="carousel-item bg active" style="background-image: url('/img/bg3.jpg');">
-                <div class="container heading-text">
+                <div class="container bg1 position-absolute top-50 start-50">
                     <h1 class="text-dark font1 fw-bold">Shop For <br> The Art You'll Love</h1>
                     <a asp-controller="home" asp-action="Shopbymedium"
                        class="btn btn1 border-0 btn-dark position-relative btn-lg mx-2 px-5 font2 ">Shop Now</a>
                 </div>
             </div>
             <div class="carousel-item bg" style="background-image: url('/img/bg1.jpg');">
-                <div class="container  position-absolute top-50 start-50">
+                <div class="container bg2  position-absolute top-50 start-50">
                     <h1 class="text-dark font1 fw-bold">Create & Upload</h1>
                     <a asp-area="" asp-controller="Home" asp-action="UploadArtwork" class="btn btn1 border-0 btn-dark btn-lg position-relative px-5 mx-2  font2 ">Upload Now</a>
                 </div>

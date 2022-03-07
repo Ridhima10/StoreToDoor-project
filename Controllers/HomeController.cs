@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using StoreToDoor.Data;
 using StoreToDoor.Models;
 using System.Diagnostics;
 
@@ -8,10 +10,12 @@ namespace StoreToDoor.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly UserManager<ApplicationUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager)
         {
             _logger = logger;
+            _userManager = userManager;
         }
 
         public IActionResult Index()
@@ -56,10 +60,27 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
-        public IActionResult EditUserProfile()
+
+        [Authorize(Roles = "User")]
+        public async IAsyncResult EditUserProfile()
         {
+            //var currentUser =  _userManager.FindByNameAsync(User.Identity.Name);
+            var currentUserName = User.Identity.Name;
+            var loggedInUser = _userManager.FindByEmailAsync(currentUserName);
+            if (loggedInUser == null)
+            {
+                return View("Error");
+            }
+            else
+            {
+                ViewBag.loggedInUser = loggedInUser;
+                return View();
+            }
+
             return View();
         }
+
+        [Authorize(Roles = "Artist")]
         public IActionResult EditArtistProfile()
         {
             return View();
@@ -86,6 +107,11 @@ namespace StoreToDoor.Controllers
         }
         [Authorize(Roles = "User")]
         public IActionResult YourOrders()
+        {
+            return View();
+        }
+        [Authorize(Roles = "User")]
+        public IActionResult Address()
         {
             return View();
         }

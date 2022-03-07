@@ -1,9 +1,13 @@
-﻿
+﻿@using StoreToDoor.Data
+
 @{
     ViewData["Title"] = "Edit User Profile";
 }
-@{ 
+@{
     ViewBag.HideFooter = true;
+}
+@{
+    ApplicationUser user = ViewBag.loggedInUser;
 }
 <section>
     <div class="container-fluid">
@@ -20,13 +24,16 @@
                              class="me-3 mb-2" style="width: 3rem; height: 3rem;" alt="">Edit Profile
                     </a>
                 </div>
+                <div>
+                    
+                </div>
                 <form method="post">
                     <div class="container d-flex justify-content-center" style="width: fit-content;">
                         <div class="row ms-3 pt-2">
                             <div asp-validation-summary="All" class="text-danger"></div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
                                 <label for="name" class="form-label">First name</label>
-                                <input type="text" class="form-control" id="name">
+                                <input type="text" class="form-control" id="name"  >
                                 <span class="text-danger"></span>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-6">
