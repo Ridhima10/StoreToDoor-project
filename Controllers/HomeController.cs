@@ -61,12 +61,11 @@ namespace StoreToDoor.Controllers
             return View();
         }
 
-        // Edit User Profile Get View
+        // Edit User Profile Get Controller
         [Authorize(Roles = "User")]
         [HttpGet]
         public async Task<IActionResult> EditUserProfile()
         {
-            //var currentUser =  _userManager.FindByNameAsync(User.Identity.Name);
             var currentUserName = User.Identity.Name;
             var loggedInUser = await _userManager.FindByEmailAsync(currentUserName);
 
@@ -75,7 +74,7 @@ namespace StoreToDoor.Controllers
             return View();
         }
 
-        // Edit User Profile Post View
+        // Edit User Profile Post Controller
         // For use when Post Request is sent from EditUserProfile.cshtml
         [Authorize(Roles = "User")]
         [HttpPost]
@@ -117,12 +116,57 @@ namespace StoreToDoor.Controllers
 
         }
 
+        // Edit Artist Profile Get Controller
         [Authorize(Roles = "Artist")]
-        public IActionResult EditArtistProfile()
+        [HttpGet]
+        public async Task<IActionResult> EditArtistProfile()
         {
+            var currentUserName = User.Identity.Name;
+            var loggedInUser = await _userManager.FindByEmailAsync(currentUserName);
+
+            ViewBag.loggedInUser = loggedInUser;
+
             return View();
         }
 
+        // Edit Artist Profile Post Controller
+        // For use when Post Request is sent from EditArtistProfile.cshtml
+        [Authorize(Roles = "Artist")]
+        [HttpPost]
+        public async Task<IActionResult> EditArtistProfile(IFormCollection userCollection)
+        {
+            try
+            {
+                var loggedInUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+                loggedInUser.UserName = userCollection["AccountName"];
+                loggedInUser.Email = userCollection["Email"];
+                loggedInUser.PhoneNumber = userCollection["PhoneNumber"];
+                loggedInUser.Bio = userCollection["Bio"];
+
+                var isSuccess = await _userManager.UpdateAsync(loggedInUser);
+
+                if (isSuccess.Succeeded)
+                {
+                    _logger.LogInformation("Artist updated successfully.");
+                    return RedirectToAction("ArtistProfile");
+                }
+
+                // If Operation Failes, Redirect to Index
+                _logger.LogInformation("Artist Profile Update Failed");
+                return RedirectToAction("Error", "Index");
+            }
+            catch (System.Exception ex)
+            {
+                // Log Exception
+                _logger.LogError(ex.ToString());
+                // return Error Page or Index
+                return RedirectToAction("Error", "Index");
+            }
+
+        }
+
+        [Authorize(Roles = "Artist")]
         public async Task<IActionResult> ArtistProfile()
         {
             var currentUserName = User.Identity.Name;
