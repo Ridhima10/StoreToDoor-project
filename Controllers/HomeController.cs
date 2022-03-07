@@ -43,7 +43,7 @@ namespace StoreToDoor.Controllers
         public IActionResult Painting()
         {
             return View();
-       }
+        }
         public IActionResult Wishlist()
         {
             return View();
@@ -61,23 +61,60 @@ namespace StoreToDoor.Controllers
             return View();
         }
 
+        // Edit User Profile Get View
         [Authorize(Roles = "User")]
-        public async IAsyncResult EditUserProfile()
+        [HttpGet]
+        public async Task<IActionResult> EditUserProfile()
         {
             //var currentUser =  _userManager.FindByNameAsync(User.Identity.Name);
             var currentUserName = User.Identity.Name;
-            var loggedInUser = _userManager.FindByEmailAsync(currentUserName);
-            if (loggedInUser == null)
-            {
-                return View("Error");
-            }
-            else
-            {
-                ViewBag.loggedInUser = loggedInUser;
-                return View();
-            }
+            var loggedInUser = await _userManager.FindByEmailAsync(currentUserName);
+
+            ViewBag.loggedInUser = loggedInUser;
 
             return View();
+        }
+
+        // Edit User Profile Post View
+        // For use when Post Request is sent from EditUserProfile.cshtml
+        [Authorize(Roles = "User")]
+        [HttpPost]
+        public async Task<IActionResult> EditUserProfile(IFormCollection userCollection)
+        {
+            try
+            {
+                var loggedInUser = await _userManager.FindByNameAsync(User.Identity.Name);
+
+                loggedInUser.FirstName = userCollection["FirstName"];
+                loggedInUser.LastName = userCollection["LastName"];
+                loggedInUser.Email = userCollection["Email"];
+                loggedInUser.UserName = userCollection["Email"];
+                loggedInUser.PhoneNumber = userCollection["PhoneNumber"];
+                loggedInUser.Address = userCollection["Address"];
+                loggedInUser.City = userCollection["City"];
+                loggedInUser.State = userCollection["State"];
+                loggedInUser.PinCode = int.Parse(userCollection["PinCode"]);
+
+                var isSuccess = await _userManager.UpdateAsync(loggedInUser);
+
+                if (isSuccess.Succeeded)
+                {
+                    _logger.LogInformation("User updated successfully.");
+                    return RedirectToAction("EditUserProfile");
+                }
+
+                // If Operation Failes, Redirect to Index
+                _logger.LogInformation("User Profile Update Failed");
+                return RedirectToAction("Error", "Index");
+            }
+            catch (System.Exception ex)
+            {
+                // Log Exception
+                _logger.LogError(ex.ToString());
+                // return Error Page or Index
+                return RedirectToAction("Error", "Index");
+            }
+
         }
 
         [Authorize(Roles = "Artist")]
@@ -85,11 +122,17 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
-        public IActionResult ArtistProfile()
+
+        public async Task<IActionResult> ArtistProfile()
         {
+            var currentUserName = User.Identity.Name;
+            var loggedInUser = await _userManager.FindByNameAsync(currentUserName);
+
+            ViewBag.loggedInUser = loggedInUser;
+
             return View();
         }
-        
+
         [Authorize(Roles = "Artist")]
         public IActionResult UploadArtwork()
         {

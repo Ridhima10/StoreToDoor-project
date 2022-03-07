@@ -14,6 +14,6 @@ namespace StoreToDoor.Data
 
         public string? State { get; set; }
 
-        public int? pin { get; set; }
+        public int? PinCode { get; set; }
     }
 }
