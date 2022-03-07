@@ -139,7 +139,8 @@ namespace StoreToDoor.Controllers
             {
                 var loggedInUser = await _userManager.FindByNameAsync(User.Identity.Name);
 
-                loggedInUser.UserName = userCollection["AccountName"];
+                loggedInUser.AccountName = userCollection["AccountName"];
+                loggedInUser.UserName = userCollection["Email"];
                 loggedInUser.Email = userCollection["Email"];
                 loggedInUser.PhoneNumber = userCollection["PhoneNumber"];
                 loggedInUser.Bio = userCollection["Bio"];

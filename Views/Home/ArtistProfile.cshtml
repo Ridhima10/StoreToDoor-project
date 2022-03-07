@@ -139,7 +139,15 @@
                     style="height: 220px; width: 220px;">
             </div>
             <div class="col-lg-6 col-md-8 col-sm-12 col-12 font2 text-start position-relative mt-4">
-                <h2 class=" font2">@ViewBag.loggedInUser.UserName</h2>
+                @if (ViewBag.loggedInUser.AccountName == "")
+                {
+                    <h2 class=" font2">Account Name not Set</h2>
+                }
+                else
+                {
+                    <h2 class=" font2">@ViewBag.loggedInUser.AccountName</h2>
+                }
+                
                 @if (ViewBag.loggedInUser.Bio == "")
                 {
                     <p class="my-3 text-wrap">No Bio</p>
