@@ -44,6 +44,7 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "User")]
         public IActionResult Wishlist()
         {
             return View();
@@ -56,11 +57,15 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "User")]
         public IActionResult CustomArt()
         {
             return View();
         }
-
+        public IActionResult Error()
+        {
+            return View();
+        }
         // Edit User Profile Get Controller
         [Authorize(Roles = "User")]
         [HttpGet]
@@ -207,10 +212,10 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
+        //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
+        //public IActionResult Error()
+        //{
+        //    return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        //}
     }
 }

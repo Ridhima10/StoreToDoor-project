@@ -11,6 +11,7 @@
     --yellow: #d2d22c;
     /* --green:#7aebc9; */
     --green: #4bcea6;
+    --dark-green: rgb(26, 150, 26);
     /* --green1: rgba(106, 201, 157, 1.00); */
     --light-pink: rgb(250, 135, 206);
     --purple: rgb(199, 112, 216);
@@ -51,6 +52,12 @@
 .text-red {
     color: var(--red);
 }
+.text-orange {
+    color: var(--orange);
+}
+.text-dark-green {
+    color: var(--dark-green);
+}
 /* Bg-colors */
 .bg-blue {
     background-color: var(--secondary);
@@ -77,6 +84,9 @@
 }
 .bg-rose{
     background-color:var(--rose);
+}
+.bg-orange {
+    background-color: var(--orange);
 }
 /* border-color */
 .border-pink {
@@ -266,9 +276,9 @@ scrollbar-3dlight-color    border: 2px solid pink;
     .logo-img {
         margin-right: 0rem;
     } 
-    .logout{
+    /*.logout{
         display:none;
-    }
+    }*/
 }
 
 @media screen and (min-width:450px) and (max-width: 1800px) {
@@ -276,9 +286,9 @@ scrollbar-3dlight-color    border: 2px solid pink;
         display: flex;
         justify-content: space-around;
     }
-    .logout-offcanvas {
+   /* .logout-offcanvas {
         display: none;
-    }
+    }*/
 }
 
 @media screen and (min-width:200px) and (max-width: 990px) {
