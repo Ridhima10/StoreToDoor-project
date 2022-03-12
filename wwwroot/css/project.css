@@ -268,7 +268,7 @@ scrollbar-3dlight-color    border: 2px solid pink;
         left: 6rem;
     }
     .container > h1 {
-        font-size: 4.2rem;
+        font-size: 3.4rem;
     }
     .bg > .bg2, .btn1 {
         transform: translate(-49%,-74%);
@@ -285,6 +285,9 @@ scrollbar-3dlight-color    border: 2px solid pink;
     .text-box {
         display: flex;
         justify-content: space-around;
+    }
+    .container > h1 {
+        font-size: 4rem;
     }
    /* .logout-offcanvas {
         display: none;
