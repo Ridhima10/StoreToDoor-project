@@ -310,4 +310,7 @@ scrollbar-3dlight-color    border: 2px solid pink;
         transform: translate(-49%,-55%);
         text-align: end;
     } 
+    .order-close{
+        float:left;
+    }
 }

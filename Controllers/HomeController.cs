@@ -62,6 +62,41 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
+            [Authorize(Roles = "Artist")]
+         public IActionResult CustomArtRequest()
+        {
+            return View();
+        }  
+        [Authorize(Roles = "User")]
+         public IActionResult YourCustomRequest()
+        {
+            return View();
+        } 
+        [Authorize(Roles = "User")]
+        public IActionResult Payment()
+        {
+            return View();
+        } 
+        [Authorize(Roles = "User")]
+        public IActionResult OrderPlaced()
+        {
+            return View();
+        }
+        [Authorize(Roles = "User")]
+        public IActionResult CancelOrderRequest()
+        {
+            return View();
+        }
+        [Authorize(Roles = "User")]
+        public IActionResult CancelOrder()
+        {
+            return View();
+        }
+        [Authorize(Roles = "User")]
+        public IActionResult ReviewOrder()
+        {
+            return View();
+        }
         public IActionResult Error()
         {
             return View();
@@ -88,7 +123,6 @@ namespace StoreToDoor.Controllers
             try
             {
                 var loggedInUser = await _userManager.FindByNameAsync(User.Identity.Name);
-
                 loggedInUser.FirstName = userCollection["FirstName"];
                 loggedInUser.LastName = userCollection["LastName"];
                 loggedInUser.Email = userCollection["Email"];

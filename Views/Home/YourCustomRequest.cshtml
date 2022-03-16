@@ -1,5 +1,6 @@
-﻿@{
-    ViewData["Title"] = "Your Order History";
+﻿
+@{
+    ViewData["Title"] = "Your Art Requests";
 }
 @using Microsoft.AspNetCore.Identity
 @using StoreToDoor.Data
@@ -118,71 +119,57 @@
 </nav>
  <section class="my-5 py-5">
         <div class="container">
-          <div class="text-center my-5">
-            <span class="font1 text-rose fw-bold heading  m-auto border-bottom border-dark border-3">
-            Your  Order History
-            </span>
-          </div>
-          <div class="row border border-1 my-3 shadow p-3 text-center">
-               <div class="col-lg-1 col-md-1  my-1">
-                    <button type="button" class="btn-close shadow-none order-close" aria-label="Close"></button>
-                </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <img src="~/img/sketch1.jpg" style="height: 6rem; width: 6rem;" alt="">
-                </div>
-                <div class="col-lg-2 col-md-3  my-1">
-                    <span class="font2 fs-5 d-block">Sketch</span>
-                    <span class="font2 fs-6 text-muted d-block">By Craftiness</span>
-                </div>
-                <div class="col-lg-3 col-md-2 my-1">
-                    <span class="font2">Rs 500</span>
-                </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <span class="font2 fs-6 d-block"><img src="~/img/delivered.png" style="height: 0.8rem;" class="mb-1"
-                            alt=""> Delivery Date: 20 March 2022</span>
-                    <span class="font2 fs-6 text-muted d-block">Your item is on the way</span>
-                     <a asp-controller="home" asp-action="CancelOrderRequest" class="text-dark fs-6 font2 text-decoration-none">Cancel order ></a>
-                </div>
+            <div class="text-center my-5">
+                <span class="font1 text-rose fw-bold heading  m-auto  border-3 border-bottom border-dark">
+                   Custom Art Requests
+                </span>
             </div>
-            <div class="row border border-1 shadow my-3 p-3 text-center">
-               <div class="col-lg-1 col-md-1  my-1">
-                    <button type="button" class="btn-close shadow-none order-close" aria-label="Close"></button>
-                </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <img src="~/img/Painting1.jpg" style="height: 6rem; width: 6rem;" alt="">
+            <div class="row border border-1 my-3 shadow p-3 text-center">
+                <div class="col-lg-1 col-md-1  my-1">
+                    <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
                 </div>
                 <div class="col-lg-2 col-md-3 my-1">
-                    <span class="font2 fs-5 d-block">Canvas painting</span>
-                    <span class="font2 fs-6 text-muted d-block">By Handmade Creations</span>
+                    <img src="~/img/painting4.jpg" style="height: 6rem; width: 6rem;" alt="">
+                </div>
+                <div class="col-lg-3 col-md-3  my-1">
+                    <span class="font2 fs-6 d-block">To Craft World</span>
+                </div> 
+                <div class="col-lg-3 col-md-3 my-1">
+                    <label for="exampleFormControlTextarea1" class="form-label">
+                        Customization details
+                       </label>
+                       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <div class="col-lg-3 col-md-2 my-1">
-                    <span class="font2">Rs 400</span>
-                </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <span class="font2 fs-6 d-block"><img src="~/img/cancelled.png" style="height: 0.8rem;" class="mb-1"
-                            alt=""> Cancelled on: 2 March, 2022</span>
-                    <span class="font2 fs-6 text-muted d-block">Ordered by Mistake</span>
+                    <label for="exampleFormControlTextarea1" class="form-label">
+                      Reply
+                     </label>
+                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
             </div>
             <div class="row border border-1 my-3 shadow p-3 text-center">
                 <div class="col-lg-1 col-md-1  my-1">
-                    <button type="button" class="btn-close shadow-none order-close" aria-label="Close"></button>
-                </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <img src="~/img/painting2.jpg" style="height: 6rem; width: 6rem;" alt="">
+                    <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
                 </div>
                 <div class="col-lg-2 col-md-3 my-1">
-                    <span class="font2 fs-5 d-block">Watercolor Painting</span>
-                    <span class="font2 fs-6 text-muted d-block">By Craft World</span>
+                    <img src="~/img/sketch1.jpg" style="height: 6rem; width: 6rem;" alt="">
+                </div>
+                <div class="col-lg-3 col-md-3  my-1">
+                    <span class="font2 fs-6 d-block">To Craftiness</span>
+                </div> 
+                <div class="col-lg-3 col-md-3 my-1">
+                    <label for="exampleFormControlTextarea1" class="form-label">
+                        Customization details
+                       </label>
+                       <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
                 <div class="col-lg-3 col-md-2 my-1">
-                    <span class="font2">Rs 500</span>
+                    <label for="exampleFormControlTextarea1" class="form-label">
+                      Reply
+                     </label>
+                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
                 </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <span class="font2 fs-6 d-block"><img src="~/img/delivered.png" style="height: 0.8rem;" class="mb-1"
-                            alt=""> Delivered on: 3 March 2022</span>
-                    <span class="font2 fs-6 text-muted d-block">Your item has been delivered</span>
-                </div>
-            </div>     
-         </div>
+            </div>
+          <a class="border-0 bg-rose float-end text-white btn-sm my-3 mx-2 px-5 py-2 font2 rounded text-decoration-none">Send</a>
+        </div>
     </section>

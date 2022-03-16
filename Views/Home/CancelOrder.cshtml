@@ -1,0 +1,17 @@
+﻿@{
+    ViewData["Title"] = "Cancel Order";
+     ViewBag.HideFooter = true;
+}
+@using Microsoft.AspNetCore.Identity
+@using StoreToDoor.Data
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+<section class="my-5 py-5">
+        <div class=" row py-5 my-5 mb-5 p-3 mx-5">
+            <div class="col-lg-12 mt-4 text-center">
+                <span class="font2 fs-5 text-red"><img src="~/img/cancelled.png" style="height: 1rem;" class="mb-1" alt=""> This
+                    order has been cancelled</span><br>
+                <a asp-controller="home" asp-action="Index" class="mt-4 btn btn-outline-danger font2">Continue Shopping</a>
+            </div>
+        </div>
+    </section>

@@ -1,11 +1,10 @@
 ﻿@{
-    ViewData["Title"] = "Your Order History";
+    ViewData["Title"] = "Cancel Your Order";
 }
 @using Microsoft.AspNetCore.Identity
 @using StoreToDoor.Data
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
-
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
     <div class="container-fluid py-0">
         <a class="navbar-brand font1  text-white fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index">
@@ -56,7 +55,7 @@
                 }
 
                 <li class="nav-item dropdown">
-                    <a class="nav-link  font2 mx-2 item-4 text-white active bottom-red" id="navbarDropdown" role="button"
+                    <a class="nav-link  font2 mx-2 item-4 text-white" id="navbarDropdown" role="button"
                        data-bs-toggle="dropdown" aria-expanded="false">
                         PROFILE
                     </a>
@@ -83,13 +82,13 @@
                     
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-green active">CART</a>
                         </li>}
                 }
                 else
                 {
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white active bottom-green">CART</a>
                         </li>
                 }
 
@@ -116,73 +115,27 @@
         </div>
     </div>
 </nav>
- <section class="my-5 py-5">
-        <div class="container">
-          <div class="text-center my-5">
-            <span class="font1 text-rose fw-bold heading  m-auto border-bottom border-dark border-3">
-            Your  Order History
-            </span>
-          </div>
-          <div class="row border border-1 my-3 shadow p-3 text-center">
-               <div class="col-lg-1 col-md-1  my-1">
-                    <button type="button" class="btn-close shadow-none order-close" aria-label="Close"></button>
+   <section class="my-5 py-5">
+        <div class="shadow-sm row py-5 my-5 mb-5 p-3 mx-5">
+            <span class="font2 fs-3 text-red">Are you sure you want to cancel this order?</span>
+            <div class="col-lg-6 mt-3">
+                    <p class="fs-5 font2">Items ordered: </p>
+                <div class="col-lg-2">
+                    <img src="~/img/Painting1.jpg" class="my-3" style="height: 6rem; width: 6rem;" alt="">
                 </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <img src="~/img/sketch1.jpg" style="height: 6rem; width: 6rem;" alt="">
-                </div>
-                <div class="col-lg-2 col-md-3  my-1">
-                    <span class="font2 fs-5 d-block">Sketch</span>
-                    <span class="font2 fs-6 text-muted d-block">By Craftiness</span>
-                </div>
-                <div class="col-lg-3 col-md-2 my-1">
-                    <span class="font2">Rs 500</span>
-                </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <span class="font2 fs-6 d-block"><img src="~/img/delivered.png" style="height: 0.8rem;" class="mb-1"
-                            alt=""> Delivery Date: 20 March 2022</span>
-                    <span class="font2 fs-6 text-muted d-block">Your item is on the way</span>
-                     <a asp-controller="home" asp-action="CancelOrderRequest" class="text-dark fs-6 font2 text-decoration-none">Cancel order ></a>
+                <div class="col-lg-6">
+                    <p class="fs-6  font2">Sold by: Handmade Creations</p>
+                   <form action="">
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">
+                           Reason For Cancellation:
+                        </label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                   </form>
+                   <a asp-controller="home" asp-action="CancelOrder" class="col-12  col-sm-6 col-lg-12 col-md-6  btn btn-danger btn-lg mt-3 fs-6  font2   shadow-none">Cancel
+                       order</a>
                 </div>
             </div>
-            <div class="row border border-1 shadow my-3 p-3 text-center">
-               <div class="col-lg-1 col-md-1  my-1">
-                    <button type="button" class="btn-close shadow-none order-close" aria-label="Close"></button>
-                </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <img src="~/img/Painting1.jpg" style="height: 6rem; width: 6rem;" alt="">
-                </div>
-                <div class="col-lg-2 col-md-3 my-1">
-                    <span class="font2 fs-5 d-block">Canvas painting</span>
-                    <span class="font2 fs-6 text-muted d-block">By Handmade Creations</span>
-                </div>
-                <div class="col-lg-3 col-md-2 my-1">
-                    <span class="font2">Rs 400</span>
-                </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <span class="font2 fs-6 d-block"><img src="~/img/cancelled.png" style="height: 0.8rem;" class="mb-1"
-                            alt=""> Cancelled on: 2 March, 2022</span>
-                    <span class="font2 fs-6 text-muted d-block">Ordered by Mistake</span>
-                </div>
-            </div>
-            <div class="row border border-1 my-3 shadow p-3 text-center">
-                <div class="col-lg-1 col-md-1  my-1">
-                    <button type="button" class="btn-close shadow-none order-close" aria-label="Close"></button>
-                </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <img src="~/img/painting2.jpg" style="height: 6rem; width: 6rem;" alt="">
-                </div>
-                <div class="col-lg-2 col-md-3 my-1">
-                    <span class="font2 fs-5 d-block">Watercolor Painting</span>
-                    <span class="font2 fs-6 text-muted d-block">By Craft World</span>
-                </div>
-                <div class="col-lg-3 col-md-2 my-1">
-                    <span class="font2">Rs 500</span>
-                </div>
-                <div class="col-lg-3 col-md-3 my-1">
-                    <span class="font2 fs-6 d-block"><img src="~/img/delivered.png" style="height: 0.8rem;" class="mb-1"
-                            alt=""> Delivered on: 3 March 2022</span>
-                    <span class="font2 fs-6 text-muted d-block">Your item has been delivered</span>
-                </div>
-            </div>     
-         </div>
+        </div>
     </section>

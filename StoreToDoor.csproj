@@ -4,7 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <UserSecretsId>aspnet-StoreToDoor-C381801F-B1CB-4B48-9029-FEF4C172E833</UserSecretsId>
+    <UserSecretsId>ef7e34ce-1c64-4a12-a4fd-a5a7c06dee6c</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
