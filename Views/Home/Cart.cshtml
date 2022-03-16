@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Cart";
 }
 @using Microsoft.AspNetCore.Identity
@@ -23,29 +22,32 @@
                     <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page"
                        asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
                 </li>
-                
-               <li class="nav-item">
+
+                <li class="nav-item">
                     <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
-                </li> 
+                </li>
                 @if (User.Identity.IsAuthenticated)
                 {
                     var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
+
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link font2  mx-2 item-3 text-white"
                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            SHOP
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
-                        </ul>
-                    </li>}
-                }else{
+                                SHOP
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
+                            </ul>
+                        </li>
+                    }
+                }
+                else
+                {
                     <li class="nav-item dropdown">
-                            <a class="nav-link font2  mx-2 item-3 text-white"
+                        <a class="nav-link font2  mx-2 item-3 text-white"
                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SHOP
                         </a>
@@ -81,17 +83,19 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
-                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
-                    <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-green active">CART</a>
-                        </li>}
+
+                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-green active">CART</a>
+                        </li>
+                    }
                 }
                 else
                 {
                     <li class="nav-item">
                         <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white active bottom-green">CART</a>
-                        </li>
+                    </li>
                 }
 
                 @if (User.Identity.IsAuthenticated)
@@ -100,14 +104,16 @@
                     {
                         <li class="nav-item">
                             <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
-                </li> }}
-                 @if (User.Identity.IsAuthenticated)
+                        </li>
+                    }          }
+                @if (User.Identity.IsAuthenticated)
                 {
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
                     {
                         <li class="nav-item">
                             <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                </li> }}
+                        </li>
+                    }          }
             </ul>
             <div class="nav-item search-box rounded-pill bg-dark ms-3">
                 <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
@@ -117,58 +123,58 @@
         </div>
     </div>
 </nav>
-  <section class="my-5 py-5">
-        <div class="container pt-2">
-            <div class="text-center my-5">
-                <span class="font1 text-green fw-bold heading  m-auto border-bottom border-dark border-3">
-                    Shopping Cart
-                </span>
-            </div>
-            <div class="py-2 table-responsive-xxl">
-                <table class=" table shadow  table-borderless table-hover">
-                    <thead>
-                        <tr class="bg-dark text-white">
-                            <th scope="col" class="fs-5 font2"></th>
-                            <th scope="col" class="fs-5 font2">Item</th>
-                            <th scope="col" class="fs-5 font2">Description</th>
-                            <th scope="col" class="fs-5 font2 ">Price</th>
-                            <th scope="col" class="fs-5 font2">QTY.</th>
-                            <th scope="col" class="fs-5 font2 ">Subtotal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>
-                                <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
-                            </td>
-                            <td>
-                                <a asp-controller="home" asp-action="Collection1"><img src="~/img/Painting1.jpg" style="height: 6rem; width: 6rem;" alt=""></a>
-                            </td>
-                            <td>
-                                <p>Canvas painting</p>
-                                <p>By Handmade Creations</p>
-                                <p>Painting on stretched canvas</p>
-                                <p>Finished edges </p>
-                                <p> Ready to hang</p>
-                                <p> 20'' h x 16'' w x .75'' d 1 lbs. 1 oz</p>
-                            </td>
-                            <td>Rs 400</td>
-                            <td>
-                                <div class="col-4 order">
-                                    <input type="number" class="form-control shadow-none" id="inputNumber">
-                                </div>
-                            </td>
-                            <td>
-                                <p>Rs 400</p>
-                            </td>
-                        </tr>
-                </table>
-                <div class="font-2 py-3 fs-5 fw-bold text-end" id="items">
-                    <a  asp-controller="home" asp-action="Address"
-                        class="border-0 bg-green text-white btn-lg my-3 mx-2 px-5 py-3 font2 rounded text-decoration-none">Proceed To Buy</a>
+<section class="my-5 py-5">
+    <div class="container pt-2">
+        <div class="text-center my-5">
+            <span class="font1 text-green fw-bold heading m-auto border-bottom border-dark border-3">
+                Shopping Cart
+            </span>
+        </div>
+        <div class="py-2 table-responsive-xxl">
+            <table class=" table shadow  table-borderless table-hover">
+                <thead>
+                    <tr class="bg-dark text-white">
+                        <th scope="col" class="fs-5 font2"></th>
+                        <th scope="col" class="fs-5 font2">Item</th>
+                        <th scope="col" class="fs-5 font2">Description</th>
+                        <th scope="col" class="fs-5 font2 ">Price</th>
+                        <th scope="col" class="fs-5 font2">QTY.</th>
+                        <th scope="col" class="fs-5 font2 ">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
+                        </td>
+                        <td>
+                            <a asp-controller="home" asp-action="Collection1"><img src="~/img/Painting1.jpg" style="height: 6rem; width: 6rem;" alt=""></a>
+                        </td>
+                        <td>
+                            <p>Canvas painting</p>
+                            <p>By Handmade Creations</p>
+                            <p>Painting on stretched canvas</p>
+                            <p>Finished edges </p>
+                            <p> Ready to hang</p>
+                            <p> 20'' h x 16'' w x .75'' d 1 lbs. 1 oz</p>
+                        </td>
+                        <td>Rs 400</td>
+                        <td>
+                            <div class="col-4 order">
+                                <input type="number" class="form-control shadow-none" id="inputNumber" min="1" value="1">
+                            </div>
+                        </td>
+                        <td>
+                            <p>Rs 400</p>
+                        </td>
+                    </tr>
+            </table>
+            <div class="font-2 py-3 fs-5 fw-bold text-end" id="items">
+                <a asp-controller="home" asp-action="Address"
+                   class="border-0 bg-green text-white btn-lg my-3 mx-2 px-5 py-3 font2 rounded text-decoration-none">Proceed To Buy</a>
 
-                    <!-- <p class="text-end">Checkout</p> -->
-                </div>
+                <!-- <p class="text-end">Checkout</p> -->
             </div>
         </div>
-    </section>
+    </div>
+</section>

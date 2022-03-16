@@ -62,7 +62,7 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
-            [Authorize(Roles = "Artist")]
+        [Authorize(Roles = "Artist")]
          public IActionResult CustomArtRequest()
         {
             return View();
@@ -218,8 +218,26 @@ namespace StoreToDoor.Controllers
         }
 
         [Authorize(Roles = "Artist")]
-        public IActionResult UploadArtwork()
+        public IActionResult UploadArtwork(HttpPostedFileBase file)
         {
+            if (file != null)
+            {
+                string pic = System.IO.Path.GetFileName(file.FileName);
+                string path = System.IO.Path.Combine(
+                                       Server.MapPath("~/images/profile"), pic);
+                // file is uploaded
+                file.SaveAs(path);
+
+                // save the image path path to the database or you can send image 
+                // directly to database
+                // in-case if you want to store byte[] ie. for DB
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    file.InputStream.CopyTo(ms);
+                    byte[] array = ms.GetBuffer();
+                }
+
+            }
             return View();
         }
         [Authorize(Roles = "Admin")]
