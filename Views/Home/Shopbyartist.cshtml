@@ -9,55 +9,61 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
     <div class="container-fluid py-0">
         <a class="navbar-brand font1  text-white fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index">
-            <img src="~/img/logo.png" class="logo-img mb-2"
-                 style="width: 3rem; height: 3rem;" alt="">Store To Door
+            <img src="~/img/logo.png" class="logo-img mb-2" style="width: 3rem; height: 3rem;" alt="">Store To Door
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 ">
                 <li class="nav-item">
-                    <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page"
-                       asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                    <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page" asp-area=""
+                        asp-controller="Home" asp-action="Index">HOME</a>
                 </li>
-                
-               <li class="nav-item">
+
+                <li class="nav-item">
                     <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
-                </li> 
+                </li>
                 @if (User.Identity.IsAuthenticated)
                 {
                     var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
+
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
-                       id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            SHOP
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
-                        </ul>
-                    </li>}
-                }else{
+                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                SHOP
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By
+                                        Medium</a></li>
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By
+                                        Artist</a></li>
+                            </ul>
+                        </li>
+                    }
+                }
+                else
+                {
                     <li class="nav-item dropdown">
-                            <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
-                       id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
+                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SHOP
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
+                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By
+                                    Medium</a></li>
+                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By
+                                    Artist</a></li>
                         </ul>
                     </li>
                 }
 
                 <li class="nav-item dropdown">
                     <a class="nav-link  font2 mx-2 item-4 text-white" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         PROFILE
                     </a>
                     <partial name="_LoginPartial" />
@@ -80,17 +86,19 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
-                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
-                    <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                        </li>}
+
+                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                        </li>
+                    }
                 }
                 else
                 {
                     <li class="nav-item">
                         <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                        </li>
+                    </li>
                 }
 
                 @if (User.Identity.IsAuthenticated)
@@ -99,19 +107,26 @@
                     {
                         <li class="nav-item">
                             <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
-                </li> }}
-                 @if (User.Identity.IsAuthenticated)
+                        </li>
+                    }
+
+                }
+                @if (User.Identity.IsAuthenticated)
                 {
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
                     {
                         <li class="nav-item">
-                            <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                </li> }}
+                            <a asp-controller="home" asp-action="ArtistProfile"
+                        class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
+                        </li>
+                    }
+
+                }
             </ul>
             <div class="nav-item search-box rounded-pill bg-dark ms-3">
                 <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
                 <a class="nav-link font2 search-btn d-flex justify-content-center align-items-center rounded-circle text-white"
-                   href="#"><img style="width:1rem; height:1rem;" src="~/img/search.png"></a>
+                    href="#"><img style="width:1rem; height:1rem;" src="~/img/search.png"></a>
             </div>
         </div>
     </div>
@@ -126,83 +141,43 @@
             </div>
             <div class="float-end ">
                 <form class="d-flex">
-                    <input class="form-control me-2 shadow-none search2" type="search" placeholder="Search for artists" aria-label="Search">
+                    <input class="form-control me-2 shadow-none search2" type="search" placeholder="Search for artists"
+                        aria-label="Search">
                     <button class="btn bg-pink-orange text-white shadow-none" type="submit">Search </button>
                 </form>
             </div>
         </div>
         <div class="row text-center">
-            <div class="col-sm-12 col-md-4 col-lg-3 col-12">
-                <div class="card  shadow p-1 mb-5 bg-body">
-                    <div class="card-body">
-                        <img src="~/img/artist1.jpg" class="rounded-circle border img-fluid" alt=""
-                             style="height: 150px; width: 150px;">
-                        <h5 class="card-title mt-2">Handmade Creations</h5>
-                        <p class="card-text fs-6">
-                            Handmade Giftings | String Art | Acrylic Signage | Glass Frames |
-                            Engagement Platter
-                        </p>
-                    </div>
-                    <div class="card-footer py-3 bg-body">
-                        <a asp-controller="home" asp-action="Artist1"
-                           class="bg-pink-orange text-white px-3 py-2 my-3 mx-2 rounded text-decoration-none font2">
-                          <img class="me-1 mb-2" style="width:1rem; height=1rem" src="~/img/user.png"> View profile
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-12 col-md-4 col-lg-3 col-12">
-                <div class="card shadow p-1 mb-5 bg-body">
-                    <div class="card-body">
-                        <img src="~/img/artist2.jpg" class="rounded-circle border img-fluid" alt=""
-                             style="height: 150px; width: 150px;">
-                        <h5 class="card-title mt-2">Craftiness</h5>
-                        <p class="card-text">
-                            Packaging Studio | Workshops | Glass Frames | Gifts | Favors | Graphics | Small
-                            Event Design
-                        </p>
-                    </div>
-                    <div class="card-footer py-3 bg-body">
-                        <a href="Artist2.html"
-                           class="bg-pink-orange text-white px-3 py-2 my-3 mx-2 rounded text-decoration-none font2">
-                           <img class="me-1 mb-2" style="width:1rem; height=1rem" src="~/img/user.png"> View profile
-                        </a>
+            @foreach (var artist in ViewBag.Artists)
+            {
+                <div class="col-sm-12 col-md-4 col-lg-3 col-12">
+                    <div class="card  shadow p-1 mb-5 bg-body">
+                        <div class="card-body">
+                            @if (artist.ProfileImage == null || artist.ProfileImage == "")
+                            {
+                                <img src="~/img/new_artist.png" class="rounded-circle border img-fluid img-cover"
+                            alt="default Profile" style="height: 150px; width: 150px;">
+                            }
+                            else
+                            {
+                                <img src="~/profiles/@(artist.ProfileImage)" class="rounded-circle border img-fluid img-cover"
+                            alt="" style="height: 150px; width: 150px;">
+                            }
+                            <h5 class="card-title mt-2">@artist.FirstName @artist.LastName</h5>
+                            <p class="card-text fs-6">
+                                Handmade Giftings | String Art | Acrylic Signage | Glass Frames |
+                                Engagement Platter
+                            </p>
+                        </div>
+                        <div class="card-footer py-3 bg-body">
+                            <a asp-controller="home" asp-action="Artist1" asp-route-id="@artist.AccountName"
+                            class="bg-pink-orange text-white px-3 py-2 my-3 mx-2 rounded text-decoration-none font2">
+                                <img class="me-1 mb-2" style="width:1rem; height=1rem" src="~/img/user.png"> View profile
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-             <div class="col-sm-12 col-md-4 col-lg-3 col-12">
-          <div class="card shadow p-1 mb-5 bg-body">
-            <div class="card-body">
-              <img src="~/img/artist3.jpg" class="rounded-circle border img-fluid" alt=""
-                style="height: 150px; width: 150px;">
-              <h5 class="card-title mt-2"> Craft World</h5>
-              <p class="card-text">Scrapbook | Frame | Explosion boxes | Cake box | Hampers | Sketch | lamps
-                J&k based.</p>
-            </div>
-            <div class="card-footer py-3 bg-body">
-              <a href="Artist3.html"
-                class="bg-pink-orange text-white px-3 py-2 my-3 mx-2 rounded text-decoration-none font2">
-                <img class="me-1 mb-2" style="width:1rem; height=1rem" src="~/img/user.png"> View profile</a>
-            </div>
-          </div>
-        </div>
-            <div class="col-sm-12 col-md-4 col-lg-3 col-12">
-                <div class="card shadow p-1 mb-5 bg-body">
-                    <div class="card-body">
-                        <img src="~/img/artist4.jpg" class="rounded-circle border img-fluid" alt=""
-                             style="height: 150px; width: 150px;">
-                        <h5 class="card-title mt-2">Craft_n_creations</h5>
-                        <p class="card-text">
-                            Your Ideas & our creativity makes the perfect gift for you and your loved one's
-                        </p>
-                    </div>
-                    <div class="card-footer py-3 bg-body">
-                        <a class="bg-pink-orange text-white px-3 py-2 my-3 mx-2 rounded text-decoration-none font2">
-                            <img class="me-1 mb-2" style="width:1rem; height=1rem" src="~/img/user.png">View profile
-                        </a>
-                    </div>
-                </div>
-            </div>
+            }
 
         </div>
     </div>

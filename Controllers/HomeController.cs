@@ -38,6 +38,10 @@ namespace StoreToDoor.Controllers
         }
         public IActionResult Shopbyartist()
         {
+            var artists = _userManager.GetUsersInRoleAsync("Artist").Result;
+
+            ViewBag.Artists = artists;
+            
             return View();
         }
 
@@ -335,7 +339,7 @@ namespace StoreToDoor.Controllers
             var item = _context.ArtistCollection.Find(id);
 
             var artist = _userManager.FindByNameAsync(item.Artist).Result;
-            
+
             ViewBag.item = item;
             ViewBag.artist = artist;
 
