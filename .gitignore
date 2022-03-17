@@ -364,3 +364,7 @@ FodyWeavers.xsd
 
 # vscode
 .vscode/
+
+# media folders
+wwwroot/uploads/
+wwwroot/profiles/

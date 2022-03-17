@@ -127,7 +127,7 @@
                 <div class="col-lg-4 col-md-6 col-sm-12 col-12 my-2">
                     <h5 class="mb-3">Shipping Address <a asp-controller="home" asp-action="Address"
                             class="ms-2 fs-5 text-orange">Change</a></h5>
-                    <p class="lh-1">Raghav Sharma</p>
+                    <p class="lh-1">@UserManager.FindByNameAsync(User.Identity.Name).Result.FirstName @UserManager.FindByNameAsync(User.Identity.Name).Result.LastName</p>
                     <p class="lh-1">Lane no. 12</p>
                     <p class="lh-1">Akhnoor</p>
                     <p class="lh-1">Jammu ,Jammu & Kashmir 180002</p>

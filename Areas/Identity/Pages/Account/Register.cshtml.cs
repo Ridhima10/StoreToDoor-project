@@ -132,13 +132,18 @@ namespace StoreToDoor.Areas.Identity.Pages.Account
             {
                 //var user = CreateUser();
                 //var user = new ApplicationUser(UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName);
+                // get a 4 digit random number
+
+                var random = new Random();
+                var randomNumber = random.Next(100000, 999999).ToString();
 
                 var user = new ApplicationUser
                 {
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
                     UserName = Input.Email,
-                    Email = Input.Email
+                    Email = Input.Email,
+                    AccountName = Input.FirstName + "_" + randomNumber,
                 };
 
                 //await _userManager.CreateAsync(user);

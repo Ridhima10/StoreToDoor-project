@@ -9,55 +9,61 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
     <div class="container-fluid py-0">
         <a class="navbar-brand font1  text-white fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index">
-            <img src="~/img/logo.png" class="logo-img mb-2"
-                 style="width: 3rem; height: 3rem;" alt="">Store To Door
+            <img src="~/img/logo.png" class="logo-img mb-2" style="width: 3rem; height: 3rem;" alt="">Store To Door
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 ">
                 <li class="nav-item">
-                    <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page"
-                       asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                    <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page" asp-area=""
+                        asp-controller="Home" asp-action="Index">HOME</a>
                 </li>
-                
-               <li class="nav-item">
+
+                <li class="nav-item">
                     <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
-                </li> 
+                </li>
                 @if (User.Identity.IsAuthenticated)
                 {
                     var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
+
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
-                       id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            SHOP
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
-                        </ul>
-                    </li>}
-                }else{
+                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                SHOP
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By
+                                        Medium</a></li>
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By
+                                        Artist</a></li>
+                            </ul>
+                        </li>
+                    }
+                }
+                else
+                {
                     <li class="nav-item dropdown">
-                            <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
-                       id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
+                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SHOP
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
+                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By
+                                    Medium</a></li>
+                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By
+                                    Artist</a></li>
                         </ul>
                     </li>
                 }
 
                 <li class="nav-item dropdown">
                     <a class="nav-link  font2 mx-2 item-4 text-white" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         PROFILE
                     </a>
                     <partial name="_LoginPartial" />
@@ -80,17 +86,19 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
-                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
-                    <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                        </li>}
+
+                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                        </li>
+                    }
                 }
                 else
                 {
                     <li class="nav-item">
                         <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                        </li>
+                    </li>
                 }
 
                 @if (User.Identity.IsAuthenticated)
@@ -99,67 +107,90 @@
                     {
                         <li class="nav-item">
                             <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
-                </li> }}
-                 @if (User.Identity.IsAuthenticated)
+                        </li>
+                    }
+
+                }
+                @if (User.Identity.IsAuthenticated)
                 {
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
                     {
                         <li class="nav-item">
-                            <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                </li> }}
+                            <a asp-controller="home" asp-action="ArtistProfile"
+                        class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
+                        </li>
+                    }
+
+                }
             </ul>
             <div class="nav-item search-box rounded-pill bg-dark ms-3">
                 <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
                 <a class="nav-link font2 search-btn d-flex justify-content-center align-items-center rounded-circle text-white"
-                   href="#"><img style="width:1rem; height:1rem;" src="~/img/search.png"></a>
+                    href="#"><img style="width:1rem; height:1rem;" src="~/img/search.png"></a>
             </div>
         </div>
     </div>
 </nav>
-   <section class="sec4 py-5" id="artist-profile">
-        <div class="container pt-3">
-            <div class="row my-5 pt-3">
-                <div class="col-lg-3 col-md-4 col-sm-6 col-10 my-2 pb-2">
-                    <img src="~/img/artist1.jpg" class="border rounded-circle img-fluid" alt=""
-                        style="height: 220px; width: 220px;">
-                </div>
-                <div class="col-lg-6 col-md-8 col-sm-12 col-12 font2 text-start position-relative">
-                    <h2 class=" font2">Handmade Creations</h2>
-                    <p class="my-3  text-wrap">Lorem ipsum, dolor sit amet consectetur
-                        adipisicing elit. Deserunt qui harum
-                        rdem repudiandae provident vitae sit quisquam nihil aliquam dolore sapiente eos rerum at amet
-                        fugit voluptate commodi deleniti. Aut voluptatibus magnam laudantium ad reprehenderit expedita?
-                        Handmade Giftings | String Art |
-                        Acrylic Signage | Resin Art | Glass Frames | Engagement
-                        Platter</p>
-                    <a asp-controller="home" asp-action="CustomArt" class="btn shadow-none btn3 border-pink text-pink me-1 px-3 rounded text-decoration-none font2">
-                        Request custom art
-                    </a>
-                </div>
+<section class="sec4 py-5" id="artist-profile">
+    <div class="container pt-3">
+        <div class="row my-5 pt-3">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-10 my-2 pb-2">
+                @if (ViewBag.Artist.ProfileImage == null || ViewBag.Artist.ProfileImage == "")
+                {
+                    <img src="~/img/artist1.jpg" class="border rounded-circle img-fluid img-cover" alt=""
+                    style="height: 220px; width: 220px;">
+                }
+                else
+                {
+                    <img src="~/profiles/@(ViewBag.Artist.ProfileImage)" class="border rounded-circle img-fluid img-cover"
+                    alt="" style="height: 220px; width: 220px;">
+                }
             </div>
-            <table class="table bg-white shadow-sm text-pink">
-                <thead>
-                    <tr>
-                        <th scope="col" class="fs-3 font2 ps-5">Collections</th>
-                    </tr>
-                </thead>
-            </table>
-            <div class="row text-center font2 mt-5">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                    <figure class="figure">
-                         <a asp-controller="home" asp-action="Collection1" ><img src="~/img/Painting1.jpg" class="figure-img img-fluid rounded"
-                                alt="..."></a>
-                        <figcaption class="figure-caption text-start">Oil painting<span class="float-end"> Rs
-                                400</span></figcaption>
-                    </figure>
-                </div>
-                <div class="col-sm-6 col-md-4 col-lg-3 col-12 ">
-                    <figure class="figure">
-                        <a href=""> <img src="~/img/sketches.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-                        <figcaption class="figure-caption text-start">Sketch<span class="float-end"> Rs 500</span>
-                        </figcaption>
-                    </figure>
-                </div>
+            <div class="col-lg-6 col-md-8 col-sm-12 col-12 font2 text-start position-relative">
+                <h2 class=" font2">@ViewBag.Artist.AccountName</h2>
+                <p class="my-3  text-wrap">Lorem ipsum, dolor sit amet consectetur
+                    adipisicing elit. Deserunt qui harum
+                    rdem repudiandae provident vitae sit quisquam nihil aliquam dolore sapiente eos rerum at amet
+                    fugit voluptate commodi deleniti. Aut voluptatibus magnam laudantium ad reprehenderit expedita?
+                    Handmade Giftings | String Art |
+                    Acrylic Signage | Resin Art | Glass Frames | Engagement
+                    Platter</p>
+                <a asp-controller="home" asp-action="CustomArt"
+                    class="btn shadow-none btn3 border-pink text-pink me-1 px-3 rounded text-decoration-none font2">
+                    Request custom art
+                </a>
             </div>
         </div>
-    </section>
+        <table class="table bg-white shadow-sm text-pink">
+            <thead>
+                <tr>
+                    <th scope="col" class="fs-3 font2 ps-5">Collections</th>
+                </tr>
+            </thead>
+        </table>
+        <div class="row text-center font2 mt-5 g-3">
+            @foreach (var item in ViewBag.ArtistCollections)
+            {
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                    <figure class="figure">
+                        <a asp-controller="home" asp-action="Collection1" asp-route-id="@item.Id"><img class="aspect-1-1 img-fluid img-cover rounded-3"
+                            src="~/uploads/@(item.File)" class="figure-img img-fluid rounded" alt="..."></a>
+                        <figcaption class="figure-caption text-start">@item.Title<span class="float-end">Rs
+                                @item.Price<span></figcaption>
+                    </figure>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .aspect-1-1 {
+        aspect-ratio: 1/1;
+    }
+
+    .img-cover {
+        object-fit: cover;
+        object-position: center;
+    }

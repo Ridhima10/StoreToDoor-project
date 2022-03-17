@@ -12,53 +12,50 @@
         <div class="col-lg-6 col-md-12 col-sm-12 col-12 pt-5">
             <div class="container pt-4 text-center">
                 <a asp-controller="home" asp-action="index" class="navbar-brand font1 text-dark fw-bold fs-1 heading">
-                    <img src="~/img/logo.png"
-                         class="me-3 mb-2" style="width: 3rem; height: 3rem;" alt="">Upload Artwork
+                    <img src="~/img/logo.png" class="me-3 mb-2" style="width: 3rem; height: 3rem;" alt="">Upload Artwork
                 </a>
             </div>
             <div class="container d-flex justify-content-center">
                 <div class="row  pt-2">
-                    @using (Html.BeginForm("FileUpload", "Home", FormMethod.Post,
-                    new { enctype = "multipart/form-data" }))
-                    {
+                    <form method="post" enctype="multipart/form-data">
                         <div>
                             <label for="name" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="name">
+                            <input type="text" class="form-control" id="name" name="Title" required>
                         </div>
                         <div class="row py-2">
                             <div>
                                 <label for="formFile" class="form-label"></label>
-                                <input class="form-control" type="file" id="formFile">
+                                <input class="form-control" type="file" id="formFile"
+                                    accept="image/png, image/jpg, image/jpeg" name="File" required>
                             </div>
                         </div>
                         <div class="row py-2">
                             <div>
                                 <label for="inputText" class="form-label">Size</label>
-                                <input type="text" class="form-control" id="inputText">
+                                <input type="text" class="form-control" id="inputText" name="Size" required>
                             </div>
                         </div>
                         <div class="row py-2">
                             <div>
                                 <label for="inputText" class="form-label">Category</label>
-                                <input type="text" class="form-control" id="inputText">
+                                <input type="text" class="form-control" id="inputText" name="Category" required>
                             </div>
                         </div>
                         <div class="row py-2">
                             <div>
                                 <label for="inputNumber" class="form-label">Price</label>
-                                <input type="number" class="form-control" id="inputNumber">
+                                <input type="number" class="form-control" id="inputNumber" name="Price" required>
                             </div>
                         </div>
-                        @*<div class="d-grid gap-2 col-sm-8 ms-auto me-auto pt-3">
-                            <a href="" class="btn btn-primary rounded-pill shadow-none">Upload</a>
-                        </div>*@
                         <div class="d-grid gap-2 col-sm-8 ms-auto me-auto pt-3">
-                            <div class="btn btn-primary rounded-pill shadow-none p-0 m-0">
-                                <input type="submit" class="btn btn-primary rounded-pill shadow-none" id="submit" value="Upload">
-                            </div>
+                            <button type="submit" class="btn btn-primary rounded-pill shadow-none">Upload</button>
                         </div>
-                    }
+                    </form>
                 </div>
+                @*
+
+
+                *@
             </div>
         </div>
     </div>

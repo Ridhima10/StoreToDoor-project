@@ -19,7 +19,7 @@
                     <img src="~/img/logo.png" class="me-3 mb-2" style="width: 3rem; height: 3rem;" alt="">Edit Profile
                 </a>
             </div>
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <div class="container" style="width: fit-content;">
                     <div class="row py-2">
                         <div>
@@ -43,11 +43,15 @@
                         </div>
                     </div>
                     <div class="row py-2">
+                        @if (ViewBag.loggedInUser.ProfileImage != "" || ViewBag.loggedInUser.ProfileImage != null)
+                        {
+
+                        }
                         <div>
                             <label for="formFile" class="form-label">
                                 Profile Picture
                             </label>
-                            <input class="form-control" type="file" id="formFile">
+                            <input class="form-control" type="file" id="formFile" name="ProfileImage">
                         </div>
                     </div>
                     <div class="row py-2">
