@@ -41,7 +41,7 @@ namespace StoreToDoor.Controllers
             var artists = _userManager.GetUsersInRoleAsync("Artist").Result;
 
             ViewBag.Artists = artists;
-            
+
             return View();
         }
 
@@ -333,6 +333,15 @@ namespace StoreToDoor.Controllers
         }
 
         [Authorize(Roles = "User")]
+        [HttpGet]
+        public IActionResult Cart()
+        {
+            ViewBag.checkout = false;
+            return View();
+        }
+
+
+        [Authorize(Roles = "User")]
         [HttpPost]
         public IActionResult Cart(int id)
         {
@@ -340,6 +349,7 @@ namespace StoreToDoor.Controllers
 
             var artist = _userManager.FindByNameAsync(item.Artist).Result;
 
+            ViewBag.checkout = true;
             ViewBag.item = item;
             ViewBag.artist = artist;
 

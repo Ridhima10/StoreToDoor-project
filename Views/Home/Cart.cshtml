@@ -140,56 +140,63 @@
                 Shopping Cart
             </span>
         </div>
-        <div class="py-2 table-responsive-xxl">
-            <table class=" table shadow  table-borderless table-hover">
-                <thead>
-                    <tr class="bg-dark text-white">
-                        <th scope="col" class="fs-5 font2"></th>
-                        <th scope="col" class="fs-5 font2">Item</th>
-                        <th scope="col" class="fs-5 font2">Description</th>
-                        <th scope="col" class="fs-5 font2 ">Price</th>
-                        <th scope="col" class="fs-5 font2">QTY.</th>
-                        <th scope="col" class="fs-5 font2 ">Subtotal</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>
-                            <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
-                        </td>
-                        <td>
-                            <a asp-controller="home" asp-action="Collection1" asp-route-id="@ViewBag.item.Id"><img
+        @if (ViewBag.checkout)
+        {
+            <div class="py-2 table-responsive-xxl">
+                <table class=" table shadow  table-borderless table-hover">
+                    <thead>
+                        <tr class="bg-dark text-white">
+                            <th scope="col" class="fs-5 font2"></th>
+                            <th scope="col" class="fs-5 font2">Item</th>
+                            <th scope="col" class="fs-5 font2">Description</th>
+                            <th scope="col" class="fs-5 font2 ">Price</th>
+                            <th scope="col" class="fs-5 font2">QTY.</th>
+                            <th scope="col" class="fs-5 font2 ">Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
+                            </td>
+                            <td>
+                                <a asp-controller="home" asp-action="Collection1" asp-route-id="@ViewBag.item.Id"><img
                                     class="img-fluid img-cover" src="~/uploads/@(ViewBag.item.File)"
                                     style="height: 6rem; width: 6rem;" alt=""></a>
-                        </td>
-                        <td>
-                            <p>@ViewBag.item.Title</p>
-                            <p>By @ViewBag.artist.AccountName</p>
-                            <p>Painting on stretched canvas</p>
-                            <p>Finished edges </p>
-                            <p> Ready to hang</p>
-                            <p> 20'' h x 16'' w x .75'' d 1 lbs. 1 oz</p>
-                        </td>
-                        <td>Rs @ViewBag.item.Price</td>
-                        <td>
-                            <div class="col-4 order">
-                                <input type="number" class="form-control shadow-none" id="inputNumber" min="1"
+                            </td>
+                            <td>
+                                <p>@ViewBag.item.Title</p>
+                                <p>By @ViewBag.artist.AccountName</p>
+                                <p>Painting on stretched canvas</p>
+                                <p>Finished edges </p>
+                                <p> Ready to hang</p>
+                                <p> 20'' h x 16'' w x .75'' d 1 lbs. 1 oz</p>
+                            </td>
+                            <td>Rs @ViewBag.item.Price</td>
+                            <td>
+                                <div class="col-4 order">
+                                    <input type="number" class="form-control shadow-none" id="inputNumber" min="1"
                                     value="1">
-                            </div>
-                        </td>
-                        <td>
-                            <p>Rs @ViewBag.item.Price</p>
-                        </td>
-                    </tr>
-            </table>
-            <div class="font-2 py-3 fs-5 fw-bold text-end" id="items">
-                <a asp-controller="home" asp-action="Address"
+                                </div>
+                            </td>
+                            <td>
+                                <p>Rs @ViewBag.item.Price</p>
+                            </td>
+                        </tr>
+                </table>
+                <div class="font-2 py-3 fs-5 fw-bold text-end" id="items">
+                    <a asp-controller="home" asp-action="Address"
                     class="border-0 bg-green text-white btn-lg my-3 mx-2 px-5 py-3 font2 rounded text-decoration-none">Proceed
-                    To Buy</a>
+                        To Buy</a>
 
-                <!-- <p class="text-end">Checkout</p> -->
+                    <!-- <p class="text-end">Checkout</p> -->
             </div>
-        </div>
+            </div>
+        }else{
+            <div class="py-2">
+                <h3>Cart Empty</h3>
+            </div>
+        }
     </div>
 </section>
 
