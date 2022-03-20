@@ -5,6 +5,7 @@
 
     @if( await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist")){
     <li><a class="dropdown-item drop2" asp-controller="home" asp-action="ArtistProfile">Artist Account</a></li>
+    
 
 
 }else if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result,"Admin"))

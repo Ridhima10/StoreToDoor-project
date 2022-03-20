@@ -104,9 +104,11 @@
                 {
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
                     {
-                        <li class="nav-item">
+                      @*  <li class="nav-item">
                             <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                </li> }}
+                </li>*@
+                  <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home" asp-action="CustomArtRequest">ART  REQUESTS</a></li>
+                    }}
             </ul>
             <div class="nav-item search-box rounded-pill bg-dark ms-3">
                 <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
@@ -150,7 +152,7 @@
             </div>
             <div class="shadow row  mt-3 mb-5 p-3 mx-5">
                 <h5 class=" text-orange">Delivery Date: 2 March 2022</h5>
-                <div class="col-lg-2">
+                @*<div class="col-lg-2">
                     <img src="~/img/Painting1.jpg" class="my-3" style="height: 6rem; width: 6rem;" alt="">
                 </div>
                 <div class="col-lg-10 mt-3">    
@@ -161,7 +163,7 @@
                     <p class="lh-1">PRICE - Rs 400 </p>
                     <p class="lh-1">Quantity:1  <a asp-controller="home" asp-action="Cart"
                         class="ms-2 fs-6 text-orange">Change</a></p>
-                </div>
+                </div>*@
             </div>
         </div>
 </section>

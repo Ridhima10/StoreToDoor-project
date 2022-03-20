@@ -115,10 +115,11 @@
                 {
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
                     {
-                        <li class="nav-item">
+                       @* <li class="nav-item">
                             <a asp-controller="home" asp-action="ArtistProfile"
                         class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                        </li>
+                        </li>*@
+                          <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home" asp-action="CustomArtRequest">ART  REQUESTS</a></li>
                     }
 
                 }
@@ -139,14 +140,14 @@
                 </span>
             </div>
             <div class="row border border-1 my-3 shadow p-3 text-center">
-                <div class="col-lg-1 col-md-1  my-1">
+              @*  <div class="col-lg-1 col-md-1  my-1">
                     <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
-                </div>
-                <div class="col-lg-2 col-md-3 my-1">
+                </div>*@
+                <div class="col-lg-3 col-md-3 my-1">
                     <img src="~/img/painting4.jpg" style="height: 6rem; width: 6rem;" alt="">
                 </div>
-                <div class="col-lg-4 col-md-3  my-1">
-                    <span class="font2 fs-6 d-block">From Dikshant Chopra</span>
+                <div class="col-lg-4 col-md-4  my-1">
+                    <span class="font2 fs-6 d-block pt-2">From Dikshant Chopra</span>
                 </div> 
                 <div class="col-lg-5 col-md-5 my-1">
                     <label for="exampleFormControlTextarea1" class="form-label">
@@ -157,14 +158,14 @@
                 </div>
             </div>
             <div class="row border border-1 my-3 shadow p-3 text-center">
-                <div class="col-lg-1 col-md-1  my-1">
+                @*<div class="col-lg-1 col-md-1  my-1">
                     <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
-                </div>
-                <div class="col-lg-2 col-md-3 my-1">
+                </div>*@
+                <div class="col-lg-3 col-md-3 my-1">
                     <img src="~/img/sketch1.jpg" style="height: 6rem; width: 6rem;" alt="">
                 </div>
-                <div class="col-lg-4 col-md-3  my-1">
-                    <span class="font2 fs-6 d-block">From Raghav Sharma</span>
+                <div class="col-lg-4 col-md-4  my-1">
+                    <span class="font2 fs-6 d-block pt-2">From Raghav Sharma</span>
                 </div> 
                 <div class="col-lg-5 col-md-5 my-1">
                     <label for="exampleFormControlTextarea1" class="form-label">

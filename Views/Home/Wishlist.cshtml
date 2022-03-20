@@ -1,5 +1,5 @@
 ﻿@{
-  ViewData["Title"] = "Wishlist";
+    ViewData["Title"] = "Wishlist";
 }
 @using Microsoft.AspNetCore.Identity
 @using StoreToDoor.Data
@@ -7,185 +7,190 @@
 @inject UserManager<ApplicationUser> UserManager
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
-  <div class="container-fluid py-0">
-    <a class="navbar-brand font1  text-white fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index">
-      <img src="~/img/logo.png" class="logo-img mb-2" style="width: 3rem; height: 3rem;" alt="">Store To Door
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 ">
-        <li class="nav-item">
-          <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page" asp-area="" asp-controller="Home"
-            asp-action="Index">HOME</a>
-        </li>
+    <div class="container-fluid py-0">
+        <a class="navbar-brand font1  text-white fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index">
+            <img src="~/img/logo.png" class="logo-img mb-2" style="width: 3rem; height: 3rem;" alt="">Store To Door
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 ">
+                <li class="nav-item">
+                    <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page" asp-area="" asp-controller="Home"
+                       asp-action="Index">HOME</a>
+                </li>
 
-        <li class="nav-item">
-          <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
-        </li>
-        @if (User.Identity.IsAuthenticated)
-        {
-          var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
+                <li class="nav-item">
+                    <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
 
-          @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
-          {
-            <li class="nav-item dropdown">
-              <a class="nav-link font2  mx-2 item-3 text-white" id="navbarDarkDropdownMenuLink" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-                SHOP
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
-              </ul>
-            </li>
-          }
-        }
-        else
-        {
-          <li class="nav-item dropdown">
-            <a class="nav-link font2  mx-2 item-3 text-white" id="navbarDarkDropdownMenuLink" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-              SHOP
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-              <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-              <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
-            </ul>
-          </li>
-        }
-
-        <li class="nav-item dropdown">
-          <a class="nav-link  font2 mx-2 item-4 text-white active bottom-red" id="navbarDropdown" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            PROFILE
-          </a>
-          <partial name="_LoginPartial" />
-          <!--  <ul class="dropdown-menu width" aria-labelledby="navbarDropdown">
-                        <li class="ms-3 font2 fs-5 pt-2">WELCOME!</li>
-                        <li class="ms-3 mb-2">To access account and manage order</li>
-                        <form class="d-flex">
-                      <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-outline-danger ms-4 me-1 px-3 mb-2">Signup</a>
-                        <a asp-area="Identity" asp-page="/Account/login" class="btn btn-outline-danger me-4 ms-1 px-3 mb-2">Login</a>
-                          <a class="btn btn-outline-danger ms-4 me-1 px-5 mb-2">Logout</a>
-                        </form>
-                         <li>
-                          <hr class="dropdown-divider">
+                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
+                    {
+                        <li class="nav-item dropdown">
+                            <a class="nav-link font2  mx-2 item-3 text-white" id="navbarDarkDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                                SHOP
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
+                            </ul>
                         </li>
-                        <li><a class="dropdown-item drop2" asp-controller="Home" asp-action="Order">Orders</a></li>
-                        <li><a class="dropdown-item drop2"  asp-controller="Home" asp-action="Wishlist">Wishlist</a></li>
-                        <li><a class="dropdown-item drop2" asp-controller="Home" asp-action="Contact">Contact Us</a></li>
-                      </ul> -->
-        </li>
-        @if (User.Identity.IsAuthenticated)
-        {
-          var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
+                    }
+                }
+                else
+                {
+                    <li class="nav-item dropdown">
+                        <a class="nav-link font2  mx-2 item-3 text-white" id="navbarDarkDropdownMenuLink" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                            SHOP
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
+                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
+                        </ul>
+                    </li>
+                }
 
-          @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
-          {
-            <li class="nav-item">
-              <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-            </li>
-          }
-        }
-        else
-        {
-          <li class="nav-item">
-            <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-          </li>
-        }
+                <li class="nav-item dropdown">
+                    <a class="nav-link  font2 mx-2 item-4 text-white active bottom-red" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        PROFILE
+                    </a>
+                    <partial name="_LoginPartial" />
+                    <!--  <ul class="dropdown-menu width" aria-labelledby="navbarDropdown">
+                                  <li class="ms-3 font2 fs-5 pt-2">WELCOME!</li>
+                                  <li class="ms-3 mb-2">To access account and manage order</li>
+                                  <form class="d-flex">
+                                <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-outline-danger ms-4 me-1 px-3 mb-2">Signup</a>
+                                  <a asp-area="Identity" asp-page="/Account/login" class="btn btn-outline-danger me-4 ms-1 px-3 mb-2">Login</a>
+                                    <a class="btn btn-outline-danger ms-4 me-1 px-5 mb-2">Logout</a>
+                                  </form>
+                                   <li>
+                                    <hr class="dropdown-divider">
+                                  </li>
+                                  <li><a class="dropdown-item drop2" asp-controller="Home" asp-action="Order">Orders</a></li>
+                                  <li><a class="dropdown-item drop2"  asp-controller="Home" asp-action="Wishlist">Wishlist</a></li>
+                                  <li><a class="dropdown-item drop2" asp-controller="Home" asp-action="Contact">Contact Us</a></li>
+                                </ul> -->
+                </li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
 
-        @if (User.Identity.IsAuthenticated)
-        {
-          @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Admin"))
-          {
-            <li class="nav-item">
-              <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
-            </li>
-          }
+                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                        </li>
+                    }
+                }
+                else
+                {
+                    <li class="nav-item">
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                    </li>
+                }
 
-        }
-        @if (User.Identity.IsAuthenticated)
-        {
-          @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
-          {
-            <li class="nav-item">
-              <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-            </li>
-          }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Admin"))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
+                        </li>
+                    }
 
-        }
-      </ul>
-      <div class="nav-item search-box rounded-pill bg-dark ms-3">
-        <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
-        <a class="nav-link font2 search-btn d-flex justify-content-center align-items-center rounded-circle text-white"
-          href="#"><img style="width:1rem; height:1rem;" src="~/img/search.png"></a>
-      </div>
+                }
+                @if (User.Identity.IsAuthenticated)
+                {
+                    @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
+                    {
+                        @*<li class="nav-item">
+                            <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
+                            </li>*@
+                        <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home" asp-action="CustomArtRequest">ART  REQUESTS</a></li>
+                    }
+
+                }
+            </ul>
+            <div class="nav-item search-box rounded-pill bg-dark ms-3">
+                <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
+                <a class="nav-link font2 search-btn d-flex justify-content-center align-items-center rounded-circle text-white"
+                   href="#"><img style="width:1rem; height:1rem;" src="~/img/search.png"></a>
+            </div>
+        </div>
     </div>
-  </div>
 </nav>
 <section class="my-5 py-5">
-  <div class="container">
-    <div class="text-center my-5">
-      <span class="font1 text-red fw-bold heading  m-auto border-bottom border-dark border-3">
-        Wishlist
-      </span>
-    </div>
-    <div class="row">
-      @if (ViewBag.ItemCount == 0)
-      {
-        <div class="col-md-12">
-          <div class="text-center">
-            <span class="font2 text-red fw-bold h2 m-auto">
-              No items in wishlist
+    <div class="container">
+        <div class="text-center my-5">
+            <span class="font1 text-red fw-bold heading  m-auto border-bottom border-dark border-3">
+                Wishlist
             </span>
-          </div>
         </div>
-      }
-      else
-      {
-        @foreach (var item in ViewBag.WishItems)
-        {
-          <div class="col-sm-6 col-md-4 col-lg-3 col-12 my-2 d-flex justify-content-center">
-            <div class="card  shadow p-3" style="max-width: 18rem;">
-              <div class="card-header">
-                <form method="post" asp-controller="Home" asp-action="DeleteWishItem">
-                  <input type="hidden" name="Id" value="@item.Id">
-                  <button class="btn-close shadow-none" type="submit"></button>
-                </form>
-                @* <button type="button" class="btn-close shadow-none"></button> *@
-
-              </div>
-              <div class="card-body">
-                <figure class="figure">
-                  <a asp-controller="home" asp-action="Collection1" asp-route-id="@item.Id"><img
-                  src="~/uploads/@(item.File)" class="figure-img img-fluid rounded img-cover" alt="..."></a>
-                  <figcaption class="figure-caption text-start">@item.Title<span class="float-end"> Rs @item.Price</span>
-                  </figcaption>
-                </figure>
-                <div class="card-footer pt-4 text-center">
-                  <form method="post" asp-controller="Home" asp-action="Cart">
-                    <input type="hidden" name="Id" value="@item.Id">
-                    <button
-                  class="btn border-0 bg-pink-orange text-white  mx-2 px-3 py-2 font2 rounded text-decoration-none"
-                  type="submit">Add to Cart</button>
-                  </form>
+        <div class="row">
+            @if (ViewBag.ItemCount == 0)
+            {
+                <div class="col-md-12">
+                    <div class="text-center">
+                        <img src="~/img/empty_wishlist.png" class="img-fluid" style="height:17rem;" alt="">
+                        <p class="font2 text-dark fw-bold h4 mt-4 m-auto">
+                            No items in wishlist
+                        </p>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        }
+            }
+            else
+            {
+                @foreach (var item in ViewBag.WishItems)
+                {
+                    <div class="col-sm-6 col-md-4 col-lg-3 col-12 my-2 d-flex justify-content-center">
+                        <div class="card  shadow p-3" style="max-width: 18rem;">
+                            <div class="card-header">
+                                <form method="post" asp-controller="Home" asp-action="DeleteWishItem">
+                                    <input type="hidden" name="Id" value="@item.Id">
+                                    <button class="btn-close shadow-none" type="submit"></button>
+                                </form>
+                                @* <button type="button" class="btn-close shadow-none"></button> *@
 
-      }
+                            </div>
+                            <div class="card-body">
+                                <figure class="figure">
+                                    <a asp-controller="home" asp-action="Collection1" asp-route-id="@item.Id">
+                                        <img src="~/uploads/@(item.File)" class="figure-img img-fluid rounded img-cover" alt="...">
+                                    </a>
+                                    <figcaption class="figure-caption text-start">
+                                        @item.Title<span class="float-end"> Rs @item.Price</span>
+                                    </figcaption>
+                                </figure>
+                                <div class="card-footer pt-4 text-center">
+                                    <form method="post" asp-controller="Home" asp-action="Cart">
+                                        <input type="hidden" name="Id" value="@item.Id">
+                                        <button class="btn border-0 bg-pink-orange text-white  mx-2 px-3 py-2 font2 rounded text-decoration-none"
+                                        type="submit">
+                                            Add to Cart
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+        </div>
     </div>
-  </div>
 </section>
 
 <style>
-  .img-cover {
-    object-fit: cover;
-    object-position: center;
-  }
+    .img-cover {
+        object-fit: cover;
+        object-position: center;
+    }
 </style>

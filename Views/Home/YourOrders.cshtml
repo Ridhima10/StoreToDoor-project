@@ -104,9 +104,11 @@
                 {
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
                     {
-                        <li class="nav-item">
+                    @*    <li class="nav-item">
                             <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                </li> }}
+                </li> *@
+                  <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home" asp-action="CustomArtRequest">ART  REQUESTS</a></li>
+                    }}
             </ul>
             <div class="nav-item search-box rounded-pill bg-dark ms-3">
                 <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
@@ -124,17 +126,17 @@
             </span>
           </div>
           <div class="row border border-1 my-3 shadow p-3 text-center">
-               <div class="col-lg-1 col-md-1  my-1">
+               @*<div class="col-lg-1 col-md-1  my-1">
                     <button type="button" class="btn-close shadow-none order-close" aria-label="Close"></button>
-                </div>
+                </div>*@
                 <div class="col-lg-3 col-md-3 my-1">
                     <img src="~/img/sketch1.jpg" style="height: 6rem; width: 6rem;" alt="">
                 </div>
-                <div class="col-lg-2 col-md-3  my-1">
+                <div class="col-lg-3 col-md-3  my-1">
                     <span class="font2 fs-5 d-block">Sketch</span>
                     <span class="font2 fs-6 text-muted d-block">By Craftiness</span>
                 </div>
-                <div class="col-lg-3 col-md-2 my-1">
+                <div class="col-lg-3 col-md-3 my-1">
                     <span class="font2">Rs 500</span>
                 </div>
                 <div class="col-lg-3 col-md-3 my-1">
@@ -145,17 +147,17 @@
                 </div>
             </div>
             <div class="row border border-1 shadow my-3 p-3 text-center">
-               <div class="col-lg-1 col-md-1  my-1">
+              @* <div class="col-lg-1 col-md-1  my-1">
                     <button type="button" class="btn-close shadow-none order-close" aria-label="Close"></button>
-                </div>
+                </div>*@
                 <div class="col-lg-3 col-md-3 my-1">
                     <img src="~/img/Painting1.jpg" style="height: 6rem; width: 6rem;" alt="">
                 </div>
-                <div class="col-lg-2 col-md-3 my-1">
+                <div class="col-lg-3 col-md-3 my-1">
                     <span class="font2 fs-5 d-block">Canvas painting</span>
                     <span class="font2 fs-6 text-muted d-block">By Handmade Creations</span>
                 </div>
-                <div class="col-lg-3 col-md-2 my-1">
+                <div class="col-lg-3 col-md-3 my-1">
                     <span class="font2">Rs 400</span>
                 </div>
                 <div class="col-lg-3 col-md-3 my-1">
@@ -165,17 +167,17 @@
                 </div>
             </div>
             <div class="row border border-1 my-3 shadow p-3 text-center">
-                <div class="col-lg-1 col-md-1  my-1">
+                @*<div class="col-lg-1 col-md-1  my-1">
                     <button type="button" class="btn-close shadow-none order-close" aria-label="Close"></button>
-                </div>
+                </div>*@
                 <div class="col-lg-3 col-md-3 my-1">
                     <img src="~/img/painting2.jpg" style="height: 6rem; width: 6rem;" alt="">
                 </div>
-                <div class="col-lg-2 col-md-3 my-1">
+                <div class="col-lg-3 col-md-3 my-1">
                     <span class="font2 fs-5 d-block">Watercolor Painting</span>
                     <span class="font2 fs-6 text-muted d-block">By Craft World</span>
                 </div>
-                <div class="col-lg-3 col-md-2 my-1">
+                <div class="col-lg-3 col-md-3 my-1">
                     <span class="font2">Rs 500</span>
                 </div>
                 <div class="col-lg-3 col-md-3 my-1">
