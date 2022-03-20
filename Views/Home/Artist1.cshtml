@@ -176,7 +176,7 @@
                         <a asp-controller="home" asp-action="Collection1" asp-route-id="@item.Id"><img class="aspect-1-1 img-fluid img-cover rounded-3"
                             src="~/uploads/@(item.File)" class="figure-img img-fluid rounded" alt="..."></a>
                         <figcaption class="figure-caption text-start">@item.Title<span class="float-end">Rs
-                                @item.Price<span></figcaption>
+                                @item.Price</span></figcaption>
                     </figure>
                 </div>
             }
@@ -194,3 +194,5 @@
         object-fit: cover;
         object-position: center;
     }
+</style>
+

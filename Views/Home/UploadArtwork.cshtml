@@ -9,53 +9,59 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section">
             <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:100vh;">
         </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 col-12 pt-5">
-            <div class="container pt-4 text-center">
+        <div class="col-lg-6 col-md-12 col-sm-12 col-12 pt-3">
+            <div class="container text-center">
                 <a asp-controller="home" asp-action="index" class="navbar-brand font1 text-dark fw-bold fs-1 heading">
                     <img src="~/img/logo.png" class="me-3 mb-2" style="width: 3rem; height: 3rem;" alt="">Upload Artwork
                 </a>
             </div>
             <div class="container d-flex justify-content-center">
-                <div class="row  pt-2">
+                <div class="row">
                     <form method="post" enctype="multipart/form-data">
-                        <div>
-                            <label for="name" class="form-label">Title</label>
-                            <input type="text" class="form-control" id="name" name="Title" required>
-                        </div>
-                        <div class="row py-2">
+                        <div class="container" style="width: fit-content;">
                             <div>
-                                <label for="formFile" class="form-label"></label>
-                                <input class="form-control" type="file" id="formFile"
-                                    accept="image/png, image/jpg, image/jpeg" name="File" required>
+                                <label for="name" class="form-label">Title</label>
+                                <input type="text" class="form-control" id="name" name="Title" required>
                             </div>
-                        </div>
-                        <div class="row py-2">
-                            <div>
-                                <label for="inputText" class="form-label">Size</label>
-                                <input type="text" class="form-control" id="inputText" name="Size" required>
+                            <div class="row py-2">
+                                <div>
+                                    <label for="formFile" class="form-label"></label>
+                                    <input class="form-control" type="file" id="formFile"
+                                           accept="image/png, image/jpg, image/jpeg" name="File" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row py-2">
-                            <div>
-                                <label for="inputText" class="form-label">Category</label>
-                                <input type="text" class="form-control" id="inputText" name="Category" required>
+                            <div class="row py-2">
+                                <div>
+                                    <label for="inputText" class="form-label">Size</label>
+                                    <input type="text" class="form-control" id="inputText" name="Size" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="row py-2">
-                            <div>
-                                <label for="inputNumber" class="form-label">Price</label>
-                                <input type="number" class="form-control" id="inputNumber" name="Price" required>
+                            <div class="row py-2">
+                                <div>
+                                    <label for="inputText" class="form-label">Category</label>
+                                    <input type="text" class="form-control" id="inputText" name="Category" required>
+                                </div>
                             </div>
-                        </div>
-                        <div class="d-grid gap-2 col-sm-8 ms-auto me-auto pt-3">
-                            <button type="submit" class="btn btn-primary rounded-pill shadow-none">Upload</button>
+                            <div class="row py-2">
+                                <div>
+                                    <label for="inputNumber" class="form-label">Price</label>
+                                    <input type="number" class="form-control" id="inputNumber" name="Price" required>
+                                </div>
+                            </div>
+                            <div class="row py-2">
+                                <div>
+                                <label for="exampleFormControlTextarea" class="form-label">
+                                    Description
+                                </label>                
+                                <textarea class="form-control" id="exampleFormControlTextarea" rows="1"></textarea>
+                                 </div>
+                            </div>
+                            <div class="d-grid gap-2 col-sm-8 ms-auto me-auto pt-3">
+                                <button type="submit" class="btn btn-primary rounded-pill shadow-none">Upload</button>
+                            </div>
                         </div>
                     </form>
                 </div>
-                @*
-
-
-                *@
             </div>
         </div>
     </div>

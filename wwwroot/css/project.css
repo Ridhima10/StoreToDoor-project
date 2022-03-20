@@ -233,7 +233,7 @@
 }
 
 .search2:focus {
-scrollbar-3dlight-color    border: 2px solid pink;
+/*scrollbar-3dlight-color */   border: 2px solid pink;
 }
 
 .error-page {
@@ -258,6 +258,10 @@ scrollbar-3dlight-color    border: 2px solid pink;
 .new-address:checked {
     background-color: var(--rose);
 }
+.text-area:focus{
+border:1px solid var(--purple);
+}
+
 @media screen and (min-width:250px) and (max-width: 450px) {
     .text-box {
         display: flex;
