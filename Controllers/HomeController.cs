@@ -54,11 +54,109 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
+
         [Authorize(Roles = "User")]
+        [HttpGet]
         public IActionResult Wishlist()
         {
+            var loggedInUser = _userManager.GetUserAsync(User).Result;
+            var wishlist = _context.Wishlist.Where(w => w.UserId == loggedInUser.Id);
+            var ItemCount = wishlist.Count();
+
+            if (ItemCount != 0)
+            {
+                // Find all items from wislist in ArtistCollection
+                var WishItems = _context.ArtistCollection.Where(a => wishlist.Any(w => w.ItemId == a.Id));
+
+                ViewBag.Wishlist = wishlist;
+                ViewBag.ItemCount = ItemCount;
+                ViewBag.WishItems = WishItems;
+
+                return View();
+            }
+
+            ViewBag.Wishlist = wishlist;
+            ViewBag.ItemCount = ItemCount;
+
             return View();
+
+
         }
+
+        [Authorize(Roles = "User")]
+        [HttpPost]
+        public IActionResult Wishlist(int id)
+        {
+            try
+            {
+                var loggedInUser = _userManager.GetUserAsync(User).Result;
+
+                var item = _context.ArtistCollection.Find(id);
+
+                var itemExist = _context.Wishlist.Where(w => w.UserId == loggedInUser.Id && w.ItemId == item.Id);
+
+
+                if (itemExist.Count() != 0)
+                {
+                    return RedirectToAction("Wishlist");
+                }
+
+                if (item == null)
+                {
+                    _logger.LogError("Item not found");
+                    return RedirectToAction("Error");
+                }
+
+                var wishItem = new Wishlist
+                {
+                    UserId = loggedInUser.Id,
+                    ItemId = item.Id
+                };
+
+                _context.Wishlist.Add(wishItem);
+                _context.SaveChanges();
+
+                _logger.LogInformation("Item added to wishlist");
+
+                return RedirectToAction("Wishlist");
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+                return RedirectToAction("Error");
+            }
+        }
+
+        [Authorize(Roles = "User")]
+        [HttpPost]
+        public IActionResult DeleteWishItem(int id)
+        {
+            try
+            {
+                var loggedInUser = _userManager.GetUserAsync(User).Result;
+                var item = _context.Wishlist.FirstOrDefault(w => w.UserId == loggedInUser.Id && w.ItemId == id);
+
+
+                if (item == null)
+                {
+                    _logger.LogError("Item not found");
+                    return RedirectToAction("Error");
+                }
+
+                _context.Wishlist.Remove(item);
+                _context.SaveChanges();
+
+                _logger.LogInformation("Item Removed from wishlist");
+
+                return RedirectToAction("Wishlist");
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+                return RedirectToAction("Error");
+            }
+        }
+
 
         [Route("/Home/Collection/{id}")]
         public IActionResult Collection1(int id)

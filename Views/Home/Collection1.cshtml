@@ -148,19 +148,16 @@
                 <p class="fs-5"> 20'' h x 16'' w x .75'' d 1 lbs. 1 oz</p>
                 <p class="fs-5 mb-4">PRICE - Rs @ViewBag.artistCollection.Price </p>
                 <div class="d-grid gap-2 col-6 mx-auto">
-                    <form method="post" aso-controller="Home" asp-action="Cart">
+                    <form method="post" asp-controller="Home" asp-action="Cart">
                         <input type="hidden" name="Id" value="@ViewBag.artistCollection.Id">
                         <button class="btn bg-pink-orange text-white  col-10 mx-auto  mx-2 rounded shadow-none font2"
                             type="submit">Add to Cart</button>
-                        @* <a asp-controller="home" asp-action="Cart"
-                            class="bg-pink-orange text-white px-5 py-2 mx-2 rounded text-decoration-none font2">
-                            Add to Cart
-                            </a> *@
                     </form>
-                    <a asp-controller="home" asp-action="Wishlist"
-                        class="bg-pink-orange  text-white py-2 mx-2 rounded text-decoration-none font2">
-                        Add to Wishlist
-                    </a>
+                    <form method="post" asp-controller="Home" asp-action="Wishlist">
+                        <input type="hidden" name="Id" value="@ViewBag.artistCollection.Id">
+                        <button class="btn bg-pink-orange text-white  col-10 mx-auto  mx-2 rounded shadow-none font2"
+                            type="submit">Add to Wishlist</button>
+                    </form>
                 </div>
             </div>
         </div>

@@ -11,6 +11,7 @@ namespace StoreToDoor.Data
         }
 
         public DbSet<ArtistCollection> ArtistCollection { get; set; }
+        public DbSet<Wishlist> Wishlist { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
