@@ -120,7 +120,6 @@
 .navbar {
     background-color: var(--ternary); /*for transparent nav*/
 }
-
 .drop1:active {
     background-color: var(--purple);
 }
@@ -302,11 +301,15 @@ border:1px solid var(--purple);
     .login-section {
         display: none;
     }
-
+    .search-box:hover,.search-box {
+        width: 12rem;
+    }
     .error-page-text, .error-page {
         text-align: center;
     }
-
+    .navbar-nav {
+        display: inline-block;
+    }
     .error-page > img {
             height: 14rem;
     }
