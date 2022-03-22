@@ -129,25 +129,27 @@
 </nav>
 <section class="my-5 py-5">
     <div class="container">
-        <div class="text-center my-5">
-            <span class="font1 text-red fw-bold heading  m-auto border-bottom border-dark border-3">
-                Wishlist
-            </span>
-        </div>
+       
         <div class="row">
             @if (ViewBag.ItemCount == 0)
             {
                 <div class="col-md-12">
-                    <div class="text-center">
-                        <img src="~/img/empty_wishlist.png" class="img-fluid" style="height:17rem;" alt="">
-                        <p class="font2 text-dark fw-bold h4 mt-4 m-auto">
-                            No items in wishlist
-                        </p>
+                    <div class="text-center py-5">
+                         <h2 class="font2 text-dark fw-bold  mt-4 m-auto">
+                           Your Wishlist is empty
+                        </h2>
+                        <img src="~/img/empty_wishlist.png" class="img-fluid py-3" style="height:17rem;" alt=""> <br>
+                        <a asp-action="Index" class=" btn btn-outline-dark btn-lg font2 ">Continue Shopping</a>
                     </div>
                 </div>
             }
             else
-            {
+            { 
+                 <div class="text-center my-5">
+                    <span class="font1 text-red fw-bold heading  m-auto border-bottom border-dark border-3">
+                         Wishlist
+                    </span>
+                </div>
                 @foreach (var item in ViewBag.WishItems)
                 {
                     <div class="col-sm-6 col-md-4 col-lg-3 col-12 my-2 d-flex justify-content-center">

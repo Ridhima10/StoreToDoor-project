@@ -135,14 +135,14 @@
     </div>
 </nav>
 <section class="my-5 py-5">
-    <div class="container pt-2">
-        <div class="text-center my-5">
+    <div class="container pt-2">   
+        @if (ViewBag.checkout)
+        {
+            <div class="text-center my-5">
             <span class="font1 text-green fw-bold heading m-auto border-bottom border-dark border-3">
                 Shopping Cart
             </span>
         </div>
-        @if (ViewBag.checkout)
-        {
             <div class="py-2 table-responsive-xxl">
                 <table class=" table shadow  table-borderless table-hover">
                     <thead>
@@ -195,7 +195,13 @@
             </div>
         }else{
             <div class="py-2">
-                <h3>Cart Empty</h3>
+               <div class="text-center py-5">
+                         <h2 class="font2 text-dark fw-bold  mt-4 m-auto">
+                           Your Cart is empty
+                        </h2>
+                        <img src="~/img/empty_wishlist.png" class="img-fluid py-3" style="height:17rem;" alt=""> <br>
+                        <a asp-action="Index" class=" btn btn-outline-dark btn-lg font2 ">Continue Shopping</a>
+                    </div>
             </div>
         }
     </div>
