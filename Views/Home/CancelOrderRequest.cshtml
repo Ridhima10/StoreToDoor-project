@@ -82,13 +82,13 @@
                     
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-green active">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-orange active">CART</a>
                         </li>}
                 }
                 else
                 {
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white active bottom-green">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white active bottom-orange">CART</a>
                         </li>
                 }
 
@@ -135,7 +135,7 @@
                         <textarea class="form-control shadow-none border-danger border-1" id="exampleFormControlTextarea1" rows="3"></textarea>
                     </div>
                    </form>
-                   <a asp-controller="home" asp-action="CancelOrder" class="col-12  col-sm-6 col-lg-12 col-md-6  btn btn-danger btn-lg mt-3 fs-6  font2   shadow-none">Cancel
+                   <a asp-controller="home" asp-action="CancelOrder" class="col-12  col-sm-6 col-lg-12 col-md-6  btn btn-danger btn-lg mt-3 fs-6  font2  all-buttons shadow-none">Cancel
                        order</a>
                 </div>
             </div>

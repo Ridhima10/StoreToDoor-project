@@ -91,7 +91,7 @@
                     {
                         <li class="nav-item">
                             <a asp-controller="home" asp-action="Cart"
-                        class="nav-link font2 mx-2 item-5 text-white bottom-green active">CART</a>
+                        class="nav-link font2 mx-2 item-5 text-white bottom-orange active">CART</a>
                         </li>
                     }
                 }
@@ -99,7 +99,7 @@
                 {
                     <li class="nav-item">
                         <a asp-controller="home" asp-action="Cart"
-                        class="nav-link font2 mx-2 item-5 text-white active bottom-green">CART</a>
+                        class="nav-link font2 mx-2 item-5 text-white active bottom-orange">CART</a>
                     </li>
                 }
 
@@ -139,7 +139,7 @@
         @if (ViewBag.checkout)
         {
             <div class="text-center my-5">
-            <span class="font1 text-green fw-bold heading m-auto border-bottom border-dark border-3">
+            <span class="font1 text-orange fw-bold heading m-auto border-bottom border-dark border-3">
                 Shopping Cart
             </span>
         </div>
@@ -187,7 +187,7 @@
                 </table>
                 <div class="font-2 py-3 fs-5 fw-bold text-end" id="items">
                     <a asp-controller="home" asp-action="Address"
-                    class="border-0 bg-green text-white btn-lg my-3 mx-2 px-5 py-3 font2 rounded text-decoration-none">Proceed
+                    class="border-0 all-buttons bg-orange text-white  my-3 mx-2 px-4 py-3 fs-6 font2 rounded text-decoration-none">Proceed
                         To Buy</a>
 
                     <!-- <p class="text-end">Checkout</p> -->
@@ -197,19 +197,19 @@
             <div class="py-2">
                <div class="text-center py-5">
                          <h2 class="font2 text-dark fw-bold  mt-4 m-auto">
-                           Your Cart is empty
+                           Your Cart is empty !
                         </h2>
                         <img src="~/img/empty_wishlist.png" class="img-fluid py-3" style="height:17rem;" alt=""> <br>
-                        <a asp-action="Index" class=" btn btn-outline-dark btn-lg font2 ">Continue Shopping</a>
+                        <a asp-action="Index" class="all-buttons btn shadow-none btn-outline-dark btn-lg font2 ">Continue Shopping</a>
                     </div>
             </div>
         }
     </div>
 </section>
 
-<style>
+@*<style>
     .img-cover {
         object-fit: cover;
         object-position: center;
     }
-</style>
+</style>*@

@@ -83,13 +83,13 @@
                     
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-green active">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-orange active">CART</a>
                         </li>}
                 }
                 else
                 {
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white active bottom-green">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white active bottom-orange">CART</a>
                         </li>
                 }
 
@@ -149,7 +149,7 @@
                     <p class="lh-1">Items: <span class="float-end">Rs 400</span> </p>
                     <p class="lh-1">Delivery: <span class="float-end">Rs 40</span></p>
                     <p class="lh-1">Total: <span class="float-end">Rs 440</span></p>
-                    <a asp-controller="home" asp-action="OrderPlaced" class="border-0 col-12 col-lg-12 col-sm-12 col-md-12 text-white bg-orange btn-lg float-end text-center mt-3 fs-6 px-5 font2  text-decoration-none shadow-none">Place
+                    <a asp-controller="home" asp-action="OrderPlaced" class="border-0 all-buttons col-12 col-lg-12 col-sm-12 col-md-12 text-white bg-orange btn-lg float-end text-center mt-3 fs-6 px-5 font2  text-decoration-none shadow-none">Place
                     order</a>
                 </div>
             </div>

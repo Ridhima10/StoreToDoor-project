@@ -83,13 +83,13 @@
                     
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-green active">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-orange active">CART</a>
                         </li>}
                 }
                 else
                 {
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white active bottom-green">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white active bottom-orange">CART</a>
                         </li>
                 }
 
@@ -150,7 +150,7 @@
                         Pay On Delivery
                     </label>
                 </div>
-            <a asp-action="ReviewOrder" class="border-0 bg-blue text-white btn-sm my-5 mx-2 px-5 py-2 font2 rounded text-decoration-none">Continue</a>
+            <a asp-action="ReviewOrder" class="border-0 all-buttons bg-blue text-white btn-sm my-5 mx-2 px-5 py-2 font2 rounded text-decoration-none">Continue</a>
              </div>
         </div>
     </section>

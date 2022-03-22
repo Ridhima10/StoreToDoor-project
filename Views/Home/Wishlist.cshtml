@@ -139,7 +139,7 @@
                            Your Wishlist is empty
                         </h2>
                         <img src="~/img/empty_wishlist.png" class="img-fluid py-3" style="height:17rem;" alt=""> <br>
-                        <a asp-action="Index" class=" btn btn-outline-dark btn-lg font2 ">Continue Shopping</a>
+                        <a asp-action="Index" class="all-buttons btn btn-outline-dark btn-lg font2 ">Continue Shopping</a>
                     </div>
                 </div>
             }
@@ -174,7 +174,7 @@
                                 <div class="card-footer pt-4 text-center">
                                     <form method="post" asp-controller="Home" asp-action="Cart">
                                         <input type="hidden" name="Id" value="@item.Id">
-                                        <button class="btn border-0 bg-pink-orange text-white  mx-2 px-3 py-2 font2 rounded text-decoration-none"
+                                        <button class="all-buttons btn border-0 bg-pink-orange text-white shadow-none mx-2 px-3 py-2 font2 rounded text-decoration-none"
                                         type="submit">
                                             Add to Cart
                                         </button>

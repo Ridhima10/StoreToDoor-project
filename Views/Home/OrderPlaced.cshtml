@@ -83,13 +83,13 @@
                     
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-green active">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white bottom-orange active">CART</a>
                         </li>}
                 }
                 else
                 {
                     <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white active bottom-green">CART</a>
+                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white active bottom-orange">CART</a>
                         </li>
                 }
 
@@ -131,7 +131,7 @@
                 </div>
                 <div class="col-lg-10 py-2">
                     <p>Delivery Date: Tuesday, 2 March</p>
-                   <a asp-controller="home" asp-action="YourOrders" class="text-dark-green text-decoration-none fs-5">Go to your orders ></a>
+                   <a asp-controller="home" asp-action="YourOrders" class="text-dark-green all-buttons text-decoration-none fs-5">Go to your orders ></a>
                 </div>
             </div>
         </div>
