@@ -50,9 +50,32 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
-        public IActionResult Painting()
+
+        // public IActionResult Painting()
+        // {
+        //     return View();
+        // }
+
+        [Route("/Home/category/{category}")]
+        public IActionResult Painting(string category)
         {
-            return View();
+            try
+            {
+                // get collections by category
+                var collections = _context.ArtistCollection.Where(x => x.Category == category);
+
+                ViewBag.Collections = collections;
+                ViewBag.Count = collections.Count();
+                return View();
+            }
+            catch (System.Exception ex)
+            {
+                _logger.LogError(ex.ToString());
+                return RedirectToAction("Error");
+            }
+
+
+
         }
 
         [Authorize(Roles = "User")]
@@ -188,21 +211,51 @@ namespace StoreToDoor.Controllers
 
             return View();
         }
+
         [Authorize(Roles = "User")]
-        public IActionResult CustomArt()
+        public IActionResult CustomArt(string artistId)
         {
+            ViewBag.ArtistId = artistId;
             return View();
         }
+
+        [Authorize(Roles = "User")]
+        [HttpPost]
+        public IActionResult CustomArt(IFormCollection formCollection, string artistId)
+        {
+            var loggedInUser = _userManager.GetUserAsync(User).Result;
+            var artRequest = new ArtRequest
+            {
+                UserId = loggedInUser.Id,
+                Description = formCollection["Description"],
+                ArtistId = formCollection["ArtistId"],
+            };
+
+            _context.ArtRequest.Add(artRequest);
+            _context.SaveChanges();
+
+            _logger.LogInformation("Art Request Added");
+
+            return RedirectToAction("YourCustomRequest");
+        }
+
         [Authorize(Roles = "Artist")]
         public IActionResult CustomArtRequest()
         {
             return View();
         }
+
         [Authorize(Roles = "User")]
         public IActionResult YourCustomRequest()
         {
+            var loggedInUser = _userManager.GetUserAsync(User).Result;
+            var artRequests = _context.ArtRequest.Where(a => a.UserId == loggedInUser.Id);
+
+            ViewBag.ArtRequests = artRequests;
+
             return View();
         }
+
         [Authorize(Roles = "User")]
         public IActionResult Payment()
         {
@@ -365,7 +418,7 @@ namespace StoreToDoor.Controllers
 
             var artistCollection = _context.ArtistCollection.Where(a => a.Artist == currentUserName).ToList();
 
-            ViewBag.ColCount=artistCollection.Count;
+            ViewBag.ColCount = artistCollection.Count;
 
             ViewBag.artistCollection = artistCollection;
 

@@ -115,11 +115,12 @@
                 {
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
                     {
-                      @*  <li class="nav-item">
+                        @* <li class="nav-item">
                             <a asp-controller="home" asp-action="ArtistProfile"
-                        class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                        </li>*@
-                          <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home" asp-action="CustomArtRequest">ART  REQUESTS</a></li>
+                            class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
+                            </li>*@
+                        <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home"
+                        asp-action="CustomArtRequest">ART REQUESTS</a></li>
                     }
 
                 }
@@ -150,9 +151,9 @@
             <div class="col-lg-6 col-md-8 col-sm-12 col-12 font2 text-start position-relative">
                 <h2 class=" font2">@ViewBag.Artist.AccountName</h2>
                 <p class="my-3  text-wrap">
-                   @ViewBag.Artist.Bio
+                    @ViewBag.Artist.Bio
                 </p>
-                <a asp-controller="home" asp-action="CustomArt"
+                <a asp-controller="home" asp-action="CustomArt" asp-route-artistId="@(ViewBag.Artist.Id)"
                     class="btn shadow-none all-buttons btn3 border-pink text-pink me-1 px-3 rounded text-decoration-none font2">
                     Request custom art
                 </a>
@@ -170,8 +171,9 @@
             {
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <figure class="figure">
-                        <a asp-controller="home" asp-action="Collection1" asp-route-id="@item.Id"><img class="aspect-1-1 img-fluid img-cover rounded-3"
-                            src="~/uploads/@(item.File)" class="figure-img img-fluid rounded" alt="..."></a>
+                        <a asp-controller="home" asp-action="Collection1" asp-route-id="@item.Id"><img
+                            class="aspect-1-1 img-fluid img-cover rounded-3" src="~/uploads/@(item.File)"
+                            class="figure-img img-fluid rounded" alt="..."></a>
                         <figcaption class="figure-caption text-start">@item.Title<span class="float-end">Rs
                                 @item.Price</span></figcaption>
                     </figure>
@@ -192,4 +194,3 @@
         object-position: center;
     }
 </style>
-

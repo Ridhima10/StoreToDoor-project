@@ -1,5 +1,5 @@
 ﻿@{
-    ViewData["Title"] = "Painting";
+  ViewData["Title"] = "Painting";
 }
 @using Microsoft.AspNetCore.Identity
 @using StoreToDoor.Data
@@ -7,61 +7,63 @@
 @inject UserManager<ApplicationUser> UserManager
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
-    <div class="container-fluid py-0">
-        <a class="navbar-brand font1  text-white fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index">
-            <img src="~/img/logo.png" class="logo-img mb-2"
-                 style="width: 3rem; height: 3rem;" alt="">Store To Door
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 ">
-                <li class="nav-item">
-                    <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page"
-                       asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
-                </li>
-                
-               <li class="nav-item">
-                    <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
-                </li> 
-                @if (User.Identity.IsAuthenticated)
-                {
-                    var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
-                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
-                    {
-                        <li class="nav-item dropdown">
-                            <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
-                       id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            SHOP
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
-                        </ul>
-                    </li>}
-                }else{
-                    <li class="nav-item dropdown">
-                            <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
-                       id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            SHOP
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
-                        </ul>
-                    </li>
-                }
+  <div class="container-fluid py-0">
+    <a class="navbar-brand font1  text-white fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index">
+      <img src="~/img/logo.png" class="logo-img mb-2" style="width: 3rem; height: 3rem;" alt="">Store To Door
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 ">
+        <li class="nav-item">
+          <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page" asp-area="" asp-controller="Home"
+            asp-action="Index">HOME</a>
+        </li>
 
-                <li class="nav-item dropdown">
-                    <a class="nav-link  font2 mx-2 item-4 text-white" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
-                        PROFILE
-                    </a>
-                    <partial name="_LoginPartial" />
-                    <!--  <ul class="dropdown-menu width" aria-labelledby="navbarDropdown">
+        <li class="nav-item">
+          <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
+        </li>
+        @if (User.Identity.IsAuthenticated)
+        {
+          var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
+
+          @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
+          {
+            <li class="nav-item dropdown">
+              <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple" id="navbarDarkDropdownMenuLink"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                SHOP
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
+                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
+              </ul>
+            </li>
+          }
+        }
+        else
+        {
+          <li class="nav-item dropdown">
+            <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple" id="navbarDarkDropdownMenuLink"
+            role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              SHOP
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+              <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
+              <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
+            </ul>
+          </li>
+        }
+
+        <li class="nav-item dropdown">
+          <a class="nav-link  font2 mx-2 item-4 text-white" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+            aria-expanded="false">
+            PROFILE
+          </a>
+          <partial name="_LoginPartial" />
+          <!--  <ul class="dropdown-menu width" aria-labelledby="navbarDropdown">
                         <li class="ms-3 font2 fs-5 pt-2">WELCOME!</li>
                         <li class="ms-3 mb-2">To access account and manage order</li>
                         <form class="d-flex">
@@ -76,85 +78,136 @@
                         <li><a class="dropdown-item drop2"  asp-controller="Home" asp-action="Wishlist">Wishlist</a></li>
                         <li><a class="dropdown-item drop2" asp-controller="Home" asp-action="Contact">Contact Us</a></li>
                       </ul> -->
-                </li>
-                @if (User.Identity.IsAuthenticated)
-                {
-                    var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
-                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
-                    <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                        </li>}
-                }
-                else
-                {
-                    <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                        </li>
-                }
+        </li>
+        @if (User.Identity.IsAuthenticated)
+        {
+          var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
 
-                @if (User.Identity.IsAuthenticated)
-                {
-                    @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Admin"))
-                    {
-                        <li class="nav-item">
-                            <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
-                </li> }}
-                 @if (User.Identity.IsAuthenticated)
-                {
-                    @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
-                    {
-                    @*    <li class="nav-item">
-                            <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                </li>*@
-                  <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home" asp-action="CustomArtRequest">ART  REQUESTS</a></li>
-                    }}
-            </ul>
-            <div class="nav-item search-box rounded-pill bg-dark ms-3">
-                <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
-                <a class="nav-link font2 search-btn d-flex justify-content-center align-items-center rounded-circle text-white"
-                   href="#"><img style="width:1rem; height:1rem;" src="~/img/search.png"></a>
-            </div>
-        </div>
+          @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
+          {
+            <li class="nav-item">
+              <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+            </li>
+          }
+        }
+        else
+        {
+          <li class="nav-item">
+            <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+          </li>
+        }
+
+        @if (User.Identity.IsAuthenticated)
+        {
+          @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Admin"))
+          {
+            <li class="nav-item">
+              <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
+            </li>
+          }
+
+        }
+        @if (User.Identity.IsAuthenticated)
+        {
+          @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
+          {
+            @* <li class="nav-item">
+              <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
+              </li>*@
+            <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home" asp-action="CustomArtRequest">ART
+                REQUESTS</a></li>
+          }
+
+        }
+      </ul>
+      <div class="nav-item search-box rounded-pill bg-dark ms-3">
+        <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
+        <a class="nav-link font2 search-btn d-flex justify-content-center align-items-center rounded-circle text-white"
+          href="#"><img style="width:1rem; height:1rem;" src="~/img/search.png"></a>
+      </div>
     </div>
+  </div>
 </nav>
-   <section class="my-5 py-5">
-    <div class="container pt-2">
-      <div class="text-center my-5">
-        <span class="font1 text-purple fw-bold heading  m-auto border-bottom border-dark border-3">
-          Paintings
-        </span>
+<section class="my-5 py-5">
+  <div class="container pt-2">
+    <div class="text-center my-5">
+      <span class="font1 text-purple fw-bold heading  m-auto border-bottom border-dark border-3">
+        Paintings
+      </span>
+    </div>
+    @* <div class="row text-center font2 mt-5">
+      <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+      <figure class="figure">
+      <a asp-controller="home" asp-action="Collection1"><img src="~/img/Painting1.jpg"
+      class="figure-img img-fluid rounded" alt="..."></a>
+      <figcaption class="figure-caption text-start">Oil painting<span class="float-end"> Rs
+      400</span></figcaption>
+      </figure>
       </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+      <figure class="figure">
+      <a><img src="~/img/painting4.jpg" class="figure-img img-fluid rounded" alt="..."></a>
+      <figcaption class="figure-caption text-start">Spray Painting<span class="float-end"> Rs 500</span>
+      </figcaption>
+      </figure>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+      <figure class="figure">
+      <a><img src="~/img/painting3.jpg" class="figure-img img-fluid rounded" alt="..."></a>
+      <figcaption class="figure-caption text-start">Painting<span class="float-end"> Rs 700</span>
+      </figcaption>
+      </figure>
+      </div>
+      <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+      <figure class="figure">
+      <a><img src="~/img/painting2.jpg" class="figure-img img-fluid rounded" alt="..."></a>
+      <figcaption class="figure-caption text-start">Watercolor Painting<span class="float-end"> Rs 500</span>
+      </figcaption>
+      </figure>
+      </div>
+      </div> *@
+
+    @if (ViewBag.Count == 0)
+    {
+      <h3>No Art in this Category</h3>
+    }
+    else
+    {
       <div class="row text-center font2 mt-5">
-        <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+        @foreach (var item in ViewBag.Collections)
+        {
+          <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+            <figure class="figure">
+              <a asp-controller="home" asp-action="Collection1" asp-route-id="@item.Id"><img src="~/uploads/@(item.File)"
+              class="figure-img img-fluid rounded" alt="..."></a>
+              <figcaption class="figure-caption text-start">@item.Title<span class="float-end"> Rs
+                  @item.Price</span>
+              </figcaption>
+            </figure>
+          </div>
+        }
+        @* <div class="col-sm-6 col-md-4 col-lg-3 col-12">
           <figure class="figure">
-            <a asp-controller="home" asp-action="Collection1"><img src="~/img/Painting1.jpg" class="figure-img img-fluid rounded"
-                alt="..."></a>
-            <figcaption class="figure-caption text-start">Oil painting<span class="float-end"> Rs
-                400</span></figcaption>
+          <a><img src="~/img/painting4.jpg" class="figure-img img-fluid rounded" alt="..."></a>
+          <figcaption class="figure-caption text-start">Spray Painting<span class="float-end"> Rs 500</span>
+          </figcaption>
           </figure>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3 col-12">
           <figure class="figure">
-            <a><img src="~/img/painting4.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-            <figcaption class="figure-caption text-start">Spray Painting<span class="float-end"> Rs 500</span>
-            </figcaption>
+          <a><img src="~/img/painting3.jpg" class="figure-img img-fluid rounded" alt="..."></a>
+          <figcaption class="figure-caption text-start">Painting<span class="float-end"> Rs 700</span>
+          </figcaption>
           </figure>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3 col-12">
+          </div>
+          <div class="col-sm-6 col-md-4 col-lg-3 col-12">
           <figure class="figure">
-            <a><img src="~/img/painting3.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-            <figcaption class="figure-caption text-start">Painting<span class="float-end"> Rs 700</span>
-            </figcaption>
+          <a><img src="~/img/painting2.jpg" class="figure-img img-fluid rounded" alt="..."></a>
+          <figcaption class="figure-caption text-start">Watercolor Painting<span class="float-end"> Rs 500</span>
+          </figcaption>
           </figure>
-        </div>
-        <div class="col-sm-6 col-md-4 col-lg-3 col-12">
-          <figure class="figure">
-            <a><img src="~/img/painting2.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-            <figcaption class="figure-caption text-start">Watercolor Painting<span class="float-end"> Rs 500</span>
-            </figcaption>
-          </figure>
-        </div>
+          </div> *@
       </div>
-      </div>
-  </section>
+    }
+  </div>
+</section>

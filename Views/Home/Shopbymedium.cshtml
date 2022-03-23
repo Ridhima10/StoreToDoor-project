@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Shop By Medium";
 }
 @using Microsoft.AspNetCore.Identity
@@ -10,55 +9,61 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top p-md-3 ">
     <div class="container-fluid py-0">
         <a class="navbar-brand font1  text-white fs-1 heading" asp-area="" asp-controller="Home" asp-action="Index">
-            <img src="~/img/logo.png" class="logo-img mb-2"
-                 style="width: 3rem; height: 3rem;" alt="">Store To Door
+            <img src="~/img/logo.png" class="logo-img mb-2" style="width: 3rem; height: 3rem;" alt="">Store To Door
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto  mb-2 mb-lg-0 ">
                 <li class="nav-item">
-                    <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page"
-                       asp-area="" asp-controller="Home" asp-action="Index">HOME</a>
+                    <a class="nav-link font2  mx-2 item-1 text-white" aria-current="page" asp-area=""
+                        asp-controller="Home" asp-action="Index">HOME</a>
                 </li>
-                
-               <li class="nav-item">
+
+                <li class="nav-item">
                     <a class="nav-link font2 mx-2 item-2 text-white" asp-controller="home" asp-action="About">ABOUT</a>
-                </li> 
+                </li>
                 @if (User.Identity.IsAuthenticated)
                 {
                     var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
+
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
                     {
                         <li class="nav-item dropdown">
                             <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
-                       id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            SHOP
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
-                        </ul>
-                    </li>}
-                }else{
+                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                SHOP
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By
+                                        Medium</a></li>
+                                <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By
+                                        Artist</a></li>
+                            </ul>
+                        </li>
+                    }
+                }
+                else
+                {
                     <li class="nav-item dropdown">
-                            <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
-                       id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link font2  mx-2 item-3 text-white active bottom-purple"
+                        id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SHOP
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By Medium</a></li>
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By Artist</a></li>
+                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By
+                                    Medium</a></li>
+                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By
+                                    Artist</a></li>
                         </ul>
                     </li>
                 }
 
                 <li class="nav-item dropdown">
                     <a class="nav-link  font2 mx-2 item-4 text-white" id="navbarDropdown" role="button"
-                       data-bs-toggle="dropdown" aria-expanded="false">
+                        data-bs-toggle="dropdown" aria-expanded="false">
                         PROFILE
                     </a>
                     <partial name="_LoginPartial" />
@@ -81,17 +86,19 @@
                 @if (User.Identity.IsAuthenticated)
                 {
                     var loggedInUser = await UserManager.FindByNameAsync(User.Identity.Name);
-                    
-                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User)){
-                    <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                        </li>}
+
+                    @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
+                    {
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                        </li>
+                    }
                 }
                 else
                 {
                     <li class="nav-item">
                         <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                        </li>
+                    </li>
                 }
 
                 @if (User.Identity.IsAuthenticated)
@@ -100,59 +107,72 @@
                     {
                         <li class="nav-item">
                             <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
-                </li> }}
-                 @if (User.Identity.IsAuthenticated)
+                        </li>
+                    }
+
+                }
+                @if (User.Identity.IsAuthenticated)
                 {
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
                     {
-                     @*   <li class="nav-item">
-                            <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                </li>*@
-                  <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home" asp-action="CustomArtRequest">ART  REQUESTS</a></li>
-                    }}
+                        @* <li class="nav-item">
+                            <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6
+                            text-white">ARTIST</a>
+                            </li>*@
+                        <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home"
+                        asp-action="CustomArtRequest">ART REQUESTS</a></li>
+                    }
+
+                }
             </ul>
             <div class="nav-item search-box rounded-pill bg-dark ms-3">
                 <input type="text" class="search-txt float-start fs-6 text-white" placeholder="search here..">
                 <a class="nav-link font2 search-btn d-flex justify-content-center align-items-center rounded-circle text-white"
-                   href="#"><img style="width:1rem; height:1rem;" src="~/img/search.png"></a>
+                    href="#"><img style="width:1rem; height:1rem;" src="~/img/search.png"></a>
             </div>
         </div>
     </div>
 </nav>
-    <section class="sec3 py-5" id="medium">
-        <div class="container pt-5">
-            <div class="text-center my-5">
-                <span class="font1 text-purple fw-bold heading  m-auto border-bottom border-dark border-3">Shop By
-                    Medium
-                </span>
-            </div>
-            <div class="row text-center font2 mb-5 pb-3">
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a  asp-controller="home" asp-action="Painting"> <img class="img-fluid" src="~/img/painting.jpg" alt=""></a>
-                    <p class="text-center  py-3 fs-4">Paintings</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/drawing.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">Drawings</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/origami.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">Origami</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/string_art.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">String Art</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/sketches.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4">Sketches</p>
-                </div>
-                <div class="col-12 col-sm-6 col-md-4 col-lg-2">
-                    <a href=""> <img class="img-fluid" src="~/img/room_decor.jpg" alt=""></a>
-                    <p class="text-center py-3 fs-4 ">Room Decor</p>
-                </div>
-            </div>
-            <!-- <div class="row text-center font2">
-            </div> -->
+
+<section class="sec3 py-5" id="medium">
+    <div class="container pt-5">
+        <div class="text-center my-5">
+            <span class="font1 text-purple fw-bold heading  m-auto border-bottom border-dark border-3">Shop By Medium
+            </span>
         </div>
-    </section>
+        <div class="row text-center font2 mb-5 pb-3">
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                <a asp-controller="home" asp-action="Painting" asp-route-category="Painting"> <img class="img-fluid"
+                        src="~/img/painting.jpg" alt=""></a>
+                <p class="text-center  py-3 fs-4">Paintings</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                <a asp-controller="home" asp-action="Painting" asp-route-category="Drawing"> <img class="img-fluid"
+                        src="~/img/drawing.jpg" alt=""></a>
+                <p class="text-center py-3 fs-4">Drawing</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                <a asp-controller="home" asp-action="Painting" asp-route-category="Origami"> <img class="img-fluid"
+                        src="~/img/origami.jpg" alt=""></a>
+                <p class="text-center py-3 fs-4">Origami</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                <a asp-controller="home" asp-action="Painting" asp-route-category="String-Art"> <img class="img-fluid"
+                        src="~/img/string_art.jpg" alt=""></a>
+                <p class="text-center py-3 fs-4">String-Art</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                <a asp-controller="home" asp-action="Painting" asp-route-category="Sketch"> <img class="img-fluid"
+                        src="~/img/sketches.jpg" alt=""></a>
+                <p class="text-center py-3 fs-4">Sketch</p>
+            </div>
+            <div class="col-12 col-sm-6 col-md-4 col-lg-2">
+                <a asp-controller="home" asp-action="Painting" asp-route-category="Room-Decor"> <img class="img-fluid"
+                        src="~/img/room_decor.jpg" alt=""></a>
+                <p class="text-center py-3 fs-4 ">Room-Decor</p>
+            </div>
+        </div>
+        <!-- <div class="row text-center font2">
+            </div> -->
+    </div>
+</section>
