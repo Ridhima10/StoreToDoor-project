@@ -14,5 +14,7 @@ namespace StoreToDoor.Data
         public int Price { get; set; }
 
         public string? Artist { get; set; }
+
+        public string? Description { get; set; }
     }
 }
