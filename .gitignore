@@ -368,3 +368,5 @@ FodyWeavers.xsd
 # media folders
 wwwroot/uploads/
 wwwroot/profiles/
+
+appsettings.Development.json
