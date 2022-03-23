@@ -370,3 +370,4 @@ wwwroot/uploads/
 wwwroot/profiles/
 
 appsettings.Development.json
+appsettings.json

@@ -365,6 +365,8 @@ namespace StoreToDoor.Controllers
 
             var artistCollection = _context.ArtistCollection.Where(a => a.Artist == currentUserName).ToList();
 
+            ViewBag.ColCount=artistCollection.Count;
+
             ViewBag.artistCollection = artistCollection;
 
             return View();
@@ -407,6 +409,7 @@ namespace StoreToDoor.Controllers
                     Category = formFile.Category,
                     Price = formFile.Price,
                     Artist = User.Identity.Name,
+                    Description = formFile.Description,
                 };
 
                 _context.ArtistCollection.Add(artistCollection);
