@@ -149,13 +149,9 @@
             </div>
             <div class="col-lg-6 col-md-8 col-sm-12 col-12 font2 text-start position-relative">
                 <h2 class=" font2">@ViewBag.Artist.AccountName</h2>
-                <p class="my-3  text-wrap">Lorem ipsum, dolor sit amet consectetur
-                    adipisicing elit. Deserunt qui harum
-                    rdem repudiandae provident vitae sit quisquam nihil aliquam dolore sapiente eos rerum at amet
-                    fugit voluptate commodi deleniti. Aut voluptatibus magnam laudantium ad reprehenderit expedita?
-                    Handmade Giftings | String Art |
-                    Acrylic Signage | Resin Art | Glass Frames | Engagement
-                    Platter</p>
+                <p class="my-3  text-wrap">
+                   @ViewBag.Artist.Bio
+                </p>
                 <a asp-controller="home" asp-action="CustomArt"
                     class="btn shadow-none all-buttons btn3 border-pink text-pink me-1 px-3 rounded text-decoration-none font2">
                     Request custom art
