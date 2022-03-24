@@ -144,10 +144,10 @@
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 font2 text-center">
                 <h2>@ViewBag.artistCollection.Title</h2>
                 <p class="ps-4">By @ViewBag.artist.AccountName</p>
-                <p class="mt-2 fs-5">Painting on stretched canvas</p>
-                <p class="mt-2 fs-5">Finished edges </p>
-                <p class="mt-2 fs-5"> Ready to hang</p>
-                <p class="fs-5"> 20'' h x 16'' w x .75'' d 1 lbs. 1 oz</p>
+                <p class="mt-2 fs-5">@ViewBag.artistCollection.Description</p>
+                @* <p class="mt-2 fs-5">Finished edges </p>
+                    <p class="mt-2 fs-5"> Ready to hang</p> *@
+                <p class="fs-5">@ViewBag.artistCollection.Size</p>
                 <p class="fs-5 mb-4">PRICE - Rs @ViewBag.artistCollection.Price </p>
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <form method="post" asp-controller="Home" asp-action="Cart">
