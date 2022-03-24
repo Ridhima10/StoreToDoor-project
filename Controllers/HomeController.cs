@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using StoreToDoor.Data;
 using StoreToDoor.Models;
 using System.Diagnostics;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 
 namespace StoreToDoor.Controllers
 {
@@ -12,12 +14,14 @@ namespace StoreToDoor.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ApplicationDbContext _context;
+        private readonly IConfiguration _configuration;
 
-        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger, UserManager<ApplicationUser> userManager, ApplicationDbContext context, IConfiguration configuration)
         {
             _logger = logger;
             _userManager = userManager;
             _context = context;
+            _configuration = configuration;
         }
 
         public IActionResult Index()
@@ -364,20 +368,26 @@ namespace StoreToDoor.Controllers
 
                 if (artist.ProfileImage != null)
                 {
+                    Account account = new Account(
+                        _configuration["AccountSettings:CloudName"],
+                        _configuration["AccountSettings:ApiKey"],
+                        _configuration["AccountSettings:ApiSecret"]
 
-                    var fileName = Guid.NewGuid().ToString() + "_" + artist.ProfileImage.FileName;
-                    var filepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "profiles", fileName);
+                    );
 
-                    // Check if folder "profiles" exists in wwwroot if not create it
-                    if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "profiles")))
+                    Cloudinary cloudinary = new Cloudinary(account);
+                    cloudinary.Api.Secure = true;
+
+                    var uploadsparams = new ImageUploadParams()
                     {
-                        Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "profiles"));
-                    }
+                        File = new FileDescription(artist.ProfileImage.FileName, artist.ProfileImage.OpenReadStream())
+                    };
 
-                    artist.ProfileImage.CopyTo(new FileStream(filepath, FileMode.Create));
+                    var uploadResponse = cloudinary.Upload(uploadsparams);
 
-                    // Save Image to Database
-                    loggedInUser.ProfileImage = fileName;
+                    _logger.LogInformation("Image Uploaded Successfully");
+
+                    loggedInUser.ProfileImage = uploadResponse.SecureUrl.ToString();
                 }
 
                 loggedInUser.AccountName = artist.AccountName;
@@ -439,25 +449,29 @@ namespace StoreToDoor.Controllers
         {
             try
             {
-                var fileName = Guid.NewGuid().ToString() + "_" + formFile.File.FileName;
+                Account account = new Account(
+                    _configuration["AccountSettings:CloudName"],
+                    _configuration["AccountSettings:ApiKey"],
+                    _configuration["AccountSettings:ApiSecret"]
 
-                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads", fileName);
+                );
 
-                // check if folder "uploads" exists in wwwroot if not create it
-                if (!Directory.Exists(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads")))
+                Cloudinary cloudinary = new Cloudinary(account);
+                cloudinary.Api.Secure = true;
+
+                var uploadsparams = new ImageUploadParams()
                 {
-                    Directory.CreateDirectory(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "uploads"));
-                }
+                    File = new FileDescription(formFile.File.FileName, formFile.File.OpenReadStream())
+                };
 
-                using (var stream = new FileStream(filePath, FileMode.Create))
-                {
-                    formFile.File.CopyTo(stream);
-                }
+                var uploadResponse = cloudinary.Upload(uploadsparams);
+
+                _logger.LogInformation("Image Uploaded Successfully");
 
                 ArtistCollection artistCollection = new ArtistCollection()
                 {
                     Title = formFile.Title,
-                    File = fileName,
+                    File = uploadResponse.SecureUrl.ToString(),
                     Size = formFile.Size,
                     Category = formFile.Category,
                     Price = formFile.Price,

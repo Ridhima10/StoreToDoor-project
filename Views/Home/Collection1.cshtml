@@ -117,9 +117,10 @@
                     {
                         @*<li class="nav-item">
                             <a asp-controller="home" asp-action="ArtistProfile"
-                        class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                        </li>*@
-                          <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home" asp-action="CustomArtRequest">ART  REQUESTS</a></li>
+                            class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
+                            </li>*@
+                        <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home"
+                        asp-action="CustomArtRequest">ART REQUESTS</a></li>
                     }
 
                 }
@@ -137,7 +138,7 @@
         <div class="row mt-5 pt-4">
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 d-flex justify-content-center align-items-center">
                 <div class="container d-flex justify-content-center pb-3">
-                    <img src="~/uploads/@(ViewBag.artistCollection.File)" class="img-fluid" alt="">
+                    <img src="@(ViewBag.artistCollection.File)" class="img-fluid" alt="">
                 </div>
             </div>
             <div class="col-lg-6 col-md-12 col-sm-12 col-12 font2 text-center">
@@ -151,12 +152,14 @@
                 <div class="d-grid gap-2 col-6 mx-auto">
                     <form method="post" asp-controller="Home" asp-action="Cart">
                         <input type="hidden" name="Id" value="@ViewBag.artistCollection.Id">
-                        <button class="btn all-buttons bg-pink-orange text-white  col-10 mx-auto  mx-2 rounded shadow-none font2"
+                        <button
+                            class="btn all-buttons bg-pink-orange text-white  col-10 mx-auto  mx-2 rounded shadow-none font2"
                             type="submit">Add to Cart</button>
                     </form>
                     <form method="post" asp-controller="Home" asp-action="Wishlist">
                         <input type="hidden" name="Id" value="@ViewBag.artistCollection.Id">
-                        <button class="btn all-buttons bg-pink-orange text-white  col-10 mx-auto  mx-2 rounded shadow-none font2"
+                        <button
+                            class="btn all-buttons bg-pink-orange text-white  col-10 mx-auto  mx-2 rounded shadow-none font2"
                             type="submit">Add to Wishlist</button>
                     </form>
                 </div>

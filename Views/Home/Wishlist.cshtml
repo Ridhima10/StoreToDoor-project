@@ -165,7 +165,7 @@
                             <div class="card-body">
                                 <figure class="figure">
                                     <a asp-controller="home" asp-action="Collection1" asp-route-id="@item.Id">
-                                        <img src="~/uploads/@(item.File)" class="figure-img img-fluid rounded img-cover" alt="...">
+                                        <img src="@(item.File)" class="figure-img img-fluid rounded img-cover" alt="...">
                                     </a>
                                     <figcaption class="figure-caption text-start">
                                         @item.Title<span class="float-end"> Rs @item.Price</span>

@@ -144,8 +144,8 @@
                 }
                 else
                 {
-                    <img src="~/profiles/@(ViewBag.Artist.ProfileImage)" class="border rounded-circle img-fluid img-cover"
-                    alt="" style="height: 220px; width: 220px;">
+                    <img src="@(ViewBag.Artist.ProfileImage)" class="border rounded-circle img-fluid img-cover" alt=""
+                    style="height: 220px; width: 220px;">
                 }
             </div>
             <div class="col-lg-6 col-md-8 col-sm-12 col-12 font2 text-start position-relative">
@@ -172,7 +172,7 @@
                 <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                     <figure class="figure">
                         <a asp-controller="home" asp-action="Collection1" asp-route-id="@item.Id"><img
-                            class="aspect-1-1 img-fluid img-cover rounded-3" src="~/uploads/@(item.File)"
+                            class="aspect-1-1 img-fluid img-cover rounded-3" src="@(item.File)"
                             class="figure-img img-fluid rounded" alt="..."></a>
                         <figcaption class="figure-caption text-start">@item.Title<span class="float-end">Rs
                                 @item.Price</span></figcaption>

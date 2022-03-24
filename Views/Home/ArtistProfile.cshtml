@@ -143,7 +143,7 @@
                 }
                 else
                 {
-                    <img src="~/profiles/@(ViewBag.loggedInUser.ProfileImage)"
+                    <img src="@(ViewBag.loggedInUser.ProfileImage)"
                     class="border rounded-circle img-fluid img-cover" alt="" style="height: 220px; width: 220px;">
                 }
             </div>
@@ -195,7 +195,7 @@
                     <div class="col-12 col-lg-4 col-md-6 ">
                         <div class="card shadow rounded-3">
                         <img class="aspect-16-9 img-fluid img-cover rounded-top rounded-3"
-                        src="~/uploads/@(collection.File)" class="card-img-top" alt="Fissure in Sandstone" />
+                        src="@(collection.File)" class="card-img-top" alt="Fissure in Sandstone" />
                         <div class="card-body">
                             <h5 class="card-title text-pink">@collection.Title</h5>
                             <p class="card-text d-flex flex-column">
