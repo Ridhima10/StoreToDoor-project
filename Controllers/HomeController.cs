@@ -380,7 +380,8 @@ namespace StoreToDoor.Controllers
 
                     var uploadsparams = new ImageUploadParams()
                     {
-                        File = new FileDescription(artist.ProfileImage.FileName, artist.ProfileImage.OpenReadStream())
+                        File = new FileDescription(artist.ProfileImage.FileName, artist.ProfileImage.OpenReadStream()),
+                        Folder = "profile"
                     };
 
                     var uploadResponse = cloudinary.Upload(uploadsparams);
@@ -461,7 +462,8 @@ namespace StoreToDoor.Controllers
 
                 var uploadsparams = new ImageUploadParams()
                 {
-                    File = new FileDescription(formFile.File.FileName, formFile.File.OpenReadStream())
+                    File = new FileDescription(formFile.File.FileName, formFile.File.OpenReadStream()),
+                    Folder = "artwork"
                 };
 
                 var uploadResponse = cloudinary.Upload(uploadsparams);
