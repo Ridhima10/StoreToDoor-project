@@ -226,9 +226,7 @@ new-address:checked {
   object-fit: cover;
   object-position: center;
 }
- .navbar-nav {
-    display: inline-block;
-  }
+ 
 @media screen and (min-width: 250px) and (max-width: 450px) {
   .text-box {
     display: flex;
@@ -274,6 +272,9 @@ new-address:checked {
   }
   .order-close {
     float: left;
+  }
+  .navbar-nav {
+    display: inline-block;
   }
 }
 @media screen and (min-width: 450px) and (max-width: 750px) {
@@ -331,10 +332,6 @@ new-address:checked {
   .login-width {
     width: 80%;
   }
-   /* .search-box:hover,
-  .search-box {
-    width: 12rem;
-  } */
   .error-page-text,
   .error-page {
     text-align: center;
