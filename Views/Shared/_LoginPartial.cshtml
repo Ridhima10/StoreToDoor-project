@@ -9,14 +9,14 @@
     {
         <li class="ms-3 font2 fs-5 pt-2">WELCOME!</li>
         <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
+            <a class="nav-link mx-3 text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">@User.Identity?.Name!</a>
         </li>
         <partial name="_RolePartial" />
 
 
         <li class="nav-item">
             <form class="form-inline text-center" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                <button type="submit" class="ms-3 my-2 nav-link btn btn-outline-danger btn-link all-buttons text-dark">Logout</button>
+                <button type="submit" class="ms-3 my-2 px-2 py-1 nav-link btn btn-outline-danger btn-link all-buttons text-dark">Logout</button>
             </form>
         </li>
     }
@@ -26,7 +26,7 @@
      
 
         <li class="ms-3 font2 fs-5 pt-2">WELCOME!</li>
-        <li class="ms-3 mb-2">To access account and manage order</li>
+        <li class="mx-3 mb-2">To access account and manage order</li>
         <form class="d-flex">
             <a asp-area="Identity" asp-page="/Account/Register" class="btn all-buttons btn-outline-danger ms-4 me-1 px-3 mb-2">Signup</a>
             <a asp-area="Identity" asp-page="/Account/login" class="btn all-buttons btn-outline-danger me-4 ms-1 px-3 mb-2">Login</a>

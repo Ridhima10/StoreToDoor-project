@@ -13,9 +13,9 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section ">
                 <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:100vh;">
             </div>
-            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mt-5 pt-5">
+            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-5 pt-5">
                 <div class="container pt-4 text-center">
-                    <a  asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand font1 text-dark fw-bold fs-1 heading">
+                    <a  asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand font1 text-dark fw-bold  heading1">
                         <img  src="~/img/logo.png"
                              style="width: 3rem; height: 3rem;" alt=""> Store To Door
                     </a>
@@ -23,11 +23,12 @@
                 <div class="container">
                     <div class="p-4 pb-1 text-center text-box">
                         <span class="py-1 fs-5 font2">Log in</span>
+                        <span class="py-1 fs-5 font2 or">or</span>
                         <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="text-decoration-none mt-2"> Create an account</a>
                     </div>
                     <form id="account" method="post">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                     <div class="container" style="width:80%;">
+                     <div class="container login-width" >
                         <div class="form-floating my-3">
                             <input asp-for="Input.Email" autocomplete="username" type="email" class="form-control"
                                    id="floatingInput" aria-required="true" placeholder="name@example.com">

@@ -9,14 +9,14 @@
         <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section">
             <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:100vh;">
         </div>
-        <div class="col-lg-6 col-md-12 col-sm-12 col-12 pt-5">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-12 pt-5">
             <div class="container pt-4 text-center">
-                <a asp-controller="home" asp-action="index" class="navbar-brand font1 text-dark fw-bold fs-1 heading">
+                <a asp-controller="home" asp-action="index" class="navbar-brand font1 text-dark fw-bold  heading1 text-wrap">
                     <img src="~/img/logo.png" class="me-3 mb-2" style="width: 3rem; height: 3rem;" alt="">Request For
                     Custom Art
                 </a>
             </div>
-            <div class="container d-flex justify-content-center" style="width: fit-content;">
+            <div class="container d-flex justify-content-center login-width" >
                 <div class="row pt-2 ms-3">
                     @* <div class="row py-2">
                         <div>
@@ -37,7 +37,7 @@
                         </div>
                         </div> *@
                     <form method="post">
-                        <div class="row py-2">
+                        <div class="row py-2 my-3">
 
                             <div class="mb-3">
                                 <input type="hidden" name="ArtistId" value="@(ViewBag.ArtistId) ">
@@ -46,7 +46,7 @@
                                     content idea.
                                 </label>
                                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
-                                    name="Description" placeholder="Mention your email And WhatsApp Number along description.."></textarea>
+                                    name="Description" placeholder="Mention your email And WhatsApp Number with description.."></textarea>
                             </div>
                         </div>
                         <div class="d-grid gap-2 col-sm-6 col-12 ms-auto me-auto pt-3">
