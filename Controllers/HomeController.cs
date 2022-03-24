@@ -253,7 +253,7 @@ namespace StoreToDoor.Controllers
         public IActionResult YourCustomRequest()
         {
             var loggedInUser = _userManager.GetUserAsync(User).Result;
-            var artRequests = _context.ArtRequest.Where(a => a.UserId == loggedInUser.Id);
+            var artRequests = _context.ArtRequest.Where(a => a.UserId == loggedInUser.Id).ToList();
 
             ViewBag.ArtRequests = artRequests;
 
