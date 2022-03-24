@@ -70,6 +70,7 @@ namespace StoreToDoor.Controllers
 
                 ViewBag.Collections = collections;
                 ViewBag.Count = collections.Count();
+                ViewBag.Category = category;
                 return View();
             }
             catch (System.Exception ex)
@@ -104,7 +105,6 @@ namespace StoreToDoor.Controllers
 
             ViewBag.Wishlist = wishlist;
             ViewBag.ItemCount = ItemCount;
-
             return View();
 
 
@@ -249,7 +249,7 @@ namespace StoreToDoor.Controllers
             var loggedInUser = _userManager.GetUserAsync(User).Result;
             var artRequests = _context.ArtRequest.Where(a => a.ArtistId == loggedInUser.Id).ToList();
 
-            ViewBag.ArtRequests= artRequests;
+            ViewBag.ArtRequests = artRequests;
 
             return View();
         }
