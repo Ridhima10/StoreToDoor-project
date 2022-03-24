@@ -246,6 +246,11 @@ namespace StoreToDoor.Controllers
         [Authorize(Roles = "Artist")]
         public IActionResult CustomArtRequest()
         {
+            var loggedInUser = _userManager.GetUserAsync(User).Result;
+            var artRequests = _context.ArtRequest.Where(a => a.ArtistId == loggedInUser.Id).ToList();
+
+            ViewBag.ArtRequests= artRequests;
+
             return View();
         }
 

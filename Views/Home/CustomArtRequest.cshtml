@@ -31,6 +31,22 @@
 
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
                     {
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link font2  mx-2 item-3 text-white" id="navbarDarkDropdownMenuLink" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                                        SHOP
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
+                                        <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By
+                                                Medium</a></li>
+                                        <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By
+                                                Artist</a></li>
+                                    </ul>
+                                </li>
+                    }
+                }
+                else
+                {
                         <li class="nav-item dropdown">
                             <a class="nav-link font2  mx-2 item-3 text-white" id="navbarDarkDropdownMenuLink" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,22 +59,6 @@
                                         Artist</a></li>
                             </ul>
                         </li>
-                    }
-                }
-                else
-                {
-                    <li class="nav-item dropdown">
-                        <a class="nav-link font2  mx-2 item-3 text-white" id="navbarDarkDropdownMenuLink" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                            SHOP
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDarkDropdownMenuLink">
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbymedium">By
-                                    Medium</a></li>
-                            <li><a class="dropdown-item drop1 font2" asp-controller="home" asp-action="Shopbyartist">By
-                                    Artist</a></li>
-                        </ul>
-                    </li>
                 }
 
                 <li class="nav-item dropdown">
@@ -89,25 +89,25 @@
 
                     @if (await UserManager.IsInRoleAsync(loggedInUser, UserRoles.User))
                     {
-                        <li class="nav-item">
-                            <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                        </li>
+                                <li class="nav-item">
+                                    <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                                </li>
                     }
                 }
                 else
                 {
-                    <li class="nav-item">
-                        <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
-                    </li>
+                        <li class="nav-item">
+                            <a asp-controller="home" asp-action="Cart" class="nav-link font2 mx-2 item-5 text-white">CART</a>
+                        </li>
                 }
 
                 @if (User.Identity.IsAuthenticated)
                 {
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Admin"))
                     {
-                        <li class="nav-item">
-                            <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
-                        </li>
+                                <li class="nav-item">
+                                    <a asp-controller="home" asp-action="Admin" class="nav-link font2 mx-2 item-6 text-white">ADMIN</a>
+                                </li>
                     }
 
                 }
@@ -115,11 +115,12 @@
                 {
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
                     {
-                       @* <li class="nav-item">
+                        @* <li class="nav-item">
                             <a asp-controller="home" asp-action="ArtistProfile"
-                        class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                        </li>*@
-                          <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home" asp-action="CustomArtRequest">ART  REQUESTS</a></li>
+                            class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
+                            </li>*@
+                                <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home"
+                        asp-action="CustomArtRequest">ART REQUESTS</a></li>
                     }
 
                 }
@@ -132,54 +133,38 @@
         </div>
     </div>
 </nav>
- <section class="my-5 py-5">
-        <div class="container">
-            <div class="text-center my-5">
-                <span class="font1 text-rose fw-bold heading  m-auto  border-3 border-bottom border-dark">
-                   Custom Art Requests
-                </span>
-            </div>
-            <div class="row border border-1 my-3 shadow p-3 text-center">
-              @*  <div class="col-lg-1 col-md-1  my-1">
-                    <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
-                </div>*@
-                <div class="col-lg-3 col-md-3 my-1">
-                    <img src="~/img/painting4.jpg" style="height: 6rem; width: 6rem;" alt="">
-                </div>
-                <div class="col-lg-4 col-md-4  my-1">
-                    <span class="font2 fs-6 d-block pt-2">From Dikshant Chopra</span>
-                </div> 
-                <div class="col-lg-5 col-md-5 my-1">
-                    <label for="exampleFormControlTextarea1" class="form-label">
-                        Customization details
-                       </label>
-                         <textarea class="form-control shadow-none text-area" id="exampleFormControlTextarea1" rows="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-                       @*<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>*@
-                </div>
-            </div>
-            <div class="row border border-1 my-3 shadow p-3 text-center">
-                @*<div class="col-lg-1 col-md-1  my-1">
-                    <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
-                </div>*@
-                <div class="col-lg-3 col-md-3 my-1">
-                    <img src="~/img/sketch1.jpg" style="height: 6rem; width: 6rem;" alt="">
-                </div>
-                <div class="col-lg-4 col-md-4  my-1">
-                    <span class="font2 fs-6 d-block pt-2">From Raghav Sharma</span>
-                </div> 
-                <div class="col-lg-5 col-md-5 my-1">
-                    <label for="exampleFormControlTextarea1" class="form-label">
-                        Customization details
-                       </label>
-                       <textarea class="form-control shadow-none text-area" id="exampleFormControlTextarea1" rows="3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</textarea>
-                </div>
-               @* <div class="col-lg-3 col-md-2 my-1">
-                    <label for="exampleFormControlTextarea1" class="form-label">
-                      Reply
-                     </label>
-                     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                </div>*@
-            </div>
-                   @*   <a class="border-0 bg-rose float-end text-white btn-sm my-3 mx-2 px-5 py-2 font2 rounded text-decoration-none">Send</a>*@
+<section class="my-5 py-5">
+    <div class="container">
+        <div class="text-center my-5">
+            <span class="font1 text-rose fw-bold heading  m-auto  border-3 border-bottom border-dark">
+                Custom Art Requests
+            </span>
         </div>
-    </section>
+        <div class="row border border-1 my-3 shadow p-3 text-center">
+            @* <div class="col-lg-1 col-md-1 my-1">
+                <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
+                </div>*@
+            @foreach (var item in ViewBag.ArtRequests)
+            {
+                var requestUser = await UserManager.FindByIdAsync(item.UserId);
+
+                    <div class="col-lg-3 col-md-3 my-1">
+                        <img src="~/img/default-art.jpg" style="height: 6rem; width: 6rem;" alt="">
+                    </div>
+                    <div class="col-lg-4 col-md-4 my-1">
+                        <span class="font2 d-block pt-2 fw-bold h5">From</span>
+                        <span class="font2 fs-6 d-block pt-2">@requestUser.FirstName @requestUser.LastName</span>
+                    </div>
+                    <div class="col-lg-5 col-md-5 my-1 ">
+                        <label for="exampleFormControlTextarea1" class="form-label fw-bold h5">
+                            Customization details
+                        </label>
+                        <p>@item.Description</p>
+
+                    </div>
+            }
+        </div>
+        @* <a class="border-0 bg-rose float-end text-white btn-sm my-3 mx-2 px-5 py-2 font2 rounded
+            text-decoration-none">Send</a>*@
+    </div>
+</section>

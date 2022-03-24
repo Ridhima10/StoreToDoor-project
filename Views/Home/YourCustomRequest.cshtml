@@ -142,7 +142,6 @@
         </div>
         @foreach (var item in ViewBag.ArtRequests)
         {
-            @* var requestArtist = await UserManager.FindByIdAsync(item.ArtistId); *@
             var requestArtist = await UserManager.FindByIdAsync(item.ArtistId);
 
             <div class="row border border-1 my-3 shadow p-3 text-center">
