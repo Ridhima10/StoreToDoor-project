@@ -501,6 +501,7 @@ namespace StoreToDoor.Controllers
             }
         }
 
+        [Route("/Home/Admin")]
         [Authorize(Roles = "Admin")]
         public IActionResult Admin()
         {
@@ -540,9 +541,86 @@ namespace StoreToDoor.Controllers
         {
             return View();
         }
+
         public IActionResult ContactUs()
         {
             return View();
+        }
+
+        [Route("/Home/Admin/UsersList")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult UsersList()
+        {
+            var UsersList = _userManager.GetUsersInRoleAsync(UserRoles.User).Result;
+
+            ViewBag.Users = UsersList;
+            return View();
+        }
+
+        [Route("/Home/Admin/ArtistsList")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult ArtistsList()
+        {
+            var UsersList = _userManager.GetUsersInRoleAsync(UserRoles.Artist).Result;
+
+            ViewBag.Users = UsersList;
+            return View();
+        }
+
+        [Route("/Home/Admin/EditUser/{id}")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult EditUser(string id)
+        {
+            var User = _userManager.FindByIdAsync(id).Result;
+
+            var isArtist = _userManager.GetRolesAsync(User).Result;
+
+            ViewBag.User = User;
+            if (isArtist.Contains(UserRoles.Artist))
+            {
+
+                ViewBag.isArtist = true;
+            }
+            else
+            {
+                ViewBag.isArtist = false;
+
+            }
+
+            return View();
+        }
+
+        [Route("/Home/Admin/EditUser/{id}")]
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public IActionResult EditUser([FromBody] IFormCollection form)
+        {
+            var userId = form["Id"];
+            var User = _userManager.FindByIdAsync(userId).Result;
+
+            var isArtist = _userManager.GetRolesAsync(User).Result;
+
+            User.Email = form["Email"];
+            User.PhoneNumber = form["PhoneNumber"];
+            if (isArtist.Contains(UserRoles.User))
+            {
+                User.FirstName = form["FirstName"];
+                User.LastName = form["Lastname"];
+                User.Address = form["Address"];
+                User.City = form["Address"];
+                User.State = form["State"];
+                User.PinCode = form["PinCode"];
+            }
+            // artist account name, email, phone, bio
+            if (isArtist.Contains(UserRoles.Artist))
+            {
+                User.AccountName = form["AccountName"];
+                User.Bio = form["AccountName"];
+            }
+
+            _userManager.UpdateAsync(User);
+
+            return RedirectToAction("Admin");
         }
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()
