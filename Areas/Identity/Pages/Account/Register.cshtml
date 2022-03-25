@@ -15,7 +15,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section">  
                     <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:100vh;">
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12">
                 <div class="container pt-4 text-center">
                     <a class="navbar-brand font1 text-dark fw-bold  heading1" asp-area="" asp-controller="Home"
                         asp-action="Index"><img src="~/img/logo.png" class="me-3 mb-2"
@@ -28,7 +28,7 @@
                         Login</a>
                 </div>
                 <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
-                    <div class="container d-flex justify-content-center" style="width: fit-content;">
+                    <div class="container d-flex justify-content-center login-width">
                         <div class="row ms-3 py-2">
                             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-6">

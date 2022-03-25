@@ -13,7 +13,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-12 login-section ">
                 <img src="~/img/painting1profile.jpg" class="img-fluid" alt="" style="height:100vh;">
             </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-5 pt-5">
+            <div class="col-lg-6 col-md-12 col-sm-12 col-12 mt-5 pt-5">
                 <div class="container pt-4 text-center">
                     <a  asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand font1 text-dark fw-bold  heading1">
                         <img  src="~/img/logo.png"
@@ -42,13 +42,13 @@
                             <span asp-validation-for="Input.Password" class="text-danger"></span>
                         </div>
                     </div>
-                        <div class="mx-4 checkbox text-box text-center">
+                        @* <div class="mx-4 checkbox text-box text-center">
                             <label asp-for="Input.RememberMe" class="form-label">
                                 <input class="form-check-input" asp-for="Input.RememberMe" />
                                 @Html.DisplayNameFor(m => m.Input.RememberMe)
                             </label>
                          <!--   <a id="forgot-password" class="text-decoration-none" asp-page="./ForgotPassword">Forgot your password?</a>-->
-                        </div>      
+                        </div>       *@
                         <div class="d-grid gap-2 col-sm-6 col-6 ms-auto me-auto pt-4">
                             <button id="login-submit" type="submit" class="btn all-buttons btn-primary rounded-pill shadow-none btn-primary">Log in</button>
                         </div>

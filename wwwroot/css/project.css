@@ -226,6 +226,10 @@ new-address:checked {
   object-fit: cover;
   object-position: center;
 }
+  .heading1{
+    font-size: 2.5rem;
+    letter-spacing: 2.3px;
+  }
 @media screen and (min-width: 250px) and (max-width: 450px) {
   .text-box {
     display: flex;
@@ -235,7 +239,7 @@ new-address:checked {
     left: 6rem;
   }
   .container > h1 {
-    font-size: 3.4rem;
+    font-size: 2.7rem;
   }
   .bg > .bg2,
   .btn1 {
@@ -244,6 +248,13 @@ new-address:checked {
   .logo-img {
     margin-right: 0rem;
   }
+  .heading1{
+    font-size: 2.5rem;
+    letter-spacing: 2.3px;
+  }
+  .login-width{
+    width:100%;
+  }
 }
 @media screen and (min-width: 450px) and (max-width: 1800px) {
   .text-box {
@@ -251,7 +262,12 @@ new-address:checked {
     justify-content: space-around;
   }
   .container > h1 {
-    font-size: 4rem;
+    font-size: 3.4rem;
+  }.or{
+    display: none;
+  }
+   .login-width{
+    width:80%;
   }
 }
 @media screen and (min-width: 200px) and (max-width: 990px) {
@@ -280,4 +296,5 @@ new-address:checked {
   .order-close {
     float: left;
   }
+
 }
