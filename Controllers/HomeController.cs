@@ -593,34 +593,63 @@ namespace StoreToDoor.Controllers
         [Route("/Home/Admin/EditUser/{id}")]
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult EditUser([FromBody] IFormCollection form)
+        public async Task<IActionResult> EditUser([FromForm] IFormCollection form, string id)
         {
-            var userId = form["Id"];
-            var User = _userManager.FindByIdAsync(userId).Result;
-
-            var isArtist = _userManager.GetRolesAsync(User).Result;
-
-            User.Email = form["Email"];
-            User.PhoneNumber = form["PhoneNumber"];
-            if (isArtist.Contains(UserRoles.User))
+            try
             {
+
+                var userId = form["Id"];
+                var User = await _userManager.FindByIdAsync(userId);
+
+                var isArtist = await _userManager.GetRolesAsync(User);
+
+                User.Email = form["Email"];
+                User.PhoneNumber = form["PhoneNumber"];
                 User.FirstName = form["FirstName"];
                 User.LastName = form["Lastname"];
-                User.Address = form["Address"];
-                User.City = form["Address"];
-                User.State = form["State"];
-                User.PinCode = form["PinCode"];
+
+                if (isArtist.Contains(UserRoles.User))
+                {
+                    User.Address = form["Address"];
+                    User.City = form["Address"];
+                    User.State = form["State"];
+                    User.PinCode = Convert.ToInt32(form["PinCode"]);
+                }
+                // artist account name, email, phone, bio
+                if (isArtist.Contains(UserRoles.Artist))
+                {
+                    User.AccountName = form["AccountName"];
+                    User.Bio = form["Bio"];
+                }
+
+                await _userManager.UpdateAsync(User);
+
+                _logger.LogInformation("User Updated Successfully");
+
+                if (isArtist.Contains(UserRoles.Artist))
+                {
+                    return RedirectToAction("ArtistsList");
+                }
+                else
+                {
+                    return RedirectToAction("UsersList");
+                }
             }
-            // artist account name, email, phone, bio
-            if (isArtist.Contains(UserRoles.Artist))
+            catch (System.Exception ex)
             {
-                User.AccountName = form["AccountName"];
-                User.Bio = form["AccountName"];
+                _logger.LogError(ex.ToString());
+                return RedirectToAction("Error", "Admin");
             }
+        }
 
-            _userManager.UpdateAsync(User);
+        [Route("/Home/Admin/ArtRequestsList")]
+        [Authorize(Roles = "Admin")]
+        public IActionResult ArtRequestsList()
+        {
+            var ArtRequests = _context.ArtRequest.ToList();
 
-            return RedirectToAction("Admin");
+            ViewBag.ArtRequests = ArtRequests;
+            return View();
         }
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()

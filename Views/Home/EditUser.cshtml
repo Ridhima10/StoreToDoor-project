@@ -1,4 +1,15 @@
 @{
+    if (ViewBag.isArtist)
+    {
+        ViewData["Title"] = "Edit Artist";
+    }
+    else
+    {
+        ViewData["Title"] = "Edit User";
+
+    }
+}
+@{
     ViewBag.HideFooter = true;
 }
 <nav class="navbar navbar-light bg-light shadow">
@@ -21,9 +32,13 @@
             <div class="offcanvas-body">
                 <div class="d-grid gap-2">
                     @* <a href="" class="btn border-0 btn-outline-dark mx-2 px-5 font2 ">Notifications</a> *@
-                    <a href="" class="btn border-0 btn-outline-dark mx-2 px-5 font2 ">User List</a>
-                    <a href="" class="btn border-0 btn-outline-dark  px-5 mx-2 font2 ">Artist List</a>
-                    <a href="" class="btn border-0 btn-outline-dark  px-5 mx-2 font2 ">Message box</a>
+                    <a asp-controller="Home" asp-action="UsersList"
+                        class="btn border-0 btn-outline-dark mx-2 px-5 font2 ">User List</a>
+                    <a asp-controller="Home" asp-action="ArtistsList"
+                        class="btn border-0 btn-outline-dark  px-5 mx-2 font2 ">Artist List</a>
+                    <a asp-controller="Home" asp-action="ArtRequestsList"
+                        class="btn border-0 btn-outline-dark  px-5 mx-2 font2 ">Art
+                        Requests</a>
                     @*<a href="" class="btn border-0 logout-offcanvas btn-outline-dark px-5 mx-2 font2 ">Logout</a>*@
                 </div>
             </div>
@@ -36,10 +51,21 @@
 
 <div class="container">
     <div class="py-2">
-        <h3>Edit Information</h3>
+        @{
+    if (ViewBag.isArtist)
+    {
+        <h3>Edit Artist</h3>
+    }
+    else
+    {
+        <h3>Edit User</h3>
+
+    }
+    }
+        
     </div>
 
-    <form>
+    <form method="post" asp-controller="Home" asp-action="EditUser" asp-route-id="@(ViewBag.User.Id)">
         <!-- 2 column grid layout with text inputs for the first and last names -->
         <div class="row mb-4">
             <div class="col">
@@ -67,26 +93,29 @@
             <label class="form-label">Phone Number</label>
             <input type="tel" class="form-control" value="@ViewBag.User.PhoneNumber" name="PhoneNumber" />
         </div>
+        @if (!ViewBag.isArtist)
+        {
 
-        <div class="form-outline mb-4">
-            <label class="form-label">Address</label>
-            <input type="text" class="form-control" value="@ViewBag.User.Address" name="Address" />
-        </div>
+            <div class="form-outline mb-4">
+                <label class="form-label">Address</label>
+                <input type="text" class="form-control" value="@ViewBag.User.Address" name="Address" />
+            </div>
 
-        <div class="form-outline mb-4">
-            <label class="form-label">City</label>
-            <input type="text" class="form-control" value="@ViewBag.User.City" name="City" />
-        </div>
+            <div class="form-outline mb-4">
+                <label class="form-label">City</label>
+                <input type="text" class="form-control" value="@ViewBag.User.City" name="City" />
+            </div>
 
-        <div class="form-outline mb-4">
-            <label class="form-label">State</label>
-            <input type="text" class="form-control" value="@ViewBag.User.State" name="State" />
-        </div>
+            <div class="form-outline mb-4">
+                <label class="form-label">State</label>
+                <input type="text" class="form-control" value="@ViewBag.User.State" name="State" />
+            </div>
 
-        <div class="form-outline mb-4">
-            <label class="form-label">PinCode</label>
-            <input type="text" class="form-control" value="@ViewBag.User.PinCode" name="PinCode" />
-        </div>
+            <div class="form-outline mb-4">
+                <label class="form-label">PinCode</label>
+                <input type="text" class="form-control" value="@ViewBag.User.PinCode" name="PinCode" />
+            </div>
+        }
 
         @if (ViewBag.isArtist)
         {
@@ -97,7 +126,7 @@
 
             <div class="form-outline mb-4">
                 <label class="form-label">Bio</label>
-                <input type="text" class="form-control" value="@ViewBag.User.Bio" name="Bio" />
+                <textarea class="form-control" name="Bio">@ViewBag.User.Bio</textarea>
             </div>
         }
 

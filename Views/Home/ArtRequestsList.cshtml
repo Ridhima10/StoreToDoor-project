@@ -24,10 +24,9 @@
                     <a asp-controller="Home" asp-action="UsersList"
                         class="btn border-0 btn-outline-dark mx-2 px-5 font2 ">User List</a>
                     <a asp-controller="Home" asp-action="ArtistsList"
-                        class="btn border-0 btn-dark px-5 mx-2 font2">Artist List</a>
+                        class="btn border-0 btn-outline-dark px-5 mx-2 font2">Artist List</a>
                     <a asp-controller="Home" asp-action="ArtRequestsList"
-                        class="btn border-0 btn-outline-dark  px-5 mx-2 font2 ">Art
-                        Requests</a>
+                        class="btn border-0 btn-dark  px-5 mx-2 font2 ">Art Requests</a>
                     @*<a href="" class="btn border-0 logout-offcanvas btn-outline-dark px-5 mx-2 font2 ">Logout</a>*@
                 </div>
             </div>
@@ -40,38 +39,34 @@
 
 <div class="container">
     <div class="py-2">
-        <h3>Artists List</h3>
+        <h3>Art Requests List</h3>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered ">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">Artist Id</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">User Id</th>
+                    @* <th scope="col">Actions</th> *@
                 </tr>
             </thead>
-            <tbody>@{
-                    var index = 1;
-                    @foreach (var user in ViewBag.Users)
-                    {
-                        <tr>
-                            <th scope="row">@index</th>
-                            <td>@user.FirstName</td>
-                            <td>@user.LastName</td>
-                            <td>@user.Email</td>
-                            <td>
-                                <a asp-controller="Home" asp-action="EditUser" asp-route-id="@user.Id"
+            <tbody>
+                @foreach (var request in ViewBag.ArtRequests)
+                {
+                    <tr>
+                        <th scope="row">@request.Id</th>
+                        <td>@request.ArtistId</td>
+                        <td>@request.Description</td>
+                        <td>@request.UserId</td>
+                        @* <td>
+                            <a asp-controller="Home" asp-action="EditUser" asp-route-id="@request.Id"
                             class="btn btn-primary">View</a>
-                            </td>
-                        </tr>
-
-                        index = index + 1;
-
-                    }
+                            </td> *@
+                    </tr>
                 }
+
             </tbody>
 
         </table>
