@@ -226,10 +226,10 @@ new-address:checked {
   object-fit: cover;
   object-position: center;
 }
-  .heading1{
-    font-size: 2.5rem;
-    letter-spacing: 2.3px;
-  }
+.heading1 {
+  font-size: 2.5rem;
+  letter-spacing: 2.3px;
+}
 @media screen and (min-width: 250px) and (max-width: 450px) {
   .text-box {
     display: flex;
@@ -248,12 +248,22 @@ new-address:checked {
   .logo-img {
     margin-right: 0rem;
   }
-  .heading1{
+  .heading1 {
     font-size: 2.5rem;
     letter-spacing: 2.3px;
   }
-  .login-width{
-    width:100%;
+  .login-width {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 450px) and (max-width: 750px) {
+  .container > h1 {
+    font-size: 3.4rem;
+  }
+}
+@media screen and (min-width: 750px) and (max-width: 1800px) {
+   .container > h1 {
+    font-size: 4rem;
   }
 }
 @media screen and (min-width: 450px) and (max-width: 1800px) {
@@ -261,13 +271,11 @@ new-address:checked {
     display: flex;
     justify-content: space-around;
   }
-  .container > h1 {
-    font-size: 3.4rem;
-  }.or{
+  .or {
     display: none;
   }
-   .login-width{
-    width:80%;
+  .login-width {
+    width: 80%;
   }
 }
 @media screen and (min-width: 200px) and (max-width: 990px) {
@@ -296,5 +304,4 @@ new-address:checked {
   .order-close {
     float: left;
   }
-
 }
