@@ -207,6 +207,9 @@
 .error-page > img {
   height: 25rem;
 }
+.admin-logo{
+  width: 16rem;
+}
 /*Address Page*/
 .new-address:focus,
 new-address:checked {
@@ -255,10 +258,16 @@ new-address:checked {
   .login-width {
     width: 100%;
   }
+  .admin-logo{
+    width: 6rem;
+  }
 }
 @media screen and (min-width: 450px) and (max-width: 750px) {
   .container > h1 {
     font-size: 3.4rem;
+  }
+  .admin-logo{
+    width: 10rem;
   }
 }
 @media screen and (min-width: 750px) and (max-width: 1800px) {
