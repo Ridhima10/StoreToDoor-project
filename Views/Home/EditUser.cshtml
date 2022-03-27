@@ -128,7 +128,9 @@
                 <textarea class="form-control" name="Bio">@ViewBag.User.Bio</textarea>
             </div>
         }
-
+     @if(ViewBag.isArtist)
+     {
     <button type="submit" class="btn btn-primary btn-block mb-4">Update</button>
+     }
     </form>
 </div>
