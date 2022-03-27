@@ -141,9 +141,7 @@
             </span>
         </div>
         <div class="row border border-1 my-3 shadow p-3 text-center">
-            @* <div class="col-lg-1 col-md-1 my-1">
-                <button type="button" class="btn-close shadow-none" aria-label="Close"></button>
-                </div>*@
+           
             @foreach (var item in ViewBag.ArtRequests)
             {
                 var requestUser = await UserManager.FindByIdAsync(item.UserId);
@@ -164,7 +162,6 @@
                     </div>
             }
         </div>
-        @* <a class="border-0 bg-rose float-end text-white btn-sm my-3 mx-2 px-5 py-2 font2 rounded
-            text-decoration-none">Send</a>*@
+     
     </div>
 </section>

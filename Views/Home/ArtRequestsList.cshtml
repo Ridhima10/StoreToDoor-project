@@ -30,13 +30,11 @@
                         class="btn border-0 btn-outline-dark px-5 mx-2 font2">Artist List</a>
                     <a asp-controller="Home" asp-action="ArtRequestsList"
                         class="btn border-0 btn-dark  px-5 mx-2 font2 ">Art Requests</a>
-                    @*<a href="" class="btn border-0 logout-offcanvas btn-outline-dark px-5 mx-2 font2 ">Logout</a>*@
+                  
                 </div>
             </div>
         </div>
-        @* <form class="d-flex">
-            <a href="" class="btn logout btn-outline-dark position-relative btn-sm mx-2 px-3 font2 ">Logout</a>
-            </form>*@
+        
     </div>
 </nav>
 
@@ -63,10 +61,7 @@
                         <td>@request.ArtistId</td>
                         <td>@request.Description</td>
                         <td>@request.UserId</td>
-                        @* <td>
-                            <a asp-controller="Home" asp-action="EditUser" asp-route-id="@request.Id"
-                            class="btn btn-primary">View</a>
-                            </td> *@
+                       
                     </tr>
                 }
 

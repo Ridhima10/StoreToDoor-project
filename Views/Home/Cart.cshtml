@@ -67,21 +67,7 @@
                         PROFILE
                     </a>
                     <partial name="_LoginPartial" />
-                    <!--  <ul class="dropdown-menu width" aria-labelledby="navbarDropdown">
-                        <li class="ms-3 font2 fs-5 pt-2">WELCOME!</li>
-                        <li class="ms-3 mb-2">To access account and manage order</li>
-                        <form class="d-flex">
-                      <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-outline-danger ms-4 me-1 px-3 mb-2">Signup</a>
-                        <a asp-area="Identity" asp-page="/Account/login" class="btn btn-outline-danger me-4 ms-1 px-3 mb-2">Login</a>
-                          <a class="btn btn-outline-danger ms-4 me-1 px-5 mb-2">Logout</a>
-                        </form>
-                         <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item drop2" asp-controller="Home" asp-action="Order">Orders</a></li>
-                        <li><a class="dropdown-item drop2"  asp-controller="Home" asp-action="Wishlist">Wishlist</a></li>
-                        <li><a class="dropdown-item drop2" asp-controller="Home" asp-action="Contact">Contact Us</a></li>
-                      </ul> -->
+                  
                 </li>
                 @if (User.Identity.IsAuthenticated)
                 {
@@ -117,10 +103,7 @@
                 {
                     @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
                     {
-                        @* <li class="nav-item">
-                            <a asp-controller="home" asp-action="ArtistProfile"
-                            class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-                            </li>*@
+                        
                         <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home"
                         asp-action="CustomArtRequest">ART REQUESTS</a></li>
                     }

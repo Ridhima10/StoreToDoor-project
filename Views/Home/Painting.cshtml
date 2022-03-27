@@ -63,21 +63,7 @@
             PROFILE
           </a>
           <partial name="_LoginPartial" />
-          <!--  <ul class="dropdown-menu width" aria-labelledby="navbarDropdown">
-                        <li class="ms-3 font2 fs-5 pt-2">WELCOME!</li>
-                        <li class="ms-3 mb-2">To access account and manage order</li>
-                        <form class="d-flex">
-                      <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-outline-danger ms-4 me-1 px-3 mb-2">Signup</a>
-                        <a asp-area="Identity" asp-page="/Account/login" class="btn btn-outline-danger me-4 ms-1 px-3 mb-2">Login</a>
-                          <a class="btn btn-outline-danger ms-4 me-1 px-5 mb-2">Logout</a>
-                        </form>
-                         <li>
-                          <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item drop2" asp-controller="Home" asp-action="Order">Orders</a></li>
-                        <li><a class="dropdown-item drop2"  asp-controller="Home" asp-action="Wishlist">Wishlist</a></li>
-                        <li><a class="dropdown-item drop2" asp-controller="Home" asp-action="Contact">Contact Us</a></li>
-                      </ul> -->
+       
         </li>
         @if (User.Identity.IsAuthenticated)
         {
@@ -111,9 +97,7 @@
         {
           @if (await UserManager.IsInRoleAsync(UserManager.GetUserAsync(User).Result, "Artist"))
           {
-            @* <li class="nav-item">
-              <a asp-controller="home" asp-action="ArtistProfile" class="nav-link font2 mx-2 item-6 text-white">ARTIST</a>
-              </li>*@
+           
             <li><a class="nav-link font2 mx-2 item-6 text-white" asp-controller="home" asp-action="CustomArtRequest">ART
                 REQUESTS</a></li>
           }
@@ -135,37 +119,7 @@
         @ViewBag.Category
       </span>
     </div>
-    @* <div class="row text-center font2 mt-5">
-      <div class="col-sm-6 col-md-4 col-lg-3 col-12">
-      <figure class="figure">
-      <a asp-controller="home" asp-action="Collection1"><img src="~/img/Painting1.jpg"
-      class="figure-img img-fluid rounded" alt="..."></a>
-      <figcaption class="figure-caption text-start">Oil painting<span class="float-end"> Rs
-      400</span></figcaption>
-      </figure>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3 col-12">
-      <figure class="figure">
-      <a><img src="~/img/painting4.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-      <figcaption class="figure-caption text-start">Spray Painting<span class="float-end"> Rs 500</span>
-      </figcaption>
-      </figure>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3 col-12">
-      <figure class="figure">
-      <a><img src="~/img/painting3.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-      <figcaption class="figure-caption text-start">Painting<span class="float-end"> Rs 700</span>
-      </figcaption>
-      </figure>
-      </div>
-      <div class="col-sm-6 col-md-4 col-lg-3 col-12">
-      <figure class="figure">
-      <a><img src="~/img/painting2.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-      <figcaption class="figure-caption text-start">Watercolor Painting<span class="float-end"> Rs 500</span>
-      </figcaption>
-      </figure>
-      </div>
-      </div> *@
+    
 
     @if (ViewBag.Count == 0)
     {
@@ -186,27 +140,7 @@
             </figure>
           </div>
         }
-        @* <div class="col-sm-6 col-md-4 col-lg-3 col-12">
-          <figure class="figure">
-          <a><img src="~/img/painting4.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-          <figcaption class="figure-caption text-start">Spray Painting<span class="float-end"> Rs 500</span>
-          </figcaption>
-          </figure>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 col-12">
-          <figure class="figure">
-          <a><img src="~/img/painting3.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-          <figcaption class="figure-caption text-start">Painting<span class="float-end"> Rs 700</span>
-          </figcaption>
-          </figure>
-          </div>
-          <div class="col-sm-6 col-md-4 col-lg-3 col-12">
-          <figure class="figure">
-          <a><img src="~/img/painting2.jpg" class="figure-img img-fluid rounded" alt="..."></a>
-          <figcaption class="figure-caption text-start">Watercolor Painting<span class="float-end"> Rs 500</span>
-          </figcaption>
-          </figure>
-          </div> *@
+      
       </div>
     }
   </div>
